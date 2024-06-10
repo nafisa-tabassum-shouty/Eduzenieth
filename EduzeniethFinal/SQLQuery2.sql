@@ -1,0 +1,1 @@
+﻿Select * From Student;Select * From Enroll;
