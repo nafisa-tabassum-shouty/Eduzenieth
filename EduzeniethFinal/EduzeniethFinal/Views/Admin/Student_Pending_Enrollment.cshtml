@@ -1,0 +1,66 @@
+﻿@model List<EduzeniethFinal.Models.Enroll>
+
+@{
+    ViewBag.Title = "Pending Enrollments";
+}
+
+<h2 class="mb-4">Pending Enrollments</h2>
+
+<div class="table-responsive">
+    <table class="table table-striped table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>Student ID</th>
+                <th>Course ID</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var enrollment in Model)
+            {
+                <tr>
+                    <td>@enrollment.sid</td>
+                    <td>@enrollment.cid</td>
+                    <td>
+                        <form method="post" action="@Url.Action("Student_Pending_Enrollment_Accept", "Admin")">
+                            <input type="hidden" name="id" value="@enrollment.id" />
+                            <button type="submit" class="btn btn-success">Accept</button>
+                        </form>
+                        <form method="post" action="@Url.Action("Student_Pending_Enrollment_Decline", "Admin")">
+                            <input type="hidden" name="id" value="@enrollment.id" />
+                            <button type="submit" class="btn btn-danger">Decline</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Maximizing Course Enrollment Strategies for Institutions</h5>
+                <p class="card-text">Course enrollment is a critical aspect of any educational institution's success.It not only determines the financial stability of the institution but also plays a significant role in student engagement and academic outcomes.In this article, we'll explore some effective strategies that educational institutions can implement to maximize course enrollment and optimize student satisfaction.</p>
+                <a href="#" class="btn btn-primary">Read More</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Streamlining the Enrollment Process</h5>
+                <p class="card-text">One of the primary reasons for low course enrollment is a cumbersome enrollment process. Educational institutions should invest in user-friendly online enrollment platforms that simplify the process for students.This includes clear instructions, intuitive interfaces, and easy access to course information.</p>
+                <a href="#" class="btn btn-primary">Read More</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mt-5">
+    <h2>Understanding Course Enrollment</h2>
+    <p>Course enrollment is the process by which students register for classes offered by an educational institution. It involves selecting specific courses from a catalog, adding them to a schedule, and confirming enrollment in each course.</p>
+    <p>Course enrollment typically occurs before the start of each academic term, allowing students to plan their schedules and ensure they meet degree requirements. During enrollment, students may need to consider prerequisites, class availability, and scheduling conflicts.</p>
+    <p>For institutions, managing course enrollment involves creating course catalogs, setting enrollment deadlines, and monitoring class capacities. Enrollment data helps institutions plan course offerings, allocate resources, and assess student demand for different subjects.</p>
+    <p>In summary, course enrollment is a crucial aspect of academic life, facilitating the organization and delivery of educational programs for students and institutions alike.</p>
+</div>

@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classroom</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <!-- Enrolled Student List -->
+        <div class="row mb-4">
+            <div class="col">
+                <h3>Enrolled Students</h3>
+                <ul class="list-group">
+                    @foreach (var student in ViewBag.EnrolledStudents)
+                    {
+                        <li class="list-group-item">@student</li>
+                    }
+                </ul>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col">
+                <h3>Enrolled Teachers</h3>
+                <ul class="list-group">
+                    @foreach (var teacher in ViewBag.EnrolledTeachers)
+                    {
+                        <li class="list-group-item">@teacher</li>
+                    }
+                </ul>
+            </div>
+        </div>
+
+        <div class="container">
+            <!-- Announce Something Form -->
+            <div class="row mb-4">
+                <div class="col">
+                    <h3>Announce Something</h3>
+                    <form action="/courses/PostAnnouncement" method="post">
+                        <textarea name="announcement" rows="4" cols="50"></textarea><br>
+                        <input type="submit" value="Post Announcement">
+                    </form>
+
+                </div>
+            </div>
+
+            <!-- Display Announcements -->
+            <div class="row mb-4">
+                <div class="col">
+                    <h3>Previous Announcements</h3>
+                    @foreach (var announcement in ViewBag.Announcements)
+                    {
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">@announcement.Title</h5>
+                                <p class="card-text">@announcement.Content</p>
+                                <p class="card-text">
+                                    <small class="text-muted">Posted by @announcement.PostedBy on @announcement.PostedDate</small>
+                                </p>
+                            </div>
+                            @if (announcement.Comments != null && announcement.Comments.Count > 0)
+                            {
+                                <ul class="list-group list-group-flush">
+                                    @foreach (var comment in announcement.Comments)
+                                    {
+                                        <li class="list-group-item">@comment</li>
+                                    }
+                                </ul>
+                            }
+                            <!-- Comment Form -->
+                            <form action="/Classroom/PostComment" method="POST">
+                                <div class="form-group mt-3">
+                                    <textarea class="form-control" name="comment" placeholder="Write a comment..."></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Post Comment</button>
+                            </form>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <!-- Bootstrap JS (optional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

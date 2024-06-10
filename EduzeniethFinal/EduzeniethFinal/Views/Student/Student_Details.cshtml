@@ -1,0 +1,67 @@
+﻿
+@model EduzeniethFinal.Models.Student
+@{
+    ViewBag.Title = "Student_Details";
+    Layout = "~/Views/Shared/Student.cshtml";
+}
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+    <title>@ViewBag.Title </title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        .student-detail {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+            .student-detail h2 {
+                margin-bottom: 20px;
+            }
+
+            .student-detail p {
+                font-size: 1.1em;
+            }
+
+                .student-detail p span {
+                    font-weight: bold;
+                    color: #0B5ED7;
+                }
+    </style>
+</head>
+<body>
+    
+    <div>
+        <h2>Student_Details</h2>
+        <hr />
+        <div class="image-container" style="padding:50px;width:25%;height:25%;float:left;">
+            <img src="~/Image/student_logo.png" class="img-fluid" alt="...">
+        </div>
+        <div class="container">
+            <div class="student-detail" style="background-color: #EDF5FF;">
+               
+                <p><span>Username:</span> @Html.DisplayFor(model => model.Username)</p>
+                <p><span>First Name:</span> @Html.DisplayFor(model => model.FirstName)</p>
+                <p><span>Last Name:</span> @Html.DisplayFor(model => model.LastName)</p>
+                <p><span>Email:</span> @Html.DisplayFor(model => model.Email)</p>
+                <p><span>Mobile Number:</span> @Html.DisplayFor(model => model.MobileNumber)</p>
+                <p><span>Nationality:</span> @Html.DisplayFor(model => model.Nationality)</p>
+                <p><span>Father Name:</span> @Html.DisplayFor(model => model.FatherName)</p>
+                <p><span>Religion:</span> @Html.DisplayFor(model => model.Religion)</p>
+                <p><span>Address:</span> @Html.DisplayFor(model => model.Address)</p>
+                <p><span>Date of Birth:</span> @Html.DisplayFor(model => model.DateOfBirth)</p>
+                <p><span>Blood Group:</span> @Html.DisplayFor(model => model.BloodGroup)</p>
+
+            </div>
+        </div>
+    </div>
+</body>

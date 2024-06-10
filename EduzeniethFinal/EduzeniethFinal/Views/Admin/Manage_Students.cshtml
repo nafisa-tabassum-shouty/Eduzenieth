@@ -1,0 +1,41 @@
+﻿@model IEnumerable<EduzeniethFinal.Models.Student>
+
+@{
+    ViewBag.Title = "Manage Students";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h2>Manage Students</h2>
+
+<p style="float:right;">
+    @Html.ActionLink("Add New Student", "Add_Student", "Admin", new { area = "" }, new { @class = "btn btn-primary" })
+</p>
+
+<table class="table table-striped">
+    <thead class="table-primary">
+        <tr>
+            <th>Student ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Mobile Number</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@student.StudentID</td>
+                <td>@student.FirstName</td>
+                <td>@student.LastName</td>
+                <td>@student.Email</td>
+                <td>@student.MobileNumber</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", "Admin", new { id = student.StudentID }, new { @class = "btn btn-warning btn-sm" }) |
+                    @Html.ActionLink("Delete", "Delete_Student", "Admin", new { id = student.StudentID }, new { @class = "btn btn-danger btn-sm" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

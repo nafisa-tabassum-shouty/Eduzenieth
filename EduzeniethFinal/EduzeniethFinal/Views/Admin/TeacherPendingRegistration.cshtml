@@ -1,0 +1,133 @@
+﻿@model IEnumerable<EduzeniethFinal.Models.Teacher>
+@{
+    ViewBag.Title = "Teacher Pending Registrations";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+    <title>@ViewBag.Title</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #DAE3F3;
+        }
+
+        h2 {
+            color: #0D6EFD;
+        }
+
+        .table thead {
+            background-color: #0D6EFD;
+            color: white;
+        }
+
+        .table tbody tr:nth-child(odd) {
+            background-color: #f2f2f2;
+        }
+
+        .btn-primary {
+            background-color: #0D6EFD;
+            border-color: #0D6EFD;
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+                border-color: #0056b3;
+            }
+
+        .card-title {
+            color: #0D6EFD;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center font-weight-bold">Teacher Pending Registrations</h2>
+
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Why Approval is Necessary</h5>
+                        <p class="card-text">
+                            Approval by the admin ensures that all teacher registrations are verified and meet our standards. This process helps maintain the integrity and quality of our educational programs.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">How to Approve or Decline</h5>
+                        <p class="card-text">
+                            In the table below, you can see a list of teachers who have registered but are pending approval. Use the Accept button to approve a registration or the Decline button to reject it. Approved teachers will be added to the database.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Nationality</th>
+                        <th>Mobile Number</th>
+                        <th>Father's Name</th>
+                        <th>Religion</th>
+                        <th>Address</th>
+                        <th>Date of Birth</th>
+                        <th>Gender</th>
+                        <th>Educational Field</th>
+                        <th>NID/Passport No</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var teacher in Model)
+                    {
+                        <tr>
+                            <td>@teacher.first_name</td>
+                            <td>@teacher.last_name</td>
+                            <td>@teacher.Username</td>
+                            <td>@teacher.Email</td>
+                            <td>@teacher.Nationality</td>
+                            <td>@teacher.MobileNumber</td>
+                            <td>@teacher.father_name</td>
+                            <td>@teacher.Religion</td>
+                            <td>@teacher.Address</td>
+                            <td>@teacher.Designation</td>
+                            <td>@teacher.Gender</td>
+                            <td>@teacher.EducationalField</td>
+                            <td>@teacher.NID_PassportNo</td>
+                            <td>
+                                @using (Html.BeginForm("TeacherPendingRegistration_Accept", "Admin", FormMethod.Post))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    @Html.Hidden("id", teacher.Id)
+                                    <button type="submit" class="btn btn-success">Accept</button>
+                                }
+                                @using (Html.BeginForm("TeacherPendingRegistration_Decline", "Admin", FormMethod.Post))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    @Html.Hidden("id", teacher.Id)
+                                    <button type="submit" class="btn btn-danger">Decline</button>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

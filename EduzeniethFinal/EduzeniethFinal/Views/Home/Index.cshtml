@@ -1,0 +1,205 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>EduZenith Student Managements</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/site.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+    <script>
+    $(document).ready(function () {
+        // Check if the alert flag is set
+        @if(TempData["ShowAlert"] != null && (bool)TempData["ShowAlert"])
+        {
+            // Show JavaScript alert
+            @:alert("Wait until admin accepts your Registration. Thanks for your Registration!");
+        }
+    });
+    </script>
+
+</head>
+<body style="background-color: #DAE3F3;">
+    
+    <div class="container">
+        <br><br>
+        <div class="jumbotron">
+            <div class="effect">
+                <div class="col-lg-4 d-flex justify-content-center" data-aos="fade-left" data-aos-delay="200" style="width:100%;">
+                    <img src="~/Image/Eduzenith_logo.png" width="250" height="250" alt="GeniusEdu Student Management System" title="GeniusEdu Student Management System" loading="eager">
+                </div>
+
+            </div>
+            <br><br>
+            <div class="d-flex flex-column align-items-center text-center" style="width:100%;">
+                <div>
+                    <a>
+                        <h1 class="c-primary" style="color: #0D6EFD;"><span></span>EduZenith Student Management System</h1>
+                    </a>
+                </div>
+                <p style="font-size:25px;">Nurture your mind with great thoughts; To believe in the heroic makes heroes.</p>
+                <div class="row justify-content-center">
+                    <div class="col-md-6" style="padding:15px;">
+                        <!-- Adjust the column size as needed -->
+                        <input type="submit" value="Register as Student" class="btn btn-primary" />
+                    </div>
+                    <div class="col-md-6" style="padding:15px;">
+                        <!-- Adjust the column size as needed -->
+                        <input type="submit" value="Register as Teacher" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <section id="our_exemplary_services" class="our_exemplary_services section-bg">
+        <div class="container">
+            <div class="section-title">
+                <h2><b>Benefits of Student Management Software for<span> School | College | Institute</span></b></h2>
+                <span class="sub-text">Revolutionize Your Institution with EduZenith Student Management System Software</span>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="mobile_app_features_row1">
+                        <div class="clo_d_div_inner">
+                            <div class="text-details-div">
+                                <div class="modules_icon" style="background: #ebf9ff url(../assets/img/canteen-icon1.png) no-repeat center center"></div>
+                                <div class="details-d">
+                                    <h5><b>Improved Efficiency</b></h5>
+                                    <p>With the ability to automate many administrative tasks, the EduZenith software can improve overall efficiency, reducing the workload for schools, colleges, institutes and university staff members and improving accuracy.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="mobile_app_features_row1">
+                        <div class="clo_d_div_inner">
+                            <div class="text-details-div">
+                                <div class="modules_icon" style="background: #ebf9ff url(../assets/img/improve-communication.png) no-repeat center center"></div>
+                                <div class="details-d">
+                                    <h5><b>Enhanced Communication</b></h5>
+                                    <p>The Student Management software allows accessible communication between students, parents, and staff members, with various features. This can improve transparency and collaboration, leading to better institutional student outcomes.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="mobile_app_features_row1">
+                        <div class="clo_d_div_inner">
+                            <div class="text-details-div">
+                                <div class="modules_icon" style="background: #ebf9ff url(../assets/img/enhanch-security.png) no-repeat center center"></div>
+                                <div class="details-d">
+                                    <h5><b>Data Security</b></h5>
+                                    <p>With secure data storage and backup, the EduZenith software ensures that schools, colleges, institutes and university's student information are protected from loss or theft, providing peace of mind for parents and administrators alike.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="mobile_app_features_row1">
+                        <div class="clo_d_div_inner">
+                            <div class="text-details-div">
+                                <div class="modules_icon" style="background: #ebf9ff url(../assets/img/real-time-feedback.png) no-repeat center center"></div>
+                                <div class="details-d">
+                                    <h5><b>Real-Time Updates</b></h5>
+                                    <p>The Student Management nature of the student management software means that updates can be made in real-time, ensuring schools, colleges, institutes and universities, students, teachers, and parents have access to the latest information.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="mobile_app_features_row1">
+                        <div class="clo_d_div_inner">
+                            <div class="text-details-div">
+                                <div class="modules_icon" style="background: #ebf9ff url(../assets/img/cost-effect.png) no-repeat center center"></div>
+                                <div class="details-d">
+                                    <h5><b>Cost-effective</b></h5>
+                                    <p>The Student Management software eliminates costly hardware and maintenance, saving schools, colleges, institutes and universities money while benefiting from a powerful and feature-rich system for students, teachers and parents.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="mobile_app_features_row1">
+                        <div class="clo_d_div_inner">
+                            <div class="text-details-div">
+                                <div class="modules_icon" style="background: #ebf9ff url(../assets/img/customizable.png) no-repeat center center"></div>
+                                <div class="details-d">
+                                    <h5><b>Customization</b></h5>
+                                    <p>The Student Management Software and Application can be customized to fulfil the distinctive needs of each school, college, institute and university, with options to add or remove modules and features as required.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+            <div class="carousel-item active row">
+                <div class="row">
+                    <div class="col-lg-8 pt-5">
+                        <div class="carousel-container">
+                            <h2>Student Management System</h2>
+                            <ul class="banner_list">
+                                <li><i class="fa fa-check" aria-hidden="true"></i>Track Student Progress and Manage Enrollment</li>
+                                <li><i class="fa fa-check" aria-hidden="true"></i>Automate Tasks &amp; Reduce Administrative Workload</li>
+                                <li><i class="fa fa-check" aria-hidden="true"></i>Access Real-time Data To Make Informed Decisions</li>
+                                <li><i class="fa fa-check" aria-hidden="true"></i>Enhance Security &amp; Compliance</li>
+                                <li><i class="fa fa-check" aria-hidden="true"></i>Support &amp; Training Provided</li>
+                                <li><i class="fa fa-check" aria-hidden="true"></i>Free Student Management System Demo</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+    </section>
+
+
+
+
+
+</body>
+</html>

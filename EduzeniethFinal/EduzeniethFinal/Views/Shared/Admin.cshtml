@@ -1,0 +1,93 @@
+﻿
+@{
+    ViewBag.Title = "Admin";
+}
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Pannel</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body style="background-color: #DAE3F3;">
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-primary">
+        <div class="container">
+            @Html.ActionLink("EduZenith Admin", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav flex-grow-1">
+                    <li>@Html.ActionLink("Dashboard", "Home", "Admin", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLogin" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Manage_Students
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownLogin">
+                            <li>@Html.ActionLink("Add Student", "Add_Student", "Admin", new { area = "" }, new { @class = "dropdown-item" })</li>
+                            <li>@Html.ActionLink("Pending Student Registration", "Student_PendingRegistration", "Admin", null, new { @class = "dropdown-item" })</li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>@Html.ActionLink("Delete or Update Student", "Manage_Students", "Admin", null, new { @class = "dropdown-item" })</li>
+                        </ul>
+
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLogin" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Manage Teachers
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownLogin">
+                            <li>@Html.ActionLink("Add Teacher", "Add_Teacher", "Admin", new { area = "" }, new { @class = "dropdown-item" })</li>
+                            <li>@Html.ActionLink("Pending Teacher Registration", "TeacherPendingRegistration", "Admin", null, new { @class = "dropdown-item" })</li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>@Html.ActionLink("Delete or Update Teacher", "Manage_Teachers", "Admin", null, new { @class = "dropdown-item" })</li>
+                        </ul>
+
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLogin" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Manage Courses
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownLogin">
+                            <li>@Html.ActionLink("Add Course", "Add_Teacher", "Admin", new { area = "" }, new { @class = "dropdown-item" })</li>
+                            <li>@Html.ActionLink("Pending Course Enrollment", "TeacherPendingRegistration", "Admin", null, new { @class = "dropdown-item" })</li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>@Html.ActionLink("Delete or Update Course", "Manage_Teachers", "Admin", null, new { @class = "dropdown-item" })</li>
+                        </ul>
+
+                    </li>
+
+
+                    <li>@Html.ActionLink("Logout", "Logout", "Admin", new { area = "" }, new { @class = "nav-link" })</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - EduZenith</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</body>
+</html>

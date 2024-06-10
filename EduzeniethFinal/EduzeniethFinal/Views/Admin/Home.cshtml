@@ -1,0 +1,73 @@
+﻿@{
+    ViewBag.Title = "Admin Panel";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - EduZenith Admin Panel</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body style="background-color: #DAE3F3;">
+  
+
+    <div class="container body-content mt-4">
+        <div class="row">
+            <div class="col-md-8">
+                <article>
+                    <h2 style="color: #0D6EFD;">Admin Dashboard</h2>
+                    <p>Welcome to the EduZenith Admin Panel. From here, you can manage students, courses, view reports, and configure system settings. Use the navigation links to access different sections of the admin panel.</p>
+                </article>
+
+                <article>
+                    <h3 style="color: #0D6EFD;">Recent Activities</h3>
+                    <p>Keep track of the latest activities and updates on the platform. This section provides an overview of recent actions performed by administrators, students, and instructors.</p>
+                    <ul>
+                        <li>New student registrations: 15</li>
+                        <li>Courses created: 3</li>
+                        <li>Enrolled students: 45</li>
+                        <li>Support tickets resolved: 10</li>
+                    </ul>
+                </article>
+            </div>
+
+            <div class="col-md-4">
+                <aside>
+                    <h4 style="color: #0D6EFD;">Quick Links</h4>
+                    <ul class="list-group">
+                        <li>@Html.ActionLink("Dashboard", "Home", "Admin", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Student Management", "Manage_Students", "Admin", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Course Management", "Manage_Courses", "Admin", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Teacher Management", "Manage_Teachers", "Admin", new { area = "" }, new { @class = "nav-link" })</li>
+                    </ul>
+                </aside>
+
+                <aside class="mt-4">
+                    <h4 style="color: #0D6EFD;">Contact Support</h4>
+                    <p>If you need assistance or have any questions, feel free to reach out to our support team.</p>
+                    <p>Email: adminsupport@eduzenith.com</p>
+                    <p>Phone: +1 234 567 891</p>
+                </aside>
+            </div>
+        </div>
+
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - EduZenith Admin Panel</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</body>
+</html>
