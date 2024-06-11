@@ -150,16 +150,25 @@ namespace EduzeniethFinal.Controllers
                 userStatus = 0;
             }
             // Insert the comment into the database for the specified announcement
-            Comment newComment = new Comment
+            if (announcementId != 0) // Replace 0 with the default value if different
             {
-                PostID = announcementId,
-                UserID = userId, 
-                UserStatus = userStatus,
-                CommentContent = comment,
-                CommentDate = DateTime.Now
-            };
-             db.Comments.Add(newComment);
-             db.SaveChanges();
+                Comment newComment = new Comment
+                {
+                    PostID = announcementId,
+                    UserID = userId,
+                    UserStatus = userStatus,
+                    CommentContent = comment,
+                    CommentDate = DateTime.Now
+                };
+                db.Comments.Add(newComment);
+                db.SaveChanges();
+            }
+            else
+            {
+                // Handle the case where announcementId is not assigned a valid value
+                // For example, log an error or show an appropriate message to the user
+            }
+
 
             // Redirect to the index page after posting the comment
             return RedirectToAction("CourseDetails", "Courses");
