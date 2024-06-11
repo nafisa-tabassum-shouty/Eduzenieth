@@ -1,98 +1,90 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\",
+  "WorkspaceRootPath": "E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|e:\\study material\\new folder\\sd\\0.eduzenith\\eduzeniethfinal\\eduzeniethfinal\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|solutionrelative:eduzeniethfinal\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\eduzeniethfinal\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\eduzeniethfinal\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|solutionrelative:eduzeniethfinal\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\SQLQuery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SQLQuery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|e:\\study material\\new folder\\sd\\0.eduzenith\\eduzeniethfinal\\eduzeniethfinal\\views\\courses\\coursedetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|solutionrelative:eduzeniethfinal\\views\\courses\\coursedetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\Course2.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Course2.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|e:\\study material\\new folder\\sd\\0.eduzenith\\eduzeniethfinal\\eduzeniethfinal\\controllers\\coursescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\eduzeniethfinal\\controllers\\coursescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|solutionrelative:eduzeniethfinal\\controllers\\coursescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|e:\\study material\\new folder\\sd\\0.eduzenith\\eduzeniethfinal\\eduzeniethfinal\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|solutionrelative:eduzeniethfinal\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\eduzeniethfinal\\views\\courses\\coursedetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|solutionrelative:eduzeniethfinal\\views\\courses\\coursedetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|e:\\study material\\new folder\\sd\\0.eduzenith\\eduzeniethfinal\\eduzeniethfinal\\models\\enroll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|solutionrelative:eduzeniethfinal\\models\\enroll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|e:\\study material\\new folder\\sd\\0.eduzenith\\eduzenieth-with-github\\eduzeniethfinal\\eduzeniethfinal\\models\\announcement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|solutionrelative:eduzeniethfinal\\models\\announcement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|e:\\study material\\new folder\\sd\\0.eduzenith\\eduzeniethfinal\\eduzeniethfinal\\models\\eduzenith.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
-      "RelativeMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|solutionrelative:eduzeniethfinal\\models\\eduzenith.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|e:\\study material\\new folder\\sd\\0.eduzenith\\eduzeniethfinal\\eduzeniethfinal\\views\\student\\enrolled_courses.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|solutionrelative:eduzeniethfinal\\views\\student\\enrolled_courses.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\eduzeniethfinal\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|solutionrelative:eduzeniethfinal\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\eduzeniethfinal\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\eduzeniethfinal\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|solutionrelative:eduzeniethfinal\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|e:\\study material\\new folder\\sd\\0.eduzenith\\eduzeniethfinal\\eduzeniethfinal\\models\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|solutionrelative:eduzeniethfinal\\models\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\eduzeniethfinal\\models\\eduzenith.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
+      "RelativeMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|solutionrelative:eduzeniethfinal\\models\\eduzenith.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|e:\\study material\\new folder\\sd\\0.eduzenith\\eduzeniethfinal\\eduzeniethfinal\\models\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\eduzeniethfinal\\models\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|solutionrelative:eduzeniethfinal\\models\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\Courses.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|",
+      "AbsoluteMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|e:\\study material\\new folder\\sd\\0.eduzenith\\eduzenieth-with-github\\eduzeniethfinal\\eduzeniethfinal\\views\\admin\\add_student.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|solutionrelative:eduzeniethfinal\\views\\admin\\add_student.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\eduzeniethfinal\\views\\student\\enrolled_courses.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|solutionrelative:eduzeniethfinal\\views\\student\\enrolled_courses.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|e:\\study material\\new folder\\sd\\0.eduzenith\\eduzenieth-with-github\\eduzeniethfinal\\eduzeniethfinal\\views\\admin\\delete_student.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|solutionrelative:eduzeniethfinal\\views\\admin\\delete_student.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|e:\\study material\\new folder\\sd\\0.eduzenith\\eduzenieth-with-github\\eduzeniethfinal\\eduzeniethfinal\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|solutionrelative:eduzeniethfinal\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|e:\\study material\\new folder\\sd\\0.eduzenith\\eduzenieth-with-github\\eduzeniethfinal\\eduzeniethfinal\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|solutionrelative:eduzeniethfinal\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\eduzeniethfinal\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|solutionrelative:eduzeniethfinal\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\eduzeniethfinal\\models\\enroll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|solutionrelative:eduzeniethfinal\\models\\enroll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\eduzeniethfinal\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|solutionrelative:eduzeniethfinal\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\eduzeniethfinal\\models\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|solutionrelative:eduzeniethfinal\\models\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\Courses.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Courses.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\eduzeniethfinal\\views\\student\\student_details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\eduzeniethfinal\\views\\student\\student_details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|solutionrelative:eduzeniethfinal\\views\\student\\student_details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\eduzeniethfinal\\views\\student\\available_courses.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\eduzeniethfinal\\views\\student\\available_courses.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|solutionrelative:eduzeniethfinal\\views\\student\\available_courses.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\eduzeniethfinal\\views\\home\\registration.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\eduzeniethfinal\\views\\home\\registration.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|solutionrelative:eduzeniethfinal\\views\\home\\registration.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\eduzeniethfinal\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\eduzeniethfinal\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{C594F318-BF21-41EA-81A9-224C2ABF5EC1}|EduzeniethFinal\\EduzeniethFinal.csproj|solutionrelative:eduzeniethfinal\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\SQLQuery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SQLQuery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\Courses.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Courses.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\Course2.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Course2.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\Course2.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|ResultFrame",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Course2.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|ResultFrame"
     }
   ],
   "DocumentGroupContainers": [
@@ -102,7 +94,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -114,175 +106,37 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Enroll.cs",
-              "DocumentMoniker": "E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\EduzeniethFinal\\Models\\Enroll.cs",
-              "RelativeDocumentMoniker": "EduzeniethFinal\\Models\\Enroll.cs",
-              "ToolTip": "E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\EduzeniethFinal\\Models\\Enroll.cs",
-              "RelativeToolTip": "EduzeniethFinal\\Models\\Enroll.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "DocumentIndex": 3,
+              "Title": "Announcement.cs",
+              "DocumentMoniker": "E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\EduzeniethFinal\\Models\\Announcement.cs",
+              "RelativeDocumentMoniker": "EduzeniethFinal\\Models\\Announcement.cs",
+              "ToolTip": "E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\EduzeniethFinal\\Models\\Announcement.cs",
+              "RelativeToolTip": "EduzeniethFinal\\Models\\Announcement.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-09T02:43:01.124Z",
+              "WhenOpened": "2024-06-11T02:41:57.527Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "SQLQuery1.sql ",
-              "DocumentMoniker": "E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\SQLQuery1.sql",
-              "RelativeDocumentMoniker": "SQLQuery1.sql",
-              "ToolTip": "SQLQuery1.sql ",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2024-06-07T12:46:03.049Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CoursesController.cs",
-              "DocumentMoniker": "E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\EduzeniethFinal\\Controllers\\CoursesController.cs",
-              "RelativeDocumentMoniker": "EduzeniethFinal\\Controllers\\CoursesController.cs",
-              "ToolTip": "E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\EduzeniethFinal\\Controllers\\CoursesController.cs",
-              "RelativeToolTip": "EduzeniethFinal\\Controllers\\CoursesController.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAACEAAABOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-08T23:05:53.966Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "CourseDetails.cshtml",
-              "DocumentMoniker": "E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\EduzeniethFinal\\Views\\Courses\\CourseDetails.cshtml",
+              "DocumentMoniker": "E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\EduzeniethFinal\\Views\\Courses\\CourseDetails.cshtml",
               "RelativeDocumentMoniker": "EduzeniethFinal\\Views\\Courses\\CourseDetails.cshtml",
-              "ToolTip": "E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\EduzeniethFinal\\Views\\Courses\\CourseDetails.cshtml*",
-              "RelativeToolTip": "EduzeniethFinal\\Views\\Courses\\CourseDetails.cshtml*",
-              "ViewState": "AQIAAFoAAAAAAAAAAAAAAGcAAAAdAAAA",
+              "ToolTip": "E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\EduzeniethFinal\\Views\\Courses\\CourseDetails.cshtml",
+              "RelativeToolTip": "EduzeniethFinal\\Views\\Courses\\CourseDetails.cshtml",
+              "ViewState": "AQIAAD8AAAAAAAAAAIAwwE0AAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-06-08T23:06:19.441Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\EduzeniethFinal\\Views\\Home\\Login.cshtml",
-              "RelativeDocumentMoniker": "EduzeniethFinal\\Views\\Home\\Login.cshtml",
-              "ToolTip": "E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\EduzeniethFinal\\Views\\Home\\Login.cshtml",
-              "RelativeToolTip": "EduzeniethFinal\\Views\\Home\\Login.cshtml",
-              "ViewState": "AQIAAB0AAAAAAAAAAAAUwD8AAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-07T13:21:41.405Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\EduzeniethFinal\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "EduzeniethFinal\\Views\\Home\\Index.cshtml",
-              "ToolTip": "E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\EduzeniethFinal\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "EduzeniethFinal\\Views\\Home\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-09T01:39:37.103Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Eduzenith.edmx [Diagram1]",
-              "DocumentMoniker": "E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\EduzeniethFinal\\Models\\Eduzenith.edmx",
-              "RelativeDocumentMoniker": "EduzeniethFinal\\Models\\Eduzenith.edmx",
-              "ToolTip": "E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\EduzeniethFinal\\Models\\Eduzenith.edmx [Diagram1]",
-              "RelativeToolTip": "EduzeniethFinal\\Models\\Eduzenith.edmx [Diagram1]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
-              "WhenOpened": "2024-06-08T22:35:36.92Z",
-              "EditorCaption": " [Diagram1]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Course2.sql ",
-              "DocumentMoniker": "E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\Course2.sql",
-              "RelativeDocumentMoniker": "Course2.sql",
-              "ToolTip": "Course2.sql ",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2024-06-08T22:30:42.719Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "Student.cs",
-              "DocumentMoniker": "E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\EduzeniethFinal\\Models\\Student.cs",
-              "RelativeDocumentMoniker": "EduzeniethFinal\\Models\\Student.cs",
-              "ToolTip": "E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\EduzeniethFinal\\Models\\Student.cs",
-              "RelativeToolTip": "EduzeniethFinal\\Models\\Student.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAB4AAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-09T02:43:16.296Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Enrolled_Courses.cshtml",
-              "DocumentMoniker": "E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\EduzeniethFinal\\Views\\Student\\Enrolled_Courses.cshtml",
-              "RelativeDocumentMoniker": "EduzeniethFinal\\Views\\Student\\Enrolled_Courses.cshtml",
-              "ToolTip": "E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\EduzeniethFinal\\Views\\Student\\Enrolled_Courses.cshtml",
-              "RelativeToolTip": "EduzeniethFinal\\Views\\Student\\Enrolled_Courses.cshtml",
-              "ViewState": "AQIAAEsAAAAAAAAAAAAAAG0AAAAqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-08T20:48:53.118Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\EduzeniethFinal\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "EduzeniethFinal\\Controllers\\HomeController.cs",
-              "ToolTip": "E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\EduzeniethFinal\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "EduzeniethFinal\\Controllers\\HomeController.cs",
-              "ViewState": "AQIAADMAAAAAAAAAAAAowDwAAAA5AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-07T12:42:03.106Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "StudentController.cs",
-              "DocumentMoniker": "E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\EduzeniethFinal\\Controllers\\StudentController.cs",
-              "RelativeDocumentMoniker": "EduzeniethFinal\\Controllers\\StudentController.cs",
-              "ToolTip": "E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\EduzeniethFinal\\Controllers\\StudentController.cs",
-              "RelativeToolTip": "EduzeniethFinal\\Controllers\\StudentController.cs",
-              "ViewState": "AQIAADMAAAAAAAAAAAAuwEsAAAAHAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-07T16:19:30.826Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Class1.cs",
-              "DocumentMoniker": "E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\EduzeniethFinal\\Models\\Class1.cs",
-              "RelativeDocumentMoniker": "EduzeniethFinal\\Models\\Class1.cs",
-              "ToolTip": "E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\EduzeniethFinal\\Models\\Class1.cs",
-              "RelativeToolTip": "EduzeniethFinal\\Models\\Class1.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAApAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-09T00:20:09.636Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
               "Title": "Course.cs",
-              "DocumentMoniker": "E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\EduzeniethFinal\\Models\\Course.cs",
+              "DocumentMoniker": "E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\EduzeniethFinal\\Models\\Course.cs",
               "RelativeDocumentMoniker": "EduzeniethFinal\\Models\\Course.cs",
-              "ToolTip": "E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\EduzeniethFinal\\Models\\Course.cs",
+              "ToolTip": "E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\EduzeniethFinal\\Models\\Course.cs",
               "RelativeToolTip": "EduzeniethFinal\\Models\\Course.cs",
               "ViewState": "AQIAAAYAAAAAAAAAAAAAABgAAAAHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -291,66 +145,226 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Courses.sql ",
-              "DocumentMoniker": "E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\Courses.sql",
-              "RelativeDocumentMoniker": "Courses.sql",
-              "ToolTip": "Courses.sql ",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2024-06-08T20:18:43.981Z",
+              "DocumentIndex": 1,
+              "Title": "CoursesController.cs",
+              "DocumentMoniker": "E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\EduzeniethFinal\\Controllers\\CoursesController.cs",
+              "RelativeDocumentMoniker": "EduzeniethFinal\\Controllers\\CoursesController.cs",
+              "ToolTip": "E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\EduzeniethFinal\\Controllers\\CoursesController.cs*",
+              "RelativeToolTip": "EduzeniethFinal\\Controllers\\CoursesController.cs*",
+              "ViewState": "AQIAAHkAAAAAAAAAAAAhwIIAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-08T23:05:53.966Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Available_Courses.cshtml",
-              "DocumentMoniker": "E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\EduzeniethFinal\\Views\\Student\\Available_Courses.cshtml",
-              "RelativeDocumentMoniker": "EduzeniethFinal\\Views\\Student\\Available_Courses.cshtml",
-              "ToolTip": "E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\EduzeniethFinal\\Views\\Student\\Available_Courses.cshtml",
-              "RelativeToolTip": "EduzeniethFinal\\Views\\Student\\Available_Courses.cshtml",
-              "ViewState": "AQIAAFEAAAAAAAAAAAAAAGsAAAAiAAAA",
+              "DocumentIndex": 0,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\EduzeniethFinal\\Views\\Home\\Login.cshtml",
+              "RelativeDocumentMoniker": "EduzeniethFinal\\Views\\Home\\Login.cshtml",
+              "ToolTip": "E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\EduzeniethFinal\\Views\\Home\\Login.cshtml",
+              "RelativeToolTip": "EduzeniethFinal\\Views\\Home\\Login.cshtml",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-07T16:21:40.434Z",
+              "WhenOpened": "2024-06-07T13:21:41.405Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "StudentController.cs",
+              "DocumentMoniker": "E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\EduzeniethFinal\\Controllers\\StudentController.cs",
+              "RelativeDocumentMoniker": "EduzeniethFinal\\Controllers\\StudentController.cs",
+              "ToolTip": "E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\EduzeniethFinal\\Controllers\\StudentController.cs",
+              "RelativeToolTip": "EduzeniethFinal\\Controllers\\StudentController.cs",
+              "ViewState": "AQIAAGsAAAAAAAAAAAAowHUAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-07T16:19:30.826Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Eduzenith.edmx [Diagram1]",
+              "DocumentMoniker": "E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\EduzeniethFinal\\Models\\Eduzenith.edmx",
+              "RelativeDocumentMoniker": "EduzeniethFinal\\Models\\Eduzenith.edmx",
+              "ToolTip": "E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\EduzeniethFinal\\Models\\Eduzenith.edmx [Diagram1]",
+              "RelativeToolTip": "EduzeniethFinal\\Models\\Eduzenith.edmx [Diagram1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
+              "WhenOpened": "2024-06-08T22:35:36.92Z",
+              "EditorCaption": " [Diagram1]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Enrolled_Courses.cshtml",
+              "DocumentMoniker": "E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\EduzeniethFinal\\Views\\Student\\Enrolled_Courses.cshtml",
+              "RelativeDocumentMoniker": "EduzeniethFinal\\Views\\Student\\Enrolled_Courses.cshtml",
+              "ToolTip": "E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\EduzeniethFinal\\Views\\Student\\Enrolled_Courses.cshtml",
+              "RelativeToolTip": "EduzeniethFinal\\Views\\Student\\Enrolled_Courses.cshtml",
+              "ViewState": "AQIAAE4AAAAAAAAAAAAAAGwAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-08T20:48:53.118Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Add_Student.cshtml",
+              "DocumentMoniker": "E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\EduzeniethFinal\\Views\\Admin\\Add_Student.cshtml",
+              "RelativeDocumentMoniker": "EduzeniethFinal\\Views\\Admin\\Add_Student.cshtml",
+              "ToolTip": "E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\EduzeniethFinal\\Views\\Admin\\Add_Student.cshtml",
+              "RelativeToolTip": "EduzeniethFinal\\Views\\Admin\\Add_Student.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-11T02:07:45.009Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Delete_Student.cshtml",
+              "DocumentMoniker": "E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\EduzeniethFinal\\Views\\Admin\\Delete_Student.cshtml",
+              "RelativeDocumentMoniker": "EduzeniethFinal\\Views\\Admin\\Delete_Student.cshtml",
+              "ToolTip": "E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\EduzeniethFinal\\Views\\Admin\\Delete_Student.cshtml",
+              "RelativeToolTip": "EduzeniethFinal\\Views\\Admin\\Delete_Student.cshtml",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAADgAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-11T01:45:00.684Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\EduzeniethFinal\\Views\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "EduzeniethFinal\\Views\\_ViewStart.cshtml",
+              "ToolTip": "E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\EduzeniethFinal\\Views\\_ViewStart.cshtml",
+              "RelativeToolTip": "EduzeniethFinal\\Views\\_ViewStart.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-11T01:37:36.692Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Enroll.cs",
+              "DocumentMoniker": "E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\EduzeniethFinal\\Models\\Enroll.cs",
+              "RelativeDocumentMoniker": "EduzeniethFinal\\Models\\Enroll.cs",
+              "ToolTip": "E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\EduzeniethFinal\\Models\\Enroll.cs",
+              "RelativeToolTip": "EduzeniethFinal\\Models\\Enroll.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-09T02:43:01.124Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\EduzeniethFinal\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "EduzeniethFinal\\Views\\Home\\Index.cshtml",
+              "ToolTip": "E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\EduzeniethFinal\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "EduzeniethFinal\\Views\\Home\\Index.cshtml",
+              "ViewState": "AQIAAJEAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-09T01:39:37.103Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Student.cs",
+              "DocumentMoniker": "E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\EduzeniethFinal\\Models\\Student.cs",
+              "RelativeDocumentMoniker": "EduzeniethFinal\\Models\\Student.cs",
+              "ToolTip": "E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\EduzeniethFinal\\Models\\Student.cs",
+              "RelativeToolTip": "EduzeniethFinal\\Models\\Student.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAB4AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-09T02:43:16.296Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\EduzeniethFinal\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "EduzeniethFinal\\Controllers\\HomeController.cs",
+              "ToolTip": "E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\EduzeniethFinal\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "EduzeniethFinal\\Controllers\\HomeController.cs",
+              "ViewState": "AQIAADMAAAAAAAAAAAAowDwAAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-07T12:42:03.106Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 15,
-              "Title": "Student_Details.cshtml",
-              "DocumentMoniker": "E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\EduzeniethFinal\\Views\\Student\\Student_Details.cshtml",
-              "RelativeDocumentMoniker": "EduzeniethFinal\\Views\\Student\\Student_Details.cshtml",
-              "ToolTip": "E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\EduzeniethFinal\\Views\\Student\\Student_Details.cshtml",
-              "RelativeToolTip": "EduzeniethFinal\\Views\\Student\\Student_Details.cshtml",
-              "ViewState": "AQIAACcAAAAAAAAAAAAAAEIAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-07T17:00:47.721Z",
-              "EditorCaption": ""
+              "Title": "Class1.cs",
+              "DocumentMoniker": "E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\EduzeniethFinal\\Models\\Class1.cs",
+              "RelativeDocumentMoniker": "EduzeniethFinal\\Models\\Class1.cs",
+              "ToolTip": "E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\EduzeniethFinal\\Models\\Class1.cs",
+              "RelativeToolTip": "EduzeniethFinal\\Models\\Class1.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-09T00:20:09.636Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "Registration.cshtml",
-              "DocumentMoniker": "E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\EduzeniethFinal\\Views\\Home\\Registration.cshtml",
-              "RelativeDocumentMoniker": "EduzeniethFinal\\Views\\Home\\Registration.cshtml",
-              "ToolTip": "E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\EduzeniethFinal\\Views\\Home\\Registration.cshtml",
-              "RelativeToolTip": "EduzeniethFinal\\Views\\Home\\Registration.cshtml",
-              "ViewState": "AQIAAJkAAAAAAAAAAAAAAKUAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-07T13:04:53.526Z",
-              "EditorCaption": ""
+              "DocumentIndex": 16,
+              "Title": "Courses.sql ",
+              "DocumentMoniker": "E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\Courses.sql",
+              "RelativeDocumentMoniker": "Courses.sql",
+              "ToolTip": "Courses.sql ",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-06-08T20:18:43.981Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 18,
+              "Title": "Available_Courses.cshtml",
+              "DocumentMoniker": "E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\EduzeniethFinal\\Views\\Student\\Available_Courses.cshtml",
+              "RelativeDocumentMoniker": "EduzeniethFinal\\Views\\Student\\Available_Courses.cshtml",
+              "ToolTip": "E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\EduzeniethFinal\\Views\\Student\\Available_Courses.cshtml",
+              "RelativeToolTip": "EduzeniethFinal\\Views\\Student\\Available_Courses.cshtml",
+              "ViewState": "AQIAAFEAAAAAAAAAAAAAAGsAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-07T16:21:40.434Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Student_Details.cshtml",
+              "DocumentMoniker": "E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\EduzeniethFinal\\Views\\Student\\Student_Details.cshtml",
+              "RelativeDocumentMoniker": "EduzeniethFinal\\Views\\Student\\Student_Details.cshtml",
+              "ToolTip": "E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\EduzeniethFinal\\Views\\Student\\Student_Details.cshtml",
+              "RelativeToolTip": "EduzeniethFinal\\Views\\Student\\Student_Details.cshtml",
+              "ViewState": "AQIAACcAAAAAAAAAAAAAAEIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-07T17:00:47.721Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Registration.cshtml",
+              "DocumentMoniker": "E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\EduzeniethFinal\\Views\\Home\\Registration.cshtml",
+              "RelativeDocumentMoniker": "EduzeniethFinal\\Views\\Home\\Registration.cshtml",
+              "ToolTip": "E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\EduzeniethFinal\\Views\\Home\\Registration.cshtml",
+              "RelativeToolTip": "EduzeniethFinal\\Views\\Home\\Registration.cshtml",
+              "ViewState": "AQIAAJkAAAAAAAAAAAAAAKUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-07T13:04:53.526Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
               "Title": "_Layout.cshtml",
-              "DocumentMoniker": "E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\EduzeniethFinal\\Views\\Shared\\_Layout.cshtml",
+              "DocumentMoniker": "E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\EduzeniethFinal\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "EduzeniethFinal\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "E:\\study material\\New folder\\sd\\0.Eduzenith\\EduzeniethFinal\\EduzeniethFinal\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "E:\\study material\\New folder\\sd\\0.Eduzenith\\Eduzenieth-with-github\\EduzeniethFinal\\EduzeniethFinal\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "EduzeniethFinal\\Views\\Shared\\_Layout.cshtml",
               "ViewState": "AQIAAA0AAAAAAAAAAAAiwBgAAABXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-07T16:07:01.573Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-07T16:07:01.573Z"
             }
           ]
         }
