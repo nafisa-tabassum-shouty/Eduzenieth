@@ -15,11 +15,19 @@ namespace EduzeniethFinal.Controllers
         // GET: Student
         public ActionResult Available_Courses()
         {
+            if (Session["id"] == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             return View(db.Courses.ToList());
         }
         [HttpPost]
         public ActionResult Available_Courses(string Course_Id)
         {
+            if (Session["id"] == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             using (var db = new EduzenithFinalEntities4())
             {
                 // Find the course by Course_Id
@@ -106,13 +114,13 @@ namespace EduzeniethFinal.Controllers
             return View(courses);
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Enrolled_Courses(string Course_Id)
         {
-            if(Course_Id!= null)
-            {
+            
                 Session["Course_Id"] = Convert.ToInt32(Course_Id);
                 return RedirectToAction("CourseDetails", "Courses");
-            }
+            
            
             return View();
         }

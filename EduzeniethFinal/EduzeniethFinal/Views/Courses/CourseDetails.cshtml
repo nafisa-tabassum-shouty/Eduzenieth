@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@{ 
+    Layout = "~/Views/Shared/Student.cshtml";
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -70,13 +73,15 @@
                                     }
                                 </ul>
                             }
-                            <!-- Comment Form -->
-                            <form action="/Classroom/PostComment" method="POST">
+                            @using (Html.BeginForm("PostComment", "Courses", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                            {
+                                ViewBag.postId = announcement.PID;
                                 <div class="form-group mt-3">
                                     <textarea class="form-control" name="comment" placeholder="Write a comment..."></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Post Comment</button>
-                            </form>
+                            }
+
                         </div>
                     }
                 </div>

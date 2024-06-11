@@ -104,14 +104,15 @@
 
                                 <div class="form-container" style=" display: flex; justify-content: center; align-items: center; height: 100%;">
                                     <div class="form-container">
-                                        <form method="post">
-                                            <input type="hidden" name="Course_Id" value="@item.Course_Id" />
+                                        @using (Html.BeginForm("Enrolled_Courses", "Student", FormMethod.Post))
+                                        {
+                                           
+                                            @Html.AntiForgeryToken()
+                                            @Html.Hidden("Course_Id", item.Course_Id)
                                             <input type="submit" value="Enter into The Course" class="btn btn-primary" />
-                                        </form>
+                                        }
                                     </div>
                                 </div>
-
-                               
 
                             </div>
 
@@ -122,6 +123,6 @@
                 </div>
             }
 
-           
+
 </body>
 </html>

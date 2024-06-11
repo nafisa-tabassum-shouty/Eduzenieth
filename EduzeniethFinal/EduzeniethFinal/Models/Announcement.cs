@@ -7,6 +7,7 @@ namespace EduzeniethFinal.Models
 {
     public class Announcement
     {
+        public int PID {  get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
         public string PostedBy { get; set; }

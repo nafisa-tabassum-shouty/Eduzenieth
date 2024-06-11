@@ -15,37 +15,53 @@ namespace EduzeniethFinal.Controllers
         // GET: Courses/CourseDetails
         public ActionResult CourseDetails()
         {
+
             int cid = (int)Session["Course_Id"];
+            var sidsForCid= new List<int>();
+            var tidsForCid = new List<int>();
+            var students = new List<Student>();
+
+            var teachers = new List<Teacher>();
             using (var db1 = new EduzenithFinalEntities4())
             {
                 // Retrieve sid values for the specific cid
-                var sidsForCid = db1.Enrolls
+                sidsForCid = db1.Enrolls
                                     .Where(e => e.cid == cid)
                                     .Select(e => e.sid)
                                     .ToList();
+                tidsForCid = db1.Courses
+                    .Where(e => e.Course_Id == cid && e.teacherID.HasValue)
+                    .Select(e => e.teacherID.Value)
+                    .ToList();
+
 
                 // Retrieve student names for each sid
-                var students = db1.Students
+                students = db1.Students
                                  .Where(s => sidsForCid.Contains(s.StudentID))
                                  .ToList();
+                teachers = db1.Teachers
+                                 .Where(s => tidsForCid.Contains(s.Id))
+                                 .ToList();
 
-                // Store first names and last names in ViewBag
-                ViewBag.FirstNames = students.Select(s => s.FirstName).ToList();
-                ViewBag.LastNames = students.Select(s => s.LastName).ToList();
+                // Concatenate first names and last names, then store in ViewBag
+                ViewBag.FullNames = students.Select(s => s.FirstName + " " + s.LastName).ToList();
+                ViewBag.TFullNames = teachers.Select(s => s.first_name + " " + s.last_name).ToList();
+
             }
 
 
             EduzenithFinalEntities4 db = new EduzenithFinalEntities4();
 
             // Retrieve enrolled students and teachers from the database
-            List<string> enrolledStudents = db.Students.Where(s => s.Status == 1).Select(s => s.FirstName + " " + s.LastName).ToList();
-            List<string> enrolledTeachers = db.Teachers.Where(t => t.Status == 1).Select(t => t.first_name + " " + t.last_name).ToList();
+            List<string> enrolledStudents = ViewBag.FullNames;
+            List<string> enrolledTeachers = ViewBag.TFullNames;
 
             // Retrieve previous announcements and associated comments from the database
-            List<Announcement> announcements = db.Posts.Where(p => p.PostType == "Announcement")
+            List<Announcement> announcements = db.Posts.Where(p => p.PostType == "Announcement" && p.CourseID==cid)
                     .OrderByDescending(p => p.PostDate)
                     .Select(p => new Announcement
                     {
+                        PID=p.PostID,
                         Title = p.PostType,
                         Content = p.PostContent,
                         PostedBy = p.UserStatus == 1
@@ -107,12 +123,22 @@ namespace EduzeniethFinal.Controllers
 
         // POST: Classroom/PostComment
         [HttpPost]
-        public ActionResult PostComment(int announcementId, string comment)
+        public ActionResult PostComment( string comment)
         {
             EduzenithFinalEntities4 db = new EduzenithFinalEntities4();
             int userId;
             int userStatus;
-
+            int announcementId=-1;
+            if (ViewBag.postId != null && ViewBag.postId is int)
+            {
+                announcementId = (int)ViewBag.postId;
+            }
+            else
+            {
+                // Handle the case where the value is null or not of type int
+                // For example, you could assign a default value or show an error message
+                // announcementId = defaultValue;
+            }
             if (Session["id"] == null && Session["T_id"] != null)
             {
                 userId = (int)Session["T_id"];
