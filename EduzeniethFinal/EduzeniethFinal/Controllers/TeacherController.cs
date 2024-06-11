@@ -115,6 +115,11 @@ namespace EduzeniethFinal.Controllers
             return View(teacher);
         }
 
+        public ActionResult Home()
+        {
+            return View();
+        }
+
 
     }
 }
