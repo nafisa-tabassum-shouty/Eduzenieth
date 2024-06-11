@@ -265,6 +265,9 @@
     <Content Include="Views\Admin\Student_PendingRegistration.cshtml" />
     <Content Include="Views\Admin\TeacherPendingRegistration.cshtml" />
     <Content Include="Views\Admin\Student_Pending_Enrollment.cshtml" />
+    <Content Include="Views\Admin\Login.cshtml" />
+    <Content Include="Views\Admin\Manage_Courses.cshtml" />
+    <Content Include="Views\Admin\Delete_Course.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

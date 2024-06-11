@@ -223,8 +223,8 @@
           <Property Name="Status" Type="Int32" Nullable="false" />
         </EntityType>
         <Association Name="FK__Comments__PostID__2DE6D218">
-          <End Role="Posts" Type="Self.Post" Multiplicity="1" />
-          <End Role="Comments" Type="Self.Comment" Multiplicity="*" />
+          <End Type="Self.Post" Multiplicity="1" Role="Posts" />
+          <End Type="Self.Comment" Multiplicity="*" Role="Comments" />
           <ReferentialConstraint>
             <Principal Role="Posts">
               <PropertyRef Name="PostID" />
@@ -235,8 +235,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Posts__CourseID__2A164134">
-          <End Role="Course" Type="Self.Course" Multiplicity="1" />
-          <End Role="Posts" Type="Self.Post" Multiplicity="*" />
+          <End Type="Self.Course" Multiplicity="1" Role="Course" />
+          <End Type="Self.Post" Multiplicity="*" Role="Posts" />
           <ReferentialConstraint>
             <Principal Role="Course">
               <PropertyRef Name="Course_Id" />
@@ -254,12 +254,12 @@
           <EntitySet Name="Students" EntityType="Self.Student" />
           <EntitySet Name="Teachers" EntityType="Self.Teacher" />
           <AssociationSet Name="FK__Comments__PostID__2DE6D218" Association="Self.FK__Comments__PostID__2DE6D218">
-            <End Role="Posts" EntitySet="Posts" />
-            <End Role="Comments" EntitySet="Comments" />
+            <End EntitySet="Posts" Role="Posts" />
+            <End EntitySet="Comments" Role="Comments" />
           </AssociationSet>
           <AssociationSet Name="FK__Posts__CourseID__2A164134" Association="Self.FK__Posts__CourseID__2A164134">
-            <End Role="Course" EntitySet="Courses" />
-            <End Role="Posts" EntitySet="Posts" />
+            <End EntitySet="Courses" Role="Course" />
+            <End EntitySet="Posts" Role="Posts" />
           </AssociationSet>
         </EntityContainer>
       </Schema>

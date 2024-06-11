@@ -3,13 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Security.Cryptography;
 using System.Web;
 using System.Web.Mvc;
 
 namespace EduzeniethFinal.Controllers
 {
-    
+
     public class CoursesController : Controller
     {
         // GET: Courses/CourseDetails
@@ -17,7 +18,7 @@ namespace EduzeniethFinal.Controllers
         {
 
             int cid = (int)Session["Course_Id"];
-            var sidsForCid= new List<int>();
+            var sidsForCid = new List<int>();
             var tidsForCid = new List<int>();
             var students = new List<Student>();
 
@@ -57,11 +58,11 @@ namespace EduzeniethFinal.Controllers
             List<string> enrolledTeachers = ViewBag.TFullNames;
 
             // Retrieve previous announcements and associated comments from the database
-            List<Announcement> announcements = db.Posts.Where(p => p.PostType == "Announcement" && p.CourseID==cid)
+            List<Announcement> announcements = db.Posts.Where(p => p.PostType == "Announcement" && p.CourseID == cid)
                     .OrderByDescending(p => p.PostDate)
                     .Select(p => new Announcement
                     {
-                        PID=p.PostID,
+                        PID = p.PostID,
                         Title = p.PostType,
                         Content = p.PostContent,
                         PostedBy = p.UserStatus == 1
@@ -118,17 +119,17 @@ namespace EduzeniethFinal.Controllers
             db.SaveChanges();
 
             // Redirect to the index page after posting the announcement
-            return RedirectToAction("CourseDetails","Courses");
+            return RedirectToAction("CourseDetails", "Courses");
         }
 
         // POST: Classroom/PostComment
         [HttpPost]
-        public ActionResult PostComment( string comment)
+        public ActionResult PostComment(string comment)
         {
             EduzenithFinalEntities4 db = new EduzenithFinalEntities4();
             int userId;
             int userStatus;
-            int announcementId=-1;
+            int announcementId = -1;
             if (ViewBag.postId != null && ViewBag.postId is int)
             {
                 announcementId = (int)ViewBag.postId;
@@ -174,7 +175,31 @@ namespace EduzeniethFinal.Controllers
             return RedirectToAction("CourseDetails", "Courses");
         }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         
+
+
 
     }
 }

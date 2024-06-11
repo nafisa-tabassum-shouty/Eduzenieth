@@ -14,4 +14,9 @@ namespace EduzeniethFinal.Models
         public DateTime PostedDate { get; set; }
         public List<string> Comments { get; set; }
     }
+    public class Admin
+    {
+        public string username { get; set; }
+        public string password { get; set; }
+    }
 }

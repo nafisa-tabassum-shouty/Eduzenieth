@@ -57,10 +57,10 @@
                             Manage Courses
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownLogin">
-                            <li>@Html.ActionLink("Add Course", "Add_Teacher", "Admin", new { area = "" }, new { @class = "dropdown-item" })</li>
-                            <li>@Html.ActionLink("Pending Course Enrollment", "TeacherPendingRegistration", "Admin", null, new { @class = "dropdown-item" })</li>
+                            <li>@Html.ActionLink("Add Course", "AddCourse", "Admin", new { area = "" }, new { @class = "dropdown-item" })</li>
+                            <li>@Html.ActionLink("Pending Course Enrollment", "Student_Pending_Enrollment", "Admin", null, new { @class = "dropdown-item" })</li>
                             <li><hr class="dropdown-divider"></li>
-                            <li>@Html.ActionLink("Delete or Update Course", "Manage_Teachers", "Admin", null, new { @class = "dropdown-item" })</li>
+                            <li>@Html.ActionLink("Delete or Update Course", "Manage_Courses", "Admin", null, new { @class = "dropdown-item" })</li>
                         </ul>
 
                     </li>
