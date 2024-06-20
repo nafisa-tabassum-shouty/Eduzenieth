@@ -139,37 +139,40 @@
     <Compile Include="Models\Announcement.cs" />
     <Compile Include="Models\Class1.cs" />
     <Compile Include="Models\Comment.cs">
-      <DependentUpon>Eduzenith.tt</DependentUpon>
+      <DependentUpon>Edu.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Course.cs">
-      <DependentUpon>Eduzenith.tt</DependentUpon>
+      <DependentUpon>Edu.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Eduzenith.Context.cs">
+    <Compile Include="Models\Edu.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Eduzenith.Context.tt</DependentUpon>
+      <DependentUpon>Edu.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Eduzenith.cs">
+    <Compile Include="Models\Edu.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Eduzenith.tt</DependentUpon>
+      <DependentUpon>Edu.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Eduzenith.Designer.cs">
+    <Compile Include="Models\Edu.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Eduzenith.edmx</DependentUpon>
+      <DependentUpon>Edu.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Enroll.cs">
-      <DependentUpon>Eduzenith.tt</DependentUpon>
+      <DependentUpon>Edu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Grade.cs">
+      <DependentUpon>Edu.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Post.cs">
-      <DependentUpon>Eduzenith.tt</DependentUpon>
+      <DependentUpon>Edu.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Student.cs">
-      <DependentUpon>Eduzenith.tt</DependentUpon>
+      <DependentUpon>Edu.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Teacher.cs">
-      <DependentUpon>Eduzenith.tt</DependentUpon>
+      <DependentUpon>Edu.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -197,15 +200,15 @@
     <Content Include="Image\registration.png" />
     <Content Include="Image\student_logo.png" />
     <Content Include="Image\Teacher_logo.png" />
-    <Content Include="Models\Eduzenith.Context.tt">
+    <Content Include="Models\Edu.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Eduzenith.edmx</DependentUpon>
-      <LastGenOutput>Eduzenith.Context.cs</LastGenOutput>
+      <DependentUpon>Edu.edmx</DependentUpon>
+      <LastGenOutput>Edu.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Eduzenith.tt">
+    <Content Include="Models\Edu.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Eduzenith.edmx</DependentUpon>
-      <LastGenOutput>Eduzenith.cs</LastGenOutput>
+      <DependentUpon>Edu.edmx</DependentUpon>
+      <LastGenOutput>Edu.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -213,12 +216,12 @@
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\Eduzenith.edmx">
+    <EntityDeploy Include="Models\Edu.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Eduzenith.Designer.cs</LastGenOutput>
+      <LastGenOutput>Edu.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\Eduzenith.edmx.diagram">
-      <DependentUpon>Eduzenith.edmx</DependentUpon>
+    <Content Include="Models\Edu.edmx.diagram">
+      <DependentUpon>Edu.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

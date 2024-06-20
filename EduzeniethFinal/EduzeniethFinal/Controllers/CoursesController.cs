@@ -7,6 +7,7 @@ using System.Net;
 using System.Security.Cryptography;
 using System.Web;
 using System.Web.Mvc;
+using System.Xml.Linq;
 
 namespace EduzeniethFinal.Controllers
 {
@@ -23,7 +24,7 @@ namespace EduzeniethFinal.Controllers
             var students = new List<Student>();
 
             var teachers = new List<Teacher>();
-            using (var db1 = new EduzenithFinalEntities4())
+            using (var db1 = new EduzenithFinalEntities6())
             {
                 // Retrieve sid values for the specific cid
                 sidsForCid = db1.Enrolls
@@ -51,7 +52,7 @@ namespace EduzeniethFinal.Controllers
             }
 
 
-            EduzenithFinalEntities4 db = new EduzenithFinalEntities4();
+            EduzenithFinalEntities6 db = new EduzenithFinalEntities6();
 
             // Retrieve enrolled students and teachers from the database
             List<string> enrolledStudents = ViewBag.FullNames;
@@ -73,9 +74,18 @@ namespace EduzeniethFinal.Controllers
                                 ? db.Students.FirstOrDefault(s => s.StudentID == p.UserID).FirstName + " " + db.Students.FirstOrDefault(s => s.StudentID == p.UserID).LastName
                                 : ""),
                         PostedDate = p.PostDate,
-                        Comments = p.Comments.Select(c => c.CommentContent).ToList()
-                    })
-                    .ToList();
+                        Comments = db.Comments.Where(c => c.PostID == p.PostID).Select(c => new CommentModel
+                        {
+                            CommentContent = c.CommentContent,
+                            CommentedBy = c.UserStatus == 1
+                                ? (db.Teachers.FirstOrDefault(t => t.Id == c.UserID) != null
+                                    ? db.Teachers.FirstOrDefault(t => t.Id == c.UserID).first_name + " " + db.Teachers.FirstOrDefault(t => t.Id == c.UserID).last_name
+                                    : "")
+                                : (db.Students.FirstOrDefault(s => s.StudentID == c.UserID) != null
+                                    ? db.Students.FirstOrDefault(s => s.StudentID == c.UserID).FirstName + " " + db.Students.FirstOrDefault(s => s.StudentID == c.UserID).LastName
+                                    : "")
+                        }).ToList()
+                    }).ToList();
 
 
             // Pass data to the view
@@ -90,7 +100,7 @@ namespace EduzeniethFinal.Controllers
         [HttpPost]
         public ActionResult PostAnnouncement(string announcement)
         {
-            EduzenithFinalEntities4 db = new EduzenithFinalEntities4();
+            EduzenithFinalEntities6  db = new EduzenithFinalEntities6();
             int userId;
             int userStatus;
 
@@ -124,38 +134,30 @@ namespace EduzeniethFinal.Controllers
 
         // POST: Classroom/PostComment
         [HttpPost]
-        public ActionResult PostComment(string comment)
+        public ActionResult PostComment(string comment, int postId)
         {
-            EduzenithFinalEntities4 db = new EduzenithFinalEntities4();
+            EduzenithFinalEntities6 db = new EduzenithFinalEntities6();
             int userId;
             int userStatus;
-            int announcementId = -1;
-            if (ViewBag.postId != null && ViewBag.postId is int)
-            {
-                announcementId = (int)ViewBag.postId;
-            }
-            else
-            {
-                // Handle the case where the value is null or not of type int
-                // For example, you could assign a default value or show an error message
-                // announcementId = defaultValue;
-            }
+
+            // Determine user ID and status from session
             if (Session["id"] == null && Session["T_id"] != null)
             {
                 userId = (int)Session["T_id"];
-                userStatus = 1;
+                userStatus = 1; // Assuming 1 is for teachers
             }
             else
             {
                 userId = (int)Session["id"];
-                userStatus = 0;
+                userStatus = 0; // Assuming 0 is for students
             }
-            // Insert the comment into the database for the specified announcement
-            if (announcementId != 0) // Replace 0 with the default value if different
+
+            // Insert the comment into the database for the specified post
+            if (postId > 0)
             {
                 Comment newComment = new Comment
                 {
-                    PostID = announcementId,
+                    PostID = postId,
                     UserID = userId,
                     UserStatus = userStatus,
                     CommentContent = comment,
@@ -166,12 +168,11 @@ namespace EduzeniethFinal.Controllers
             }
             else
             {
-                // Handle the case where announcementId is not assigned a valid value
+                // Handle the case where postId is not assigned a valid value
                 // For example, log an error or show an appropriate message to the user
             }
 
-
-            // Redirect to the index page after posting the comment
+            // Redirect to the course details page after posting the comment
             return RedirectToAction("CourseDetails", "Courses");
         }
 
@@ -197,7 +198,8 @@ namespace EduzeniethFinal.Controllers
 
 
 
-        
+
+
 
 
 

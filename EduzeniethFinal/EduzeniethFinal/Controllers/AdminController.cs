@@ -22,7 +22,7 @@ namespace EduzeniethFinal.Controllers
             return View();
         }
 
-        private EduzenithFinalEntities4 db = new EduzenithFinalEntities4();
+        private EduzenithFinalEntities6  db = new EduzenithFinalEntities6();
 
         [HttpPost]
         [ValidateAntiForgeryToken]

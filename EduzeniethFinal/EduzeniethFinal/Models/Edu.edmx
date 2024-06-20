@@ -36,6 +36,20 @@
           <Property Name="cid" Type="int" Nullable="false" />
           <Property Name="status" Type="int" />
         </EntityType>
+        <EntityType Name="Grades">
+          <Key>
+            <PropertyRef Name="GradeID" />
+          </Key>
+          <Property Name="GradeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Grade" Type="char" MaxLength="20" />
+          <Property Name="GradeDate" Type="date" />
+          <Property Name="Course_Id" Type="int" />
+          <Property Name="Course_Name" Type="varchar" MaxLength="250" />
+          <Property Name="TeacherID" Type="int" />
+          <Property Name="Teacher_Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="StudentID" Type="int" />
+          <Property Name="StudentName" Type="nvarchar" MaxLength="100" />
+        </EntityType>
         <EntityType Name="Posts">
           <Key>
             <PropertyRef Name="PostID" />
@@ -89,45 +103,14 @@
           <Property Name="NID_PassportNo" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="Status" Type="int" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Comments__PostID__2DE6D218">
-          <End Role="Posts" Type="Self.Posts" Multiplicity="1" />
-          <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Posts">
-              <PropertyRef Name="PostID" />
-            </Principal>
-            <Dependent Role="Comments">
-              <PropertyRef Name="PostID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Posts__CourseID__2A164134">
-          <End Role="Course" Type="Self.Course" Multiplicity="1" />
-          <End Role="Posts" Type="Self.Posts" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Course">
-              <PropertyRef Name="Course_Id" />
-            </Principal>
-            <Dependent Role="Posts">
-              <PropertyRef Name="CourseID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="EduzenithFinalModelStoreContainer">
           <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Enroll" EntityType="Self.Enroll" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Grades" EntityType="Self.Grades" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Posts" EntityType="Self.Posts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Teacher" EntityType="Self.Teacher" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Comments__PostID__2DE6D218" Association="Self.FK__Comments__PostID__2DE6D218">
-            <End Role="Posts" EntitySet="Posts" />
-            <End Role="Comments" EntitySet="Comments" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Posts__CourseID__2A164134" Association="Self.FK__Posts__CourseID__2A164134">
-            <End Role="Course" EntitySet="Course" />
-            <End Role="Posts" EntitySet="Posts" />
-          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -144,7 +127,6 @@
           <Property Name="UserStatus" Type="Int32" Nullable="false" />
           <Property Name="CommentContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CommentDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Post" Relationship="Self.FK__Comments__PostID__2DE6D218" FromRole="Comments" ToRole="Posts" />
         </EntityType>
         <EntityType Name="Course">
           <Key>
@@ -156,7 +138,6 @@
           <Property Name="teacherID" Type="Int32" />
           <Property Name="Course_desc" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Created_at" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Posts" Relationship="Self.FK__Posts__CourseID__2A164134" FromRole="Course" ToRole="Posts" />
         </EntityType>
         <EntityType Name="Enroll">
           <Key>
@@ -166,6 +147,20 @@
           <Property Name="sid" Type="Int32" Nullable="false" />
           <Property Name="cid" Type="Int32" Nullable="false" />
           <Property Name="status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Grade">
+          <Key>
+            <PropertyRef Name="GradeID" />
+          </Key>
+          <Property Name="GradeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Grade1" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="GradeDate" Type="DateTime" Precision="0" />
+          <Property Name="Course_Id" Type="Int32" />
+          <Property Name="Course_Name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="TeacherID" Type="Int32" />
+          <Property Name="Teacher_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="StudentID" Type="Int32" />
+          <Property Name="StudentName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Post">
           <Key>
@@ -178,8 +173,6 @@
           <Property Name="UserID" Type="Int32" Nullable="false" />
           <Property Name="UserStatus" Type="Int32" Nullable="false" />
           <Property Name="PostType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Comments" Relationship="Self.FK__Comments__PostID__2DE6D218" FromRole="Posts" ToRole="Comments" />
-          <NavigationProperty Name="Course" Relationship="Self.FK__Posts__CourseID__2A164134" FromRole="Posts" ToRole="Course" />
         </EntityType>
         <EntityType Name="Student">
           <Key>
@@ -222,52 +215,21 @@
           <Property Name="NID_PassportNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Status" Type="Int32" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Comments__PostID__2DE6D218">
-          <End Type="Self.Post" Multiplicity="1" Role="Posts" />
-          <End Type="Self.Comment" Multiplicity="*" Role="Comments" />
-          <ReferentialConstraint>
-            <Principal Role="Posts">
-              <PropertyRef Name="PostID" />
-            </Principal>
-            <Dependent Role="Comments">
-              <PropertyRef Name="PostID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Posts__CourseID__2A164134">
-          <End Type="Self.Course" Multiplicity="1" Role="Course" />
-          <End Type="Self.Post" Multiplicity="*" Role="Posts" />
-          <ReferentialConstraint>
-            <Principal Role="Course">
-              <PropertyRef Name="Course_Id" />
-            </Principal>
-            <Dependent Role="Posts">
-              <PropertyRef Name="CourseID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="EduzenithFinalEntities4" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="EduzenithFinalEntities6" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Comments" EntityType="Self.Comment" />
           <EntitySet Name="Courses" EntityType="Self.Course" />
           <EntitySet Name="Enrolls" EntityType="Self.Enroll" />
+          <EntitySet Name="Grades" EntityType="Self.Grade" />
           <EntitySet Name="Posts" EntityType="Self.Post" />
           <EntitySet Name="Students" EntityType="Self.Student" />
           <EntitySet Name="Teachers" EntityType="Self.Teacher" />
-          <AssociationSet Name="FK__Comments__PostID__2DE6D218" Association="Self.FK__Comments__PostID__2DE6D218">
-            <End EntitySet="Posts" Role="Posts" />
-            <End EntitySet="Comments" Role="Comments" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Posts__CourseID__2A164134" Association="Self.FK__Posts__CourseID__2A164134">
-            <End EntitySet="Courses" Role="Course" />
-            <End EntitySet="Posts" Role="Posts" />
-          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="EduzenithFinalModelStoreContainer" CdmEntityContainer="EduzenithFinalEntities4">
+        <EntityContainerMapping StorageEntityContainer="EduzenithFinalModelStoreContainer" CdmEntityContainer="EduzenithFinalEntities6">
           <EntitySetMapping Name="Comments">
             <EntityTypeMapping TypeName="EduzenithFinalModel.Comment">
               <MappingFragment StoreEntitySet="Comments">
@@ -299,6 +261,21 @@
                 <ScalarProperty Name="sid" ColumnName="sid" />
                 <ScalarProperty Name="cid" ColumnName="cid" />
                 <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Grades">
+            <EntityTypeMapping TypeName="EduzenithFinalModel.Grade">
+              <MappingFragment StoreEntitySet="Grades">
+                <ScalarProperty Name="GradeID" ColumnName="GradeID" />
+                <ScalarProperty Name="Grade1" ColumnName="Grade" />
+                <ScalarProperty Name="GradeDate" ColumnName="GradeDate" />
+                <ScalarProperty Name="Course_Id" ColumnName="Course_Id" />
+                <ScalarProperty Name="Course_Name" ColumnName="Course_Name" />
+                <ScalarProperty Name="TeacherID" ColumnName="TeacherID" />
+                <ScalarProperty Name="Teacher_Name" ColumnName="Teacher_Name" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="StudentName" ColumnName="StudentName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

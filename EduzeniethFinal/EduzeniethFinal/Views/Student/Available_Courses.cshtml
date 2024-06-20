@@ -75,15 +75,12 @@
             {
                 <div>
                     <div>
-
-
                         <header>
                             <h3>Course Name: @Html.DisplayFor(modelItem => item.Course_Name)</h3>
                         </header>
 
                         <section>
                             <div style="float: left; width: 30%; height: 300px; background: #A0F0FF; padding: 20px; ">
-
                             </div>
 
                             <article>
@@ -91,29 +88,32 @@
                                 <h5>Course Teacher id or name: @Html.DisplayFor(modelItem => item.teacherID)</h5>
                                 <p>Course Description : @Html.DisplayFor(modelItem => item.Course_desc)</p>
                                 <p>Course created at: @Html.DisplayFor(modelItem => item.Created_at)</p>
-                                @{ViewBag.id = item.Course_Id;
-                                    ViewBag.name = item.Course_Name;}
+                                @{
+                                    ViewBag.id = item.Course_Id;
+                                    ViewBag.name = item.Course_Name;
+                                }
                             </article>
                         </section>
 
                         <footer>
-
-                            <div class="form-container" style=" display: flex; justify-content: center; align-items: center; height: 100%;">
-                                <form method="post" style="padding-top:2px;">
+                            <div class="form-container" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                                @using (Html.BeginForm("Available_Courses", "Student", FormMethod.Post))
+                                {
                                     <div class="input-group input-group-sm mb-3">
                                         <span class="input-group-text" id="inputGroup-sizing-sm">Course Code:</span>
-                                        <input type="text" class="form-control" name="Course_Id" placeholder="Enter Code for Enroll" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                        <input type="text" class="form-control" name="Course_Code" placeholder="Enter Code for Enroll" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                        @* Hidden field to store Course ID *@
+                                        <input type="hidden" name="Course_Id" value="@item.Course_Id" />
                                         <input type="submit" value="Enroll" class="btn btn-primary">
                                     </div>
-                                </form>
+                                }
                             </div>
-
                         </footer>
                         <div style="padding:20px;"></div>
-
                     </div>
                 </div>
             }
+
 
             @if (@ViewBag.Log != null)
             {

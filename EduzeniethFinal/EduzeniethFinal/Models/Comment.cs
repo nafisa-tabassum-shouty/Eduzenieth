@@ -20,7 +20,5 @@ namespace EduzeniethFinal.Models
         public int UserStatus { get; set; }
         public string CommentContent { get; set; }
         public System.DateTime CommentDate { get; set; }
-    
-        public virtual Post Post { get; set; }
     }
 }

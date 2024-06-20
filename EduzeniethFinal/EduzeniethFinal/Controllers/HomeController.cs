@@ -28,7 +28,7 @@ namespace EduzeniethFinal.Controllers
 
             return View();
         }
-        private EduzenithFinalEntities4 db = new EduzenithFinalEntities4();
+        private EduzenithFinalEntities6 db = new EduzenithFinalEntities6();
 
         public ActionResult Registration()
         {
@@ -59,7 +59,7 @@ namespace EduzeniethFinal.Controllers
         [HttpPost]
         public ActionResult Login(string username, string password)
         {
-            using (var db = new EduzenithFinalEntities4()) // Replace YourDbContext with your actual DbContext
+            using (var db = new EduzenithFinalEntities6 ()) // Replace YourDbContext with your actual DbContext
             {
                 var student = db.Students.FirstOrDefault(s => s.Username == username && s.Password == password && s.Status == 1);
                 if (student != null)

@@ -13,10 +13,10 @@ namespace EduzeniethFinal.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class EduzenithFinalEntities4 : DbContext
+    public partial class EduzenithFinalEntities6 : DbContext
     {
-        public EduzenithFinalEntities4()
-            : base("name=EduzenithFinalEntities4")
+        public EduzenithFinalEntities6()
+            : base("name=EduzenithFinalEntities6")
         {
         }
     
@@ -28,6 +28,7 @@ namespace EduzeniethFinal.Models
         public virtual DbSet<Comment> Comments { get; set; }
         public virtual DbSet<Course> Courses { get; set; }
         public virtual DbSet<Enroll> Enrolls { get; set; }
+        public virtual DbSet<Grade> Grades { get; set; }
         public virtual DbSet<Post> Posts { get; set; }
         public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<Teacher> Teachers { get; set; }

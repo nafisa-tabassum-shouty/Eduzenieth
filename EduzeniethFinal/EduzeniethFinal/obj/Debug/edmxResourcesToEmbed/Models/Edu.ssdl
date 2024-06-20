@@ -1,11 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="EduzenithFinalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Comments">
+    <Key>
+      <PropertyRef Name="CommentID" />
+    </Key>
+    <Property Name="CommentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PostID" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="UserStatus" Type="int" Nullable="false" />
+    <Property Name="CommentContent" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CommentDate" Type="datetime" Nullable="false" />
+  </EntityType>
   <EntityType Name="Course">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="Course_Id" />
     </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Course_Id" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Course_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Course_Code" Type="varchar" MaxLength="15" Nullable="false" />
     <Property Name="Course_Name" Type="varchar" MaxLength="250" Nullable="false" />
     <Property Name="teacherID" Type="int" />
     <Property Name="Course_desc" Type="varchar" MaxLength="250" Nullable="false" />
@@ -20,11 +31,37 @@
     <Property Name="cid" Type="int" Nullable="false" />
     <Property Name="status" Type="int" />
   </EntityType>
+  <EntityType Name="Grades">
+    <Key>
+      <PropertyRef Name="GradeID" />
+    </Key>
+    <Property Name="GradeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Grade" Type="char" MaxLength="20" />
+    <Property Name="GradeDate" Type="date" />
+    <Property Name="Course_Id" Type="int" />
+    <Property Name="Course_Name" Type="varchar" MaxLength="250" />
+    <Property Name="TeacherID" Type="int" />
+    <Property Name="Teacher_Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="StudentID" Type="int" />
+    <Property Name="StudentName" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Posts">
+    <Key>
+      <PropertyRef Name="PostID" />
+    </Key>
+    <Property Name="PostID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CourseID" Type="int" Nullable="false" />
+    <Property Name="PostContent" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PostDate" Type="datetime" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="UserStatus" Type="int" Nullable="false" />
+    <Property Name="PostType" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <EntityType Name="Student">
     <Key>
       <PropertyRef Name="StudentID" />
     </Key>
-    <Property Name="StudentID" Type="int" Nullable="false" />
+    <Property Name="StudentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Nationality" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="MobileNumber" Type="nvarchar" MaxLength="20" />
@@ -37,6 +74,7 @@
     <Property Name="DateOfBirth" Type="date" />
     <Property Name="BloodGroup" Type="nvarchar" MaxLength="10" />
     <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Status" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Teacher">
     <Key>
@@ -58,10 +96,14 @@
     <Property Name="Gender" Type="varchar" MaxLength="10" Nullable="false" />
     <Property Name="EducationalField" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="NID_PassportNo" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Status" Type="int" Nullable="false" />
   </EntityType>
   <EntityContainer Name="EduzenithFinalModelStoreContainer">
+    <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Enroll" EntityType="Self.Enroll" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Grades" EntityType="Self.Grades" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Posts" EntityType="Self.Posts" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Teacher" EntityType="Self.Teacher" Schema="dbo" store:Type="Tables" />
   </EntityContainer>

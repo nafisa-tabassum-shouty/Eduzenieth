@@ -10,7 +10,7 @@ namespace EduzeniethFinal.Controllers
 {
     public class TeacherController : Controller
     {
-        private EduzenithFinalEntities4 db = new EduzenithFinalEntities4();
+        private EduzenithFinalEntities6 db = new EduzenithFinalEntities6();
         // GET: Teacher
         public ActionResult Login()
         {
@@ -21,7 +21,7 @@ namespace EduzeniethFinal.Controllers
         [HttpPost]
         public ActionResult Login(string username, string password)
         {
-            using (var db = new EduzenithFinalEntities4())
+            using (var db = new EduzenithFinalEntities6())
             {
                 var teacher = db.Teachers.FirstOrDefault(t => t.Username == username && t.Password == password && t.Status == 1);
                 if (teacher != null)
@@ -64,7 +64,7 @@ namespace EduzeniethFinal.Controllers
             if (ModelState.IsValid)
             {
                 // Assuming "db" is your DbContext instance
-                using (var db = new EduzenithFinalEntities4())
+                using (var db = new EduzenithFinalEntities6())
                 {
                     db.Teachers.Add(teacher);
                     db.SaveChanges();

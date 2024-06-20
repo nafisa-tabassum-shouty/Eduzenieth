@@ -12,13 +12,16 @@ namespace EduzeniethFinal.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Course
+    public partial class Grade
     {
-        public int Course_Id { get; set; }
-        public string Course_Code { get; set; }
+        public int GradeID { get; set; }
+        public string Grade1 { get; set; }
+        public Nullable<System.DateTime> GradeDate { get; set; }
+        public Nullable<int> Course_Id { get; set; }
         public string Course_Name { get; set; }
-        public Nullable<int> teacherID { get; set; }
-        public string Course_desc { get; set; }
-        public System.DateTime Created_at { get; set; }
+        public Nullable<int> TeacherID { get; set; }
+        public string Teacher_Name { get; set; }
+        public Nullable<int> StudentID { get; set; }
+        public string StudentName { get; set; }
     }
 }

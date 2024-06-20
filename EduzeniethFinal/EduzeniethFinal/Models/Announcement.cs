@@ -12,11 +12,16 @@ namespace EduzeniethFinal.Models
         public string Content { get; set; }
         public string PostedBy { get; set; }
         public DateTime PostedDate { get; set; }
-        public List<string> Comments { get; set; }
+        public List<CommentModel> Comments { get; set; }
     }
     public class Admin
     {
         public string username { get; set; }
         public string password { get; set; }
+    }
+    public class CommentModel
+    {
+        public string CommentContent { get; set; }
+        public string CommentedBy { get; set; }
     }
 }

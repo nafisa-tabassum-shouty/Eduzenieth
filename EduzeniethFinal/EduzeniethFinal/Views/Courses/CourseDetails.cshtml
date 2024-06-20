@@ -69,16 +69,18 @@
                                 <ul class="list-group list-group-flush">
                                     @foreach (var comment in announcement.Comments)
                                     {
-                                        <li class="list-group-item">@comment</li>
+                                        <li class="list-group-item">
+                                            <strong>@comment.CommentedBy:</strong> @comment.CommentContent
+                                        </li>
                                     }
                                 </ul>
                             }
                             @using (Html.BeginForm("PostComment", "Courses", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                             {
-                                ViewBag.postId = announcement.PID;
                                 <div class="form-group mt-3">
                                     <textarea class="form-control" name="comment" placeholder="Write a comment..."></textarea>
                                 </div>
+                                <input type="hidden" name="postId" value="@announcement.PID" />
                                 <button type="submit" class="btn btn-primary">Post Comment</button>
                             }
 

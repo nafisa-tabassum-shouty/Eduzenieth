@@ -14,12 +14,6 @@ namespace EduzeniethFinal.Models
     
     public partial class Post
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Post()
-        {
-            this.Comments = new HashSet<Comment>();
-        }
-    
         public int PostID { get; set; }
         public int CourseID { get; set; }
         public string PostContent { get; set; }
@@ -27,9 +21,5 @@ namespace EduzeniethFinal.Models
         public int UserID { get; set; }
         public int UserStatus { get; set; }
         public string PostType { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Comment> Comments { get; set; }
-        public virtual Course Course { get; set; }
     }
 }
