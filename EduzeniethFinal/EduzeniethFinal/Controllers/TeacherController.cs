@@ -30,7 +30,7 @@ namespace EduzeniethFinal.Controllers
                     // Redirect to dashboard or any other page
                     Session["T_id"] = teacher.Id;
                     Session["T_username"] = teacher.Username;
-                    return RedirectToAction("Available_Courses", "Teacher");
+                    return RedirectToAction("Teacher_Details", "Teacher");
                 }
                 else
                 {
@@ -72,9 +72,12 @@ namespace EduzeniethFinal.Controllers
                     // Set session variables
                     Session["T_id"] = teacher.Id;
                     Session["T_username"] = teacher.Username;
+
+                    TempData["ShowAlert"] = true;
                 }
 
-                return RedirectToAction("Available_Courses", "Student");
+
+                return RedirectToAction("Index", "Home");
             }
 
             return View(teacher);
