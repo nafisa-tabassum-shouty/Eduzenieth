@@ -164,3 +164,7 @@ E:\study material\New folder\sd\0.Eduzenith\Eduzenieth-with-github\EduzeniethFin
 E:\study material\New folder\sd\0.Eduzenith\Eduzenieth-with-github\EduzeniethFinal\EduzeniethFinal\obj\Debug\Eduzenie.A860BCCB.Up2Date
 E:\study material\New folder\sd\0.Eduzenith\Eduzenieth-with-github\EduzeniethFinal\EduzeniethFinal\obj\Debug\EduzeniethFinal.dll
 E:\study material\New folder\sd\0.Eduzenith\Eduzenieth-with-github\EduzeniethFinal\EduzeniethFinal\obj\Debug\EduzeniethFinal.pdb
+G:\personal\study\3.2\SD Lab\ez\Eduzenieth\EduzeniethFinal\EduzeniethFinal\obj\Debug\EduzeniethFinal.csproj.AssemblyReference.cache
+G:\personal\study\3.2\SD Lab\ez\Eduzenieth\EduzeniethFinal\EduzeniethFinal\obj\Debug\EduzeniethFinal.csproj.CoreCompileInputs.cache
+G:\personal\study\3.2\SD Lab\ez\Eduzenieth\EduzeniethFinal\EduzeniethFinal\obj\Debug\EduzeniethFinal.dll
+G:\personal\study\3.2\SD Lab\ez\Eduzenieth\EduzeniethFinal\EduzeniethFinal\obj\Debug\EduzeniethFinal.pdb
