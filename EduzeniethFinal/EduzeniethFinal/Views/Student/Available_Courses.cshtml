@@ -1,128 +1,71 @@
 ﻿@model IEnumerable<EduzeniethFinal.Models.Course>
 @{
     ViewBag.Title = "Available_Courses";
-
     Layout = "~/Views/Shared/Student.cshtml";
-
 }
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
-    <title>@ViewBag.Title </title>
+    <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <style>
-        * {
-            box-sizing: border-box;
+        .course-item {
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        body {
-            /*font-family: Arial, Helvetica, sans-serif;*/
-        }
-        header {
-            background-color: #6CADFF;
-            padding: 5px;
-            text-align: center;
-            font-size: 18px;
-            color: white;
-        }
+            .course-item:hover {
+                transform: scale(1.05);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
 
-
-
-        article {
-            float: left;
-            padding: 20px;
-            width: 70%;
-            background-color: #EDF5FF;
-            height: 300px; /* only for demonstration, should be removed */
-        }
-
-        /* Clear floats after the columns */
-        section::after {
-            content: "";
-            display: table;
-            clear: both;
-        }
-
-        /* Style the footer */
-        footer {
-            background-color: #6CADFF;
-            padding: 10px;
-            text-align: center;
-            color: white;
-        }
-
-        media (max-width: 600px) {
-            article
-
-        {
-            width: 100%;
-            height: auto;
-        }
+        .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="row">
-            <div>
-                <h2 style="padding:50px;">Available_Courses</h2>
+            <div class="col-12">
+                <h2 style="padding:50px;">Available Courses</h2>
                 <hr />
-
-
             </div>
             @foreach (var item in Model)
             {
-                <div>
-                    <div>
-                        <header>
-                            <h3>Course Name: @Html.DisplayFor(modelItem => item.Course_Name)</h3>
-                        </header>
-
-                        <section>
-                            <div style="float: left; width: 30%; height: 300px; background: #A0F0FF; padding: 20px; ">
-                            </div>
-
-                            <article>
-                                <h4>Course Code : @Html.DisplayFor(modelItem => item.Course_Code)</h4>
-                                <h5>Course Teacher id or name: @Html.DisplayFor(modelItem => item.teacherID)</h5>
-                                <p>Course Description : @Html.DisplayFor(modelItem => item.Course_desc)</p>
-                                <p>Course created at: @Html.DisplayFor(modelItem => item.Created_at)</p>
-                                @{
-                                    ViewBag.id = item.Course_Id;
-                                    ViewBag.name = item.Course_Name;
-                                }
-                            </article>
-                        </section>
-
-                        <footer>
-                            <div class="form-container" style="display: flex; justify-content: center; align-items: center; height: 100%;">
-                                @using (Html.BeginForm("Available_Courses", "Student", FormMethod.Post))
-                                {
-                                    <div class="input-group input-group-sm mb-3">
-                                        <span class="input-group-text" id="inputGroup-sizing-sm">Course Code:</span>
-                                        <input type="text" class="form-control" name="Course_Code" placeholder="Enter Code for Enroll" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                                        @* Hidden field to store Course ID *@
-                                        <input type="hidden" name="Course_Id" value="@item.Course_Id" />
-                                        <input type="submit" value="Enroll" class="btn btn-primary">
-                                    </div>
-                                }
-                            </div>
-                        </footer>
-                        <div style="padding:20px;"></div>
+                <div class="col-4 mb-4 course-item" style="height: 500px; width: 33.33%; background-color: aliceblue; ">
+                    <div style="padding: 20px; background-color: #0D6EFD; color:white;">
+                        <h6><strong>Course Code :</strong> @Html.DisplayFor(modelItem => item.Course_Code)</h6>
+                        <h6><strong>Course Name: </strong>@Html.DisplayFor(modelItem => item.Course_Name)</h6>
+                    </div>
+                    <div style="padding: 50px; background-color: aliceblue; height: 150px;">
+                        <h5>Course Teacher id or name: @Html.DisplayFor(modelItem => item.teacherID)</h5>
+                        <p>Course Description : @Html.DisplayFor(modelItem => item.Course_desc)</p>
+                        <p>Course created at: @Html.DisplayFor(modelItem => item.Created_at)</p>
+                    </div>
+                    <div style="height: 150px; background-color: aliceblue; display: flex; justify-content: center; align-items: center;">
+                        <div class="form-container">
+                            @using (Html.BeginForm("Available_Courses", "Student", FormMethod.Post))
+                            {
+                                <div class="input-group input-group-sm mb-3" style="width: 300px;">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">Course Code:</span>
+                                    <input type="text" class="form-control" name="Course_Code" placeholder="Enter Code for Enroll" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    @* Hidden field to store Course ID *@
+                                    <input type="hidden" name="Course_Id" value="@item.Course_Id" />
+                                    <input type="submit" value="Enroll" class="btn btn-primary">
+                                </div>
+                            }
+                        </div>
                     </div>
                 </div>
             }
-
-
-            @if (@ViewBag.Log != null)
-            {
-                <p>@ViewBag.Log</p>
-            }
+        </div>
+    </div>
 </body>
 </html>
-</html>
-
 
