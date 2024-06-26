@@ -44,9 +44,16 @@ namespace EduzeniethFinal.Controllers
                 teachers = db1.Teachers
                                  .Where(s => tidsForCid.Contains(s.Id))
                                  .ToList();
+                var course = db1.Courses.FirstOrDefault(e => e.Course_Id == cid);
 
-                // Concatenate first names and last names, then store in ViewBag
-                ViewBag.FullNames = students.Select(s => s.FirstName + " " + s.LastName).ToList();
+                if (course != null)
+                {
+                    string courseName = course.Course_Name;
+                    ViewBag.CourseName = courseName;
+                }
+
+                    // Concatenate first names and last names, then store in ViewBag
+                    ViewBag.FullNames = students.Select(s => s.FirstName + " " + s.LastName).ToList();
                 ViewBag.TFullNames = teachers.Select(s => s.first_name + " " + s.last_name).ToList();
 
             }

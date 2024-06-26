@@ -124,5 +124,63 @@ namespace EduzeniethFinal.Controllers
         }
 
 
+
+       
+
+        public ActionResult Grade()
+        {
+            ViewBag.Course_Id = new SelectList(db.Courses, "Course_Id", "Course_Name");
+            return View();
+        }
+
+        // POST: Grades/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Grade([Bind(Include = "GradeID,Grade1,GradeDate,Course_Id,Course_Name,TeacherID,Teacher_Name,StudentID,StudentName")] Grade grade)
+        {
+            if (ModelState.IsValid)
+            {
+                var selectedCourse = db.Courses.Find(grade.Course_Id);
+                if (selectedCourse != null)
+                {
+                    grade.Course_Name = selectedCourse.Course_Name;
+                    grade.TeacherID = selectedCourse.teacherID;
+
+                    var teacher = db.Teachers.Find(grade.TeacherID);
+                    if (teacher != null)
+                    {
+                        grade.Teacher_Name = teacher.first_name + " " + teacher.last_name;
+                    }
+                }
+
+                db.Grades.Add(grade);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.Course_Id = new SelectList(db.Courses, "Course_Id", "Course_Name", grade.Course_Id);
+            return View(grade);
+        }
+
+        // GET: Grades/GetTeacherDetails/5
+        public JsonResult GetTeacherDetails(int courseId)
+        {
+            var course = db.Courses.Find(courseId);
+            if (course != null)
+            {
+                var teacher = db.Teachers.Find(course.teacherID);
+                if (teacher != null)
+                {
+                    return Json(new
+                    {
+                        teacherID = teacher.Id,
+                        teacherName = teacher.first_name + " " + teacher.last_name
+                    }, JsonRequestBehavior.AllowGet);
+                }
+            }
+            return Json(null, JsonRequestBehavior.AllowGet);
+        }
+
+
     }
 }

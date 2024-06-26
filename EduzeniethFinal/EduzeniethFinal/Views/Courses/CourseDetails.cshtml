@@ -1,4 +1,4 @@
-﻿@{ 
+﻿@{
     Layout = "~/Views/Shared/Student.cshtml";
 }
 <!DOCTYPE html>
@@ -9,89 +9,177 @@
     <title>Classroom</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #F0F8FF;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .header {
+            background-color: #0D6EFD;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+            .header:hover {
+                background-color: #0948ba;
+            }
+
+        .container {
+            margin-top: 30px;
+        }
+
+        .card {
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+            .card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            }
+
+        .form-control {
+            margin-bottom: 10px;
+            transition: border-color 0.3s ease;
+        }
+
+            .form-control:focus {
+                border-color: #0D6EFD;
+                box-shadow: 0 0 5px rgba(13, 110, 253, 0.5);
+            }
+
+        .section-title {
+            margin-top: 30px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #0D6EFD;
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background-color: #0D6EFD;
+            border-color: #0D6EFD;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+            .btn-primary:hover {
+                background-color: #0948ba;
+                box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            }
+
+        .btn-center {
+            display: flex;
+            justify-content: center;
+        }
+
+        .announcement-section {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+    </style>
 </head>
-<body style="background-color: #DAE3F3;">
-    <div class="container mt-5">
-        <!-- Enrolled Student List -->
-        <div class="row mb-4">
-            <div class="col">
-                <h3>Enrolled Students</h3>
-                <ul class="list-group">
-                    @foreach (var student in ViewBag.EnrolledStudents)
-                    {
-                        <li class="list-group-item">@student</li>
-                    }
-                </ul>
-            </div>
-        </div>
-
-        <div class="row mb-4">
-            <div class="col">
-                <h3>Enrolled Teachers</h3>
-                <ul class="list-group">
-                    @foreach (var teacher in ViewBag.EnrolledTeachers)
-                    {
-                        <li class="list-group-item">@teacher</li>
-                    }
-                </ul>
-            </div>
-        </div>
-
-        <div class="container">
-            <!-- Announce Something Form -->
-            <div class="row mb-4">
-                <div class="col">
-                    <h3>Announce Something</h3>
-                    <form action="/courses/PostAnnouncement" method="post">
-                        <textarea name="announcement" rows="4" cols="50"></textarea><br>
-                        <input type="submit" value="Post Announcement">
-                    </form>
-
-                </div>
-            </div>
-
-            <!-- Display Announcements -->
-            <div class="row mb-4">
-                <div class="col">
-                    <h3>Previous Announcements</h3>
-                    @foreach (var announcement in ViewBag.Announcements)
-                    {
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title">@announcement.Title</h5>
-                                <p class="card-text">@announcement.PostedBy : @announcement.Content</p>
-                                <p class="card-text">
-                                    <small class="text-muted">Posted by @announcement.PostedBy on @announcement.PostedDate</small>
-                                </p>
-                            </div>
-                            @if (announcement.Comments != null && announcement.Comments.Count > 0)
-                            {
-                                <ul class="list-group list-group-flush">
-                                    @foreach (var comment in announcement.Comments)
-                                    {
-                                        <li class="list-group-item">
-                                            <strong>@comment.CommentedBy:</strong> @comment.CommentContent
-                                        </li>
-                                    }
-                                </ul>
-                            }
-                            @using (Html.BeginForm("PostComment", "Courses", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                            {
-                                <div class="form-group mt-3">
-                                    <textarea class="form-control" name="comment" placeholder="Write a comment..."></textarea>
-                                </div>
-                                <input type="hidden" name="postId" value="@announcement.PID" />
-                                <button type="submit" class="btn btn-primary">Post Comment</button>
-                            }
-
-                        </div>
-                    }
-                </div>
-            </div>
-        </div>
-
-
+<body>
+    <div class="header">
+        <h1>@ViewBag.CourseName</h1>
     </div>
+
+    <div class="container">
+        <!-- Enrolled Students Section -->
+        <section id="students">
+            <h2 class="section-title">Enrolled Students</h2>
+            <div class="row">
+                @foreach (var student in ViewBag.EnrolledStudents)
+                {
+                    <div class="col-md-3">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h5 class="card-title">@student</h5>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </section>
+
+        <!-- Enrolled Teachers Section -->
+        <section id="teachers">
+            <h2 class="section-title">Enrolled Teachers</h2>
+            <div class="row">
+                @foreach (var teacher in ViewBag.EnrolledTeachers)
+                {
+                    <div class="col-md-3">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h5 class="card-title">@teacher</h5>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </section>
+
+        <!-- Announce Something Form -->
+        <section id="announce">
+            <h2 class="section-title">Announce Something</h2>
+            <div class="row">
+                <div class="col-12">
+                    <form action="/courses/PostAnnouncement" method="post">
+                        <div class="form-group">
+                            <textarea name="announcement" class="form-control" rows="4" placeholder="Write your announcement..." style="width: 100%;"></textarea>
+                        </div>
+                        <div class="btn">
+                            <button type="submit" class="btn btn-primary">Post Announcement</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Display Announcements -->
+        <section id="announcements">
+            <h2 class="section-title">Previous Announcements</h2>
+            @foreach (var announcement in ViewBag.Announcements)
+            {
+                <div class="card announcement-section">
+                    <div class="card-body">
+                        <h5 class="card-title">@announcement.Title</h5>
+                        <p class="card-text">@announcement.Content</p>
+                        <p class="card-text">
+                            <small class="text-muted">Posted by @announcement.PostedBy on @announcement.PostedDate</small>
+                        </p>
+                    </div>
+                    @if (announcement.Comments != null && announcement.Comments.Count > 0)
+                    {
+                        <ul class="list-group list-group-flush">
+                            @foreach (var comment in announcement.Comments)
+                            {
+                                <li class="list-group-item">
+                                    <strong>@comment.CommentedBy:</strong> @comment.CommentContent
+                                </li>
+                            }
+                        </ul>
+                    }
+                    <div class="card-body">
+                        @using (Html.BeginForm("PostComment", "Courses", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                        {
+                            <div class="form-group">
+                                <textarea class="form-control" name="comment" placeholder="Write a comment..." style="width: 100%;"></textarea>
+                            </div>
+                            <input type="hidden" name="postId" value="@announcement.PID" />
+                            <div class="btn-center">
+                                <button type="submit" class="btn btn-primary">Post Comment</button>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+        </section>
+    </div>
+
     <!-- Bootstrap JS (optional) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

@@ -1,0 +1,116 @@
+﻿@model EduzeniethFinal.Models.Grade
+
+@{
+    ViewBag.Title = "Upload Grade";
+}
+
+<h2>Upload Grade</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Grade</h4>
+        <hr />
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Grade1, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Grade1, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Grade1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GradeDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.GradeDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.GradeDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Course_Id, "Course", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Course_Id", null, htmlAttributes: new { @class = "form-control", @id = "courseDropdown" })
+                @Html.ValidationMessageFor(model => model.Course_Id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TeacherID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TeacherID, new { htmlAttributes = new { @class = "form-control", @id = "teacherID", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.TeacherID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Teacher_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Teacher_Name, new { htmlAttributes = new { @class = "form-control", @id = "teacherName", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.Teacher_Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.StudentID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.StudentID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.StudentID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.StudentName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.StudentName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.StudentName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Upload Grade" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#courseDropdown').change(function() {
+                var courseId = $(this).val();
+                if (courseId) {
+                    $.ajax({
+                        url: '@Url.Action("GetTeacherDetails", "Grades")',
+                        type: 'GET',
+                        data: { courseId: courseId },
+                        success: function(data) {
+                            if (data) {
+                                $('#teacherID').val(data.teacherID);
+                                $('#teacherName').val(data.teacherName);
+                            } else {
+                                $('#teacherID').val('');
+                                $('#teacherName').val('');
+                            }
+                        }
+                    });
+                } else {
+                    $('#teacherID').val('');
+                    $('#teacherName').val('');
+                }
+            });
+        });
+    </script>
+}
