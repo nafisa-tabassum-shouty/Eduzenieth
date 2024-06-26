@@ -80,6 +80,45 @@ namespace EduzeniethFinal.Controllers
                 }
             }
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+        private static List<string> imagePaths = new List<string>
+    {
+        "~/Image/Slider_1.png",
+        "~/Image/Slider_2.png",
+        "~/Image/Slider_3.png"
+    };
+
+        private static int currentIndex = 0;
+
+        [HttpGet]
+        public JsonResult GetNextImage()
+        {
+            currentIndex = (currentIndex + 1) % imagePaths.Count;
+            return Json(new { imagePath = Url.Content(imagePaths[currentIndex]) }, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult GetPreviousImage()
+        {
+            currentIndex = (currentIndex - 1 + imagePaths.Count) % imagePaths.Count;
+            return Json(new { imagePath = Url.Content(imagePaths[currentIndex]) }, JsonRequestBehavior.AllowGet);
+        }
+
+
+
+
     }
 
 }
