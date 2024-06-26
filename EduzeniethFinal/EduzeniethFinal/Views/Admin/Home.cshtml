@@ -12,54 +12,108 @@
     @Scripts.Render("~/bundles/modernizr")
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .card {
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+            .card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .list-group-item {
+            border: none;
+            transition: background-color 0.3s;
+            font-size: 16px; /* Initial font size */
+        }
+
+            .list-group-item:hover {
+                background-color: #f8f9fa; /* Change to a lighter shade */
+            }
+
+            .list-group-item a {
+                color: #0D6EFD; /* Default link color */
+                transition: color 0.3s, font-size 0.3s; /* Transition color and font size */
+                font-size: 16px; /* Initial font size */
+            }
+
+            .list-group-item:hover a {
+                color: #198754; /* Green color on hover */
+                font-size: 18px; /* Larger font size on hover */
+                text-decoration: none; /* Remove underline on hover */
+            }
+
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #6C757D;
+        }
+
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+    </style>
 </head>
 <body style="background-color: #DAE3F3;">
-  
 
     <div class="container body-content mt-4">
         <div class="row">
             <div class="col-md-8">
-                <article>
-                    <h2 style="color: #0D6EFD;">Admin Dashboard</h2>
-                    <p>Welcome to the EduZenith Admin Panel. From here, you can manage students, courses, view reports, and configure system settings. Use the navigation links to access different sections of the admin panel.</p>
-                </article>
+                <section class="card shadow-sm">
+                    <img src="~/Image/admin1.png" class="card-img-top" alt="Admin Dashboard Image">
+                    <div class="card-body">
+                        <h2 style="color: #0D6EFD;">Admin Dashboard</h2>
+                        <p>Welcome to the EduZenith Admin Panel. From here, you can manage students, courses, view reports, and configure system settings. Use the navigation links to access different sections of the admin panel.</p>
+                    </div>
+                </section>
 
-                <article>
-                    <h3 style="color: #0D6EFD;">Recent Activities</h3>
-                    <p>Keep track of the latest activities and updates on the platform. This section provides an overview of recent actions performed by administrators, students, and instructors.</p>
-                    <ul>
-                        <li>New student registrations: 15</li>
-                        <li>Courses created: 3</li>
-                        <li>Enrolled students: 45</li>
-                        <li>Support tickets resolved: 10</li>
-                    </ul>
-                </article>
+                <section class="card shadow-sm mt-4">
+                    <img src="~/Image/recent.png" class="card-img-top" alt="Recent Activities Image">
+                    <div class="card-body">
+                        <h3 style="color: #0D6EFD;">Recent Activities</h3>
+                        <p>Keep track of the latest activities and updates on the platform. This section provides an overview of recent actions performed by administrators, students, and instructors.</p>
+                        <ul>
+                            <li>New student registrations: 15</li>
+                            <li>Courses created: 3</li>
+                            <li>Enrolled students: 45</li>
+                            <li>Support tickets resolved: 10</li>
+                        </ul>
+                    </div>
+                </section>
             </div>
 
             <div class="col-md-4">
-                <aside>
-                    <h4 style="color: #0D6EFD;">Quick Links</h4>
-                    <ul class="list-group">
-                        <li>@Html.ActionLink("Dashboard", "Home", "Admin", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Student Management", "Manage_Students", "Admin", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Course Management", "Manage_Courses", "Admin", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Teacher Management", "Manage_Teachers", "Admin", new { area = "" }, new { @class = "nav-link" })</li>
-                    </ul>
+                <aside class="card shadow-sm">
+                    <img src="~/Image/clickbellow.png" class="card-img-top" alt="Quick Links Image">
+                    <div class="card-body">
+                        <h4 style="color: #0D6EFD;">Quick Links</h4>
+                        <ul class="list-group">
+                            <li class="list-group-item"><a href="@Url.Action("Home", "Admin", new { area = "" })" class="nav-link">Dashboard</a></li>
+                            <li class="list-group-item"><a href="@Url.Action("Manage_Students", "Admin", new { area = "" })" class="nav-link">Student Management</a></li>
+                            <li class="list-group-item"><a href="@Url.Action("Manage_Courses", "Admin", new { area = "" })" class="nav-link">Course Management</a></li>
+                            <li class="list-group-item"><a href="@Url.Action("Manage_Teachers", "Admin", new { area = "" })" class="nav-link">Teacher Management</a></li>
+                        </ul>
+                    </div>
                 </aside>
 
-                <aside class="mt-4">
-                    <h4 style="color: #0D6EFD;">Contact Support</h4>
-                    <p>If you need assistance or have any questions, feel free to reach out to our support team.</p>
-                    <p>Email: adminsupport@eduzenith.com</p>
-                    <p>Phone: +1 234 567 891</p>
+                <aside class="card shadow-sm mt-4">
+                    <img src="~/Image/contuctus.png" class="card-img-top" alt="Contact Support Image">
+                    <div class="card-body">
+                        <h4 style="color: #0D6EFD;">Contact Support</h4>
+                        <p>If you need assistance or have any questions, feel free to reach out to our support team.</p>
+                        <p>Email: adminsupport@eduzenith.com</p>
+                        <p>Phone: +1 234 567 891</p>
+                    </div>
                 </aside>
             </div>
         </div>
-
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - EduZenith Admin Panel</p>
-        </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
