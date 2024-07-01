@@ -14,16 +14,13 @@
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
     <script src="~/Scripts/bootstrap.bundle.min.js"></script>
     <style>
-        body {
-            background-color: #DAE3F3;
-        }
 
-        .navbar {
-            background-color: #083D77;
-        }
 
-        .navbar-brand, .nav-link {
-            color: #FFFFFF !important;
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
 
         .carousel-item img {
@@ -34,7 +31,7 @@
 
         .carousel-control-prev-icon,
         .carousel-control-next-icon {
-            background-color: #0D6EFD;
+            color: black;
         }
 
         .section-title h2 {
@@ -54,6 +51,7 @@
             background-color: #FFFFFF;
             color: #212529;
             border: 1px solid #F2F4F8;
+            text-align: center;
         }
 
         .btn-primary {
@@ -66,20 +64,24 @@
             }
 
         .moving-container {
-            width: 100%;
+            margin-top: 10px;
+            margin-left: -300px;
+            width: 150%;
             overflow: hidden;
             position: relative;
-            white-space: nowrap;
-            background-color: #f8f9fa;
-            padding: 10px 0;
+            /* white-space: nowrap;*/
+            background-color: gray;
+            padding: 5px 0 0 0;
+            border-radius: 10px;
         }
+
 
         .moving-div {
             display: inline-block;
             background-color: #007bff;
             color: white;
-            padding: 10px 20px;
-            font-size: 1.2em;
+            padding: 5px 10px;
+            font-size: 1.2;
             animation: move 10s linear infinite;
         }
 
@@ -92,87 +94,130 @@
                 transform: translateX(-100%);
             }
         }
+
+        .text-center1 {
+            margin: 0 0 0 -5%;
+            width: 110%;
+            font-family: 'Segoe UI';
+            display: inline-block;
+            background: linear-gradient(10deg,rgba(255,255,255,0.1),rgba(255,255,255,0.1));
+            backdrop-filter: blur(4px);
+            padding: 50px 30px 30px 20px;
+        }
     </style>
-    <script>
-        $(document).ready(function () {
-            // Initialize carousel with automatic sliding
-            $('#carouselExampleIndicators').carousel({
-                interval: 2000, // Adjust the interval time in milliseconds (e.g., 2000 for 2 seconds)
-                wrap: true // Wrap around at the end of slides
-            });
 
-              $('#nextButton').click(function () {
-            $.ajax({
-                url: '@Url.Action("GetNextImage", "Home")',
-                type: 'GET',
-                success: function (data) {
-                    $('#carouselImage').attr('src', data.imagePath);
-                }
-            });
-        });
-
-        $('#prevButton').click(function () {
-            $.ajax({
-                url: '@Url.Action("GetPreviousImage", "Home")',
-                type: 'GET',
-                success: function (data) {
-                    $('#carouselImage').attr('src', data.imagePath);
-                }
-            });
-        });
-    });
-    </script>
 </head>
-<body>
-    <div class="container">
-        <div class="moving-container">
-            <div class="moving-div">New interactive learning tools introduced in our classroom this term!</div>
+<body style="background-color:rgb(26 9 60);backdrop-filter:blur(10px);">
+    <div class="container1">
+        <div class="moving-container" style="height:40px;">
+            <p class="moving-div">New interactive learning tools introduced in our classroom this term! All new interface for Eduzenith!</p>
         </div>
+
     </div>
 
-    <div class="container mt-5">
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img id="carouselImage" class="d-block w-100" src="~/Image/Slider_1.png" alt="Slide">
-                </div>
-                <div class="carousel-item">
-                    <img id="carouselImage" class="d-block w-100" src="~/Image/Slider_2.png" alt="Slide">
-                </div>
-                <div class="carousel-item">
-                    <img id="carouselImage" class="d-block w-100" src="~/Image/Slider_3.png" alt="Slide">
+
+    <div id="carouselExampleCaptions" class="carousel slide" style="margin-top:4%;">
+
+        <div class="carousel-indicators">
+
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+
+        </div>
+
+        <style>
+            .carousel-caption {
+                border-radius: 4% 4% 4% 4%;
+                background: linear-gradient(10deg,rgba(255,255,255,0.1),rgba(255,255,255,0.1));
+                backdrop-filter: blur(4px);
+            }
+        </style>
+        <div class="carousel-inner" style="width:100rem; margin-left:-20%">
+
+            <div class="carousel-item active">
+                <img id="carouselImage" class="d-block w-100" src="~/Image/Slider_1.png" alt="Slide">
+                <div class="carousel-caption d-none d-md-block">
+                    <img src="~/Image/Eduzenith_logo.png" style="height:20%;width:20%;border-radius:50%">
+                    <h1 class="c-primary mt-3" style="color: indianred;"><b>EduZenith</b></h1>
+                    <p>The absolute learning and teaching platform.</p>
+                    <div class="d-flex justify-content-center">
+
+                        <button type="submit" value="Register as Student" class="btn btn-primary mx-2">Register As Student</button>
+                        <button type="submit" value="Register as Teacher" class="btn btn-primary mx-2">Register As Teacher</button>
+                    </div>
                 </div>
             </div>
-            <button id="prevButton" class="carousel-control-prev" role="button">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </button>
-            <button id="nextButton" class="carousel-control-next" role="button">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </button>
+            <div class="carousel-item ">
+                <img id="carouselImage" class="d-block w-100" src="~/Image/Slider_2.png" alt="Slide">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2>Define your Path</h2>
+                    <p>Earn valueble skills that will curve the path for your bright career.</p>
+                    <div class="d-flex justify-content-center">
+
+                        <input type="submit" value="Register as Student" class="btn btn-primary mx-2" />
+                        <input type="submit" value="Register as Teacher" class="btn btn-primary mx-2" />
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item ">
+                <img id="carouselImage" class="d-block w-100" src="~/Image/Slider_3.png" alt="Slide">
+                <div class="carousel-caption d-none d-md-block">
+                    <p style="font-size:33px;color:lightblue;display:inline-block;margin-left:10px;">"To believe in the heroic makes heroes."</p>
+                    <p>Teach in an controlled and advancing way where comfort is served</p>
+                </div>
+            </div>
         </div>
-
-
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
+
+    <style>
+        .card-body {
+            border-radius: 5%;
+        }
+
+        .card {
+        }
+
+        .spinner-grow {
+            height: 15px;
+            width: 15px;
+            margin-bottom: 10px;
+        }
+    </style>
+
+
 
     <section id="our_exemplary_services" class="our_exemplary_services section-bg py-5">
         <div class="container">
-            <div class="section-title text-center">
-                <h2><b>Benefits of Student Management Software for<span> School | College | Institute</span></b></h2>
+            <div class="section-title text-center" style="color:white;">
+                <h1 style="background-color:indigo;padding:0.5%;color:lightgray;border-radius:5%;"><b>Why EduZenith? </b></h1><br /> <h3>
+                    For
+                    <div class="spinner-grow text-success" role="status" style="margin-left: 2%; ">
+                        <span class="visually-hidden">Loading...</span>
+                    </div> School |
+                    <div class="spinner-grow text-danger" role="status" style="margin-left:2%;margin-right:2%;">
+                        <span class="visually-hidden">Loading...</span>
+                    </div> College |
+                    <div class="spinner-grow text-success" role="status" style="margin-left:2%;margin-right:2%;">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>Institute
+                </h3>
                 <span class="sub-text">Revolutionize Your Institution with EduZenith Student Management System Software</span>
             </div>
             <br><br>
             <div class="row">
                 <div class="col-lg-6 mb-4">
                     <div class="card shadow-sm">
-                        <div class="card-body text-center">
-                            <img src="~/Image/Efficiency_logo.png" style="width:20%;height:20%;" class="card-logo" alt="Improved Efficiency Logo">
+                        <div class="card-body text-center" style="height:270px;">
+                            <img src="~/Image/Efficiency_logo.png" style="width:30%;height:50%;" class="card-logo" alt="Improved Efficiency Logo">
                             <h5 class="card-title"><b>Improved Efficiency</b></h5>
                             <p class="card-text">With the ability to automate many administrative tasks, the EduZenith software can improve overall efficiency, reducing the workload for schools, colleges, institutes and university staff members and improving accuracy.</p>
                         </div>
@@ -220,7 +265,7 @@
                 <div class="col-lg-6 mb-4">
                     <div class="card shadow-sm">
                         <div class="card-body text-center">
-                            <img src="~/Image/Customization_logo.png" style="width:20%;height:20%;" class="card-logo" alt="Customization Logo">
+                            <img src="~/Image/Customization_logo.png" style="width:25%;height:40%;" class="card-logo" alt="Customization Logo">
 
                             <h5 class="card-title"><b>Customization</b></h5>
                             <p class="card-text">The Student Management Software and Application can be customized to fulfil the distinctive needs of each school, college, institute and university, with options to add or remove modules and features as required.</p>
@@ -232,15 +277,7 @@
         </div>
     </section>
 
-    <div class="text-center my-5">
-        <img src="~/Image/Eduzenith_logo.png" width="250" height="250" alt="GeniusEdu Student Management System" title="GeniusEdu Student Management System" loading="eager">
-        <h1 class="c-primary mt-3" style="color: #0D6EFD;">EduZenith Student Management System</h1>
-        <p style="font-size:25px;">Nurture your mind with great thoughts; To believe in the heroic makes heroes.</p>
-        <div class="d-flex justify-content-center">
-            <input type="submit" value="Register as Student" class="btn btn-primary mx-2" />
-            <input type="submit" value="Register as Teacher" class="btn btn-primary mx-2" />
-        </div>
-    </div>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="~/Scripts/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
