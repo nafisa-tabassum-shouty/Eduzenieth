@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Admin";
 }
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,11 +20,14 @@
     </style>
 </head>
 <body style="background-color: black">
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark" style="background-color:black;margin-top:-20px;">
+    <video autoplay loop muted plays-inline class="Background-clip">
+        <source src="~/Image/bgreg1.mp4" type="video/mp4" />
+    </video>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark" style="background-color:black;margin-top:-.01rem;">
 
         <div class="container">
             @*<h3>@Html.ActionLink("EduZenith Admin", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</h3>*@
-                <h3 style="color:white;">EduZenith Admin</h3>
+            <h3 style="color:white;">EduZenith Admin</h3>
             <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -86,9 +90,7 @@
         }
     </style>
     <div class="container body-content">
-        <video autoplay loop muted plays-inline class="Background-clip">
-            <source src="~/Image/bgreg1.mp4" type="video/mp4" />
-        </video>
+
         @RenderBody()
         <hr />
         <footer style="text-align:center;color:white;">
