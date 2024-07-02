@@ -18,5 +18,6 @@ namespace EduzeniethFinal.Models
         public int sid { get; set; }
         public int cid { get; set; }
         public Nullable<int> status { get; set; }
+        public Nullable<int> role { get; set; }
     }
 }

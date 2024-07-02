@@ -13,10 +13,10 @@ namespace EduzeniethFinal.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class EduzenithFinalEntities6 : DbContext
+    public partial class EduzenithFinalEntities7 : DbContext
     {
-        public EduzenithFinalEntities6()
-            : base("name=EduzenithFinalEntities6")
+        public EduzenithFinalEntities7()
+            : base("name=EduzenithFinalEntities7")
         {
         }
     

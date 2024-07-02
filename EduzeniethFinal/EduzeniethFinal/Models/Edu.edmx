@@ -35,6 +35,7 @@
           <Property Name="sid" Type="int" Nullable="false" />
           <Property Name="cid" Type="int" Nullable="false" />
           <Property Name="status" Type="int" />
+          <Property Name="role" Type="int" />
         </EntityType>
         <EntityType Name="Grades">
           <Key>
@@ -147,6 +148,7 @@
           <Property Name="sid" Type="Int32" Nullable="false" />
           <Property Name="cid" Type="Int32" Nullable="false" />
           <Property Name="status" Type="Int32" />
+          <Property Name="role" Type="Int32" />
         </EntityType>
         <EntityType Name="Grade">
           <Key>
@@ -215,7 +217,7 @@
           <Property Name="NID_PassportNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Status" Type="Int32" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="EduzenithFinalEntities6" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="EduzenithFinalEntities7" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Comments" EntityType="Self.Comment" />
           <EntitySet Name="Courses" EntityType="Self.Course" />
           <EntitySet Name="Enrolls" EntityType="Self.Enroll" />
@@ -229,7 +231,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="EduzenithFinalModelStoreContainer" CdmEntityContainer="EduzenithFinalEntities6">
+        <EntityContainerMapping StorageEntityContainer="EduzenithFinalModelStoreContainer" CdmEntityContainer="EduzenithFinalEntities7">
           <EntitySetMapping Name="Comments">
             <EntityTypeMapping TypeName="EduzenithFinalModel.Comment">
               <MappingFragment StoreEntitySet="Comments">
@@ -261,6 +263,7 @@
                 <ScalarProperty Name="sid" ColumnName="sid" />
                 <ScalarProperty Name="cid" ColumnName="cid" />
                 <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="role" ColumnName="role" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
