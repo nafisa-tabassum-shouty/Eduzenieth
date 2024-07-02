@@ -1,7 +1,7 @@
 ﻿
 @{
     ViewBag.Title = "Home";
-    Layout = "~/Views/Shared/Admin.cshtml"; 
+    Layout = "~/Views/Shared/Student.cshtml";
 }
 <!DOCTYPE html>
 <html>
@@ -13,37 +13,72 @@
     @Scripts.Render("~/bundles/modernizr")
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .card {
+            padding: 20px;
+            background: linear-gradient(10deg,rgba(255,255,255,0.1),rgba(255,255,255,0.1));
+            backdrop-filter: blur(20px);
+            color: white;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+            .card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .list-group-item {
+            border: none;
+            transition: background-color 0.3s;
+            font-size: 16px;
+        }
+
+
+            .list-group-item a {
+                color: darkslategray;
+                transition: color 0.3s, font-size 0.3s;
+                text-decoration: none;
+                font-size: 16px; /* Initial font size */
+            }
+
+            .list-group-item:hover a {
+                color: white; /* Green color on hover */
+                font-size: 18px; /* Larger font size on hover */
+                text-decoration: none; /* Remove underline on hover */
+            }
+
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        p {
+            color: dimgray;
+        }
+
+        h2, h3, h4 {
+            color: indigo;
+        }
+    </style>
 </head>
-<body style="background-color: ghostwhite;">
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-primary">
-        <div class="container">
-            @Html.ActionLink("EduZenith", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav flex-grow-1">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Student Details", "Student_Details", "Student", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Available Courses", "Available_Courses", "Student", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Enrolled Courses", "Enrolled_Courses", "Student", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Logout", "Logout", "Student", new { area = "" }, new { @class = "nav-link" })</li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<body style="background-color: white;">
 
     <div class="container body-content mt-4">
         <div class="row">
             <div class="col-md-8">
-                <article>
-                    <h2 style="color: #0D6EFD;">Welcome to EduZenith</h2>
+                <article class="card shadow-sm">
+                    <h2>Welcome to EduZenith</h2>
                     <p>EduZenith is your portal to a world of knowledge. Whether you're looking to enhance your skills, learn something new, or pursue a degree, we have the courses you need. Our platform is designed to provide you with all the resources and support you need to succeed in your academic journey.</p>
                     <p>Our mission is to provide a comprehensive and engaging learning experience that caters to the diverse needs of our students. With a wide range of courses and expert instructors, we aim to make education accessible and enjoyable for everyone.</p>
                 </article>
-
-                <article>
-                    <h3 style="color: #0D6EFD;">Latest Announcements</h3>
+                <br />
+                <article lass="card shadow-sm">
+                    <h3>Latest Announcements</h3>
                     <p>Stay updated with the latest news and updates from EduZenith. Check this section regularly to stay informed about important announcements, upcoming events, and new course offerings.</p>
                     <p><strong style="color: #0D6EFD;">New Courses:</strong> We are excited to announce the launch of new courses in Data Science, Artificial Intelligence, and Web Development. Enroll now to start learning the skills of the future!</p>
                     <p><strong style="color: #0D6EFD;">Webinar Series:</strong> Join our expert-led webinar series to gain insights into the latest trends and technologies in various fields. Register today to secure your spot!</p>
@@ -51,29 +86,30 @@
             </div>
 
             <div class="col-md-4">
-                <aside>
-                    <h4 style="color: #0D6EFD;">Quick Links</h4>
-                    <ul class="list-group">
-                        <li class="list-group-item" style="background-color: #adccf7;">@Html.ActionLink("Student Dashboard", "Home", "Student")</li>
-                        <li class="list-group-item" style="background-color: #adccf7;">@Html.ActionLink("Profile Settings", "Settings", "Student")</li>
-                        <li class="list-group-item" style="background-color: #adccf7;">@Html.ActionLink("Support", "Support", "Home")</li>
-                        <li class="list-group-item" style="background-color: #adccf7;">@Html.ActionLink("FAQ", "FAQ", "Home")</li>
-                    </ul>
+                <aside class="card shadow-sm">
+                    <div class="card-body">
+                        <h4 style="color: indigo;">Quick Links</h4>
+                        <ul class="list-group" style="background-color:#f0e3ff">
+                            <li class="list-group-item">@Html.ActionLink("Student Dashboard", "Home", "Student")</li>
+                            <li class="list-group-item">@Html.ActionLink("Profile Settings", "Settings", "Student")</li>
+                            <li class="list-group-item">@Html.ActionLink("Support", "Support", "Home")</li>
+                            <li class="list-group-item">@Html.ActionLink("FAQ", "FAQ", "Home")</li>
+                        </ul>
+                    </div>
                 </aside>
-
-                <aside class="mt-4">
-                    <h4 style="color: #0D6EFD;">Contact Us</h4>
-                    <p>If you have any questions or need assistance, feel free to reach out to our support team. We are here to help you 24/7.</p>
-                    <p>Email: support@eduzenith.com</p>
-                    <p>Phone: +1 234 567 890</p>
+                <aside class="card shadow-sm mt-4">
+                    <div class="card-body">
+                        <h4>Contact Us</h4>
+                        <p>If you have any questions or need assistance, feel free to reach out to our support team. We are here to help you 24/7.</p>
+                        <p>Email: support@eduzenith.com</p>
+                        <p>Phone: +1 234 567 890</p>
+                    </div>
                 </aside>
             </div>
         </div>
 
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - EduZenith</p>
-        </footer>
+
+
     </div>
 
     @Scripts.Render("~/bundles/jquery")
