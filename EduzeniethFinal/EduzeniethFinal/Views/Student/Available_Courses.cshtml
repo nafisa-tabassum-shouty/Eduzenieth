@@ -1,17 +1,39 @@
 ﻿@model IEnumerable<EduzeniethFinal.Models.Course>
 @{
-    ViewBag.Title = "Available_Courses";
-    Layout = "~/Views/Shared/Student.cshtml";
+    ViewBag.Title = "Available Courses";
+    Layout = "~/Views/Shared/Student.cshtml"; // Assuming you have a layout file
 }
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no">
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <!-- Libraries Stylesheet -->
+    <link href="~/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="~/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="~/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
     <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .Background-clip {
+            position: absolute;
+            width: 100%;
+            height: fit-content;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            z-index: -1;
+        }
+
         .course-item {
             transition: transform 0.3s, box-shadow 0.3s;
         }
@@ -27,45 +49,90 @@
             align-items: center;
             height: 100%;
         }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .course-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
     </style>
 </head>
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h2 style="padding:50px;">Available Courses</h2>
-                <hr />
-            </div>
-            @foreach (var item in Model)
-            {
-                <div class="col-4 mb-4 course-item" style="height: 500px; width: 33.33%; background-color: aliceblue; ">
-                    <div style="padding: 20px; background-color: #0D6EFD; color:white;">
-                        <h6><strong>Course Code :</strong> @Html.DisplayFor(modelItem => item.Course_Code)</h6>
-                        <h6><strong>Course Name: </strong>@Html.DisplayFor(modelItem => item.Course_Name)</h6>
-                    </div>
-                    <div style="padding: 50px; background-color: aliceblue; height: 150px;">
-                        <h5>Course Teacher id or name: @Html.DisplayFor(modelItem => item.teacherID)</h5>
-                        <p>Course Description : @Html.DisplayFor(modelItem => item.Course_desc)</p>
-                        <p>Course created at: @Html.DisplayFor(modelItem => item.Created_at)</p>
-                    </div>
-                    <div style="height: 150px; background-color: aliceblue; display: flex; justify-content: center; align-items: center;">
-                        <div class="form-container">
-                            @using (Html.BeginForm("Available_Courses", "Student", FormMethod.Post))
-                            {
-                                <div class="input-group input-group-sm mb-3" style="width: 300px;">
-                                    <span class="input-group-text" id="inputGroup-sizing-sm">Course Code:</span>
-                                    <input type="text" class="form-control" name="Course_Code" placeholder="Enter Code for Enroll" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                                    @* Hidden field to store Course ID *@
-                                    <input type="hidden" name="Course_Id" value="@item.Course_Id" />
-                                    <input type="submit" value="Enroll" class="btn btn-primary">
-                                </div>
-                            }
-                        </div>
+<body style="background-color: #090639;">
+    <video autoplay loop muted plays-inline class="Background-clip">
+        <source src="~/Image/bgreg3.mp4" type="video/mp4" />
+    </video>
+    <div class="container-xxl py-5">
+        <div class="container px-lg-5">
+            <div style="color:white;">
+                <h1 class="section-title position-relative text-center">Available Courses</h1>
+                <div class="row">
+                    <div class="col-12 text-center" style="margin-top:25px;">
+                        <ul class="list-inline mb-5" id="portfolio-filters">
+                            <li class="btn px-3 pe-4 active" data-filter="*">All Courses</li>
+                            <li class="btn px-3 pe-4" data-filter="*">Popular Courses</li>
+                            <li class="btn px-3 pe-4" data-filter="*">New Courses</li>
+                        </ul>
                     </div>
                 </div>
-            }
+            </div>
+            <div class="row g-4 portfolio-container">
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-4 col-md-6 portfolio-item wow zoomIn" data-wow-delay="0.1s">
+                        <div class="position-relative rounded overflow-hidden course-item">
+                            <img class="img-fluid w-100" src="~/Content/img/portfolio-1.jpg" alt="">
+                            <div class="portfolio-overlay">
+                                <div class="form-container">
+                                    @using (Html.BeginForm("Available_Courses", "Student", FormMethod.Post))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        <div class="input-group input-group-sm mb-3" style="width: 300px;">
+                                            <span class="input-group-text" id="inputGroup-sizing-sm">Course Code:</span>
+                                            <input type="text" class="form-control" name="Course_Code" placeholder="Enter Code for Enroll" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                            <input type="hidden" name="Course_Id" value="@item.Course_Id" />
+                                            <input type="submit" value="Enroll" class="btn btn-primary">
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                            <div style="height: 450px; background-color: #CECFE4; display: flex; justify-content: center; align-items: center;">
+                                <div class="mt-auto">
+                                    <div style="padding: 20px; background-color: #702EF4; color: white;">
+                                        <h6><strong>Course Code :</strong> @Html.DisplayFor(modelItem => item.Course_Code)</h6>
+                                        <h6><strong>Course Name: </strong>@Html.DisplayFor(modelItem => item.Course_Name)</h6>
+                                    </div>
+                                    <div style="padding: 50px; background-color: #CECFE4; height: 350px;">
+                                        <h5>Course Teacher id or name: @Html.DisplayFor(modelItem => item.teacherID)</h5>
+                                        <p>Course Description : @Html.DisplayFor(modelItem => item.Course_desc)</p>
+                                        <p>Course created at: @Html.DisplayFor(modelItem => item.Created_at)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
         </div>
     </div>
+
+    <!-- Include WOW.js and initialize it -->
+    @Scripts.Render("~/bundles/jquery")
+    <script src="~/lib/wow/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
 </body>
 </html>
-
