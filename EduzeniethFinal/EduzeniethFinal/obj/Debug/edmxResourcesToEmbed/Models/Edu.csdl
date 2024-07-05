@@ -30,6 +30,7 @@
     <Property Name="sid" Type="Int32" Nullable="false" />
     <Property Name="cid" Type="Int32" Nullable="false" />
     <Property Name="status" Type="Int32" />
+    <Property Name="role" Type="Int32" />
   </EntityType>
   <EntityType Name="Grade">
     <Key>
@@ -98,7 +99,7 @@
     <Property Name="NID_PassportNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Status" Type="Int32" Nullable="false" />
   </EntityType>
-  <EntityContainer Name="EduzenithFinalEntities6" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="EduzenithFinalEntities7" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Comments" EntityType="Self.Comment" />
     <EntitySet Name="Courses" EntityType="Self.Course" />
     <EntitySet Name="Enrolls" EntityType="Self.Enroll" />

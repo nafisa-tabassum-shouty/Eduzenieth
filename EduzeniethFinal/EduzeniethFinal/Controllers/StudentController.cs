@@ -11,7 +11,7 @@ namespace EduzeniethFinal.Controllers
 {
     public class StudentController : Controller
     {
-        private EduzenithFinalEntities6 db = new EduzenithFinalEntities6();
+        private EduzenithFinalEntities7 db = new EduzenithFinalEntities7();
 
         // GET: Student
         public ActionResult Available_Courses()
@@ -46,7 +46,7 @@ namespace EduzeniethFinal.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            using (var db = new EduzenithFinalEntities6())
+            using (var db = new EduzenithFinalEntities7())
             {
                 // Find the course by ID
                 var course = db.Courses.FirstOrDefault(c => c.Course_Id == Course_Id);

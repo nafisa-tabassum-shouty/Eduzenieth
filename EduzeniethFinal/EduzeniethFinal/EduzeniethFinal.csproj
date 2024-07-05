@@ -288,6 +288,8 @@
     <Content Include="Views\Teacher\Home.cshtml" />
     <Content Include="Views\Shared\Teacher.cshtml" />
     <Content Include="Views\Teacher\Grade.cshtml" />
+    <Content Include="Views\Teacher\Available_Courses.cshtml" />
+    <Content Include="Views\Teacher\Enrolled_Courses.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -30,6 +30,7 @@
     <Property Name="sid" Type="int" Nullable="false" />
     <Property Name="cid" Type="int" Nullable="false" />
     <Property Name="status" Type="int" />
+    <Property Name="role" Type="int" />
   </EntityType>
   <EntityType Name="Grades">
     <Key>

@@ -24,7 +24,7 @@ namespace EduzeniethFinal.Controllers
             var students = new List<Student>();
 
             var teachers = new List<Teacher>();
-            using (var db1 = new EduzenithFinalEntities6())
+            using (var db1 = new EduzenithFinalEntities7())
             {
                 // Retrieve sid values for the specific cid
                 sidsForCid = db1.Enrolls
@@ -59,7 +59,7 @@ namespace EduzeniethFinal.Controllers
             }
 
 
-            EduzenithFinalEntities6 db = new EduzenithFinalEntities6();
+            EduzenithFinalEntities7 db = new EduzenithFinalEntities7();
 
             // Retrieve enrolled students and teachers from the database
             List<string> enrolledStudents = ViewBag.FullNames;
@@ -107,7 +107,7 @@ namespace EduzeniethFinal.Controllers
         [HttpPost]
         public ActionResult PostAnnouncement(string announcement)
         {
-            EduzenithFinalEntities6  db = new EduzenithFinalEntities6();
+            EduzenithFinalEntities7  db = new EduzenithFinalEntities7();
             int userId;
             int userStatus;
 
@@ -143,7 +143,7 @@ namespace EduzeniethFinal.Controllers
         [HttpPost]
         public ActionResult PostComment(string comment, int postId)
         {
-            EduzenithFinalEntities6 db = new EduzenithFinalEntities6();
+            EduzenithFinalEntities7 db = new EduzenithFinalEntities7();
             int userId;
             int userStatus;
 

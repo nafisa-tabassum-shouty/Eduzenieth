@@ -5,26 +5,27 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 
 namespace EduzeniethFinal.Controllers
 {
     public class TeacherController : Controller
     {
-        private EduzenithFinalEntities6 db = new EduzenithFinalEntities6();
+        private EduzenithFinalEntities7 db = new EduzenithFinalEntities7();
 
         // GET: Student
         public ActionResult Available_Courses()
         {
-            if (Session["id"] == null)
+            if (Session["T_id"] == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            int studentId = (int)Session["id"];
+            int studentId = (int)Session["T_id"];
 
             // Get the list of course IDs the student is already enrolled in
             var enrolledCourseIds = db.Enrolls
-                                      .Where(e => e.sid == studentId && e.status == 1)
+                                      .Where(e => e.sid == studentId && e.status == 1 && e.role==1)
                                       .Select(e => e.cid)
                                       .ToList();
 
@@ -40,12 +41,12 @@ namespace EduzeniethFinal.Controllers
         [HttpPost]
         public ActionResult Available_Courses(string Course_Code, int Course_Id)
         {
-            if (Session["id"] == null)
+            if (Session["T_id"] == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            using (var db = new EduzenithFinalEntities6())
+            using (var db = new EduzenithFinalEntities7())
             {
                 // Find the course by ID
                 var course = db.Courses.FirstOrDefault(c => c.Course_Id == Course_Id);
@@ -55,15 +56,16 @@ namespace EduzeniethFinal.Controllers
                     // Check if the entered Course_Code matches the course's Course_Code
                     if ((Course_Id.ToString()).Equals(Course_Code))
                     {
-                        var student = db.Students.Find(Session["id"]);
+                        var student = db.Teachers.Find(Session["T_id"]);
                         if (student != null)
                         {
                             // Enroll the student in the course
                             Enroll enrollment = new Enroll
                             {
-                                sid = student.StudentID,
+                                sid = student.Id,
                                 cid = course.Course_Id,
-                                status = 0 // Assuming status 0 indicates pending or initial enrollment
+                                status = 0, // Assuming status 0 indicates pending or initial enrollment
+                                role = 1
                             };
 
                             // Add the enrollment record to the database
@@ -76,7 +78,7 @@ namespace EduzeniethFinal.Controllers
                         else
                         {
                             // Handle the case where the student is not found in the database
-                            ViewBag.ErrorMessage = "Student not found.";
+                            ViewBag.ErrorMessage = "Teacher not found.";
                             return View(db.Courses.ToList());
                         }
                     }
@@ -96,6 +98,59 @@ namespace EduzeniethFinal.Controllers
             }
         }
 
+
+
+        public ActionResult Enrolled_Courses()
+        {
+            if (Session["T_id"] == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var studentId = (int)Session["T_id"];
+            var student = db.Teachers.Find(studentId);
+            if (student == null)
+            {
+                return HttpNotFound();
+            }
+
+            // Retrieve enrolled courses for the student
+            var enrollments = db.Enrolls.Where(e => e.sid == studentId && e.status == 1 && e.role==1).ToList();
+
+
+            // Retrieve course details for each enrollment
+            List<Course> courses = new List<Course>();
+            foreach (var enrollment in enrollments)
+            {
+                Console.WriteLine(enrollment.cid);
+                var course = db.Courses.FirstOrDefault(c => c.Course_Id == enrollment.cid);
+                if (course != null)
+                {
+                    courses.Add(course);
+                }
+            }
+
+            return View(courses);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Enrolled_Courses(string Course_Id)
+        {
+
+            Session["Course_Id"] = Convert.ToInt32(Course_Id);
+            return RedirectToAction("CourseDetails", "Courses");
+
+
+            return View();
+        }
+        public ActionResult Logout()
+        {
+            Session["T_id"] = null;
+            Session["T_username"] = null;
+            return RedirectToAction("Index", "Home");
+        }
+
+
         // GET: Teacher
         public ActionResult Login()
         {
@@ -106,7 +161,7 @@ namespace EduzeniethFinal.Controllers
         [HttpPost]
         public ActionResult Login(string username, string password)
         {
-            using (var db = new EduzenithFinalEntities6())
+            using (var db = new EduzenithFinalEntities7())
             {
                 var teacher = db.Teachers.FirstOrDefault(t => t.Username == username && t.Password == password && t.Status == 1);
                 if (teacher != null)
@@ -115,7 +170,7 @@ namespace EduzeniethFinal.Controllers
                     // Redirect to dashboard or any other page
                     Session["T_id"] = teacher.Id;
                     Session["T_username"] = teacher.Username;
-                    return RedirectToAction("Teacher_Details", "Teacher");
+                    return RedirectToAction("Home", "Teacher");
                 }
                 else
                 {
@@ -149,7 +204,7 @@ namespace EduzeniethFinal.Controllers
             if (ModelState.IsValid)
             {
                 // Assuming "db" is your DbContext instance
-                using (var db = new EduzenithFinalEntities6())
+                using (var db = new EduzenithFinalEntities7())
                 {
                     db.Teachers.Add(teacher);
                     db.SaveChanges();
@@ -205,6 +260,10 @@ namespace EduzeniethFinal.Controllers
 
         public ActionResult Home()
         {
+            if (Session["T_id"] == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             return View();
         }
 
