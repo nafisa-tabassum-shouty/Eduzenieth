@@ -269,42 +269,102 @@ namespace EduzeniethFinal.Controllers
 
 
 
-       
+
+
+
+
+
+
+
+
+
 
         public ActionResult Grade()
         {
-            ViewBag.Course_Id = new SelectList(db.Courses, "Course_Id", "Course_Name");
+            Session["T_id"] = 1;
+            if (Session["T_id"] != null)
+            {
+                int teacherId = (int)Session["T_id"];
+                var courses = db.Courses.Where(c => c.teacherID == teacherId).ToList();
+                ViewBag.Courses = new SelectList(courses, "Course_Id", "Course_Name");
+                ViewBag.Students = null; // Ensure ViewBag.Students is null initially
+                ViewBag.SelectedCourseId = null;
+                ViewBag.SelectedCourseName = null;
+            }
+            else
+            {
+                // Handle the case where the session is null
+                // Redirect to login or show an error message
+                return RedirectToAction("Login", "Account");
+            }
+            return View();
+        }
+        // POST: Teacher/Grade
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Grade(int selectedCourseId)
+        {
+            int teacherId = 1;
+            var courses = db.Courses.Where(c => c.teacherID == teacherId).ToList();
+            ViewBag.Courses = new SelectList(courses, "Course_Id", "Course_Name");
+            ViewBag.SelectedCourseId = selectedCourseId;
+
+            // Retrieve course name as a single string
+            ViewBag.SelectedCourseName = db.Courses
+                                            .Where(c => c.Course_Id == selectedCourseId)
+                                            .Select(c => c.Course_Name)
+                                            .FirstOrDefault(); // Retrieve the first matching course name
+
+            var sidsForCid = db.Enrolls
+                              .Where(e => e.cid == selectedCourseId)
+                              .Select(e => e.sid)
+                              .ToList();
+
+            var students = db.Students
+                             .Where(s => sidsForCid.Contains(s.StudentID))
+                             .ToList();
+
+            ViewBag.Students = students;
             return View();
         }
 
-        // POST: Grades/Create
+
+        // POST: Teacher/SubmitGrade
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Grade([Bind(Include = "GradeID,Grade1,GradeDate,Course_Id,Course_Name,TeacherID,Teacher_Name,StudentID,StudentName")] Grade grade)
+        public ActionResult SubmitGrade(string Grade1, int StudentID, string StudentName, int Course_Id, string Course_Name)
         {
-            if (ModelState.IsValid)
+            Session["T_id"] = 1;
+            if (Session["T_id"] != null)
             {
-                var selectedCourse = db.Courses.Find(grade.Course_Id);
-                if (selectedCourse != null)
-                {
-                    grade.Course_Name = selectedCourse.Course_Name;
-                    grade.TeacherID = selectedCourse.teacherID;
+                int teacherId = (int)Session["T_id"];
+                string teacherName = db.Teachers.Find(teacherId)?.first_name; // Assuming you have a Teachers table
 
-                    var teacher = db.Teachers.Find(grade.TeacherID);
-                    if (teacher != null)
-                    {
-                        grade.Teacher_Name = teacher.first_name + " " + teacher.last_name;
-                    }
-                }
+                var grade = new Grade
+                {
+                    Grade1 = Grade1,
+                    GradeDate = DateTime.Now,
+                    Course_Id = Course_Id,
+                    Course_Name = Course_Name,
+                    TeacherID = teacherId,
+                    Teacher_Name = teacherName,
+                    StudentID = StudentID,
+                    StudentName = StudentName
+                };
 
                 db.Grades.Add(grade);
                 db.SaveChanges();
-                return RedirectToAction("Index");
-            }
 
-            ViewBag.Course_Id = new SelectList(db.Courses, "Course_Id", "Course_Name", grade.Course_Id);
-            return View(grade);
+                return RedirectToAction("Grade");
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
         }
+
+
+
 
         // GET: Grades/GetTeacherDetails/5
         public JsonResult GetTeacherDetails(int courseId)
