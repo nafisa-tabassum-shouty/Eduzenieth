@@ -1,8 +1,76 @@
 ﻿@{
     ViewBag.Title = "Grade";
+    Layout = "~/Views/Shared/Teacher.cshtml";
 }
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        color: white;
+        box-sizing: border-box;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
 
+    .Background-clip {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+    }
+
+    .course-item {
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+        .course-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+    .form-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
+    .portfolio-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.6);
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .course-item:hover .portfolio-overlay {
+        opacity: 1;
+    }
+
+    .card-custom {
+        background-color: #090639;
+        color: white;
+    }
+
+        .card-custom .card-header,
+        .card-custom .card-body {
+            background-color: #090639;
+            color: white;
+        }
+</style>
 <div class="container">
+    <video autoplay loop muted playsinline class="Background-clip">
+        <source src="~/Image/bgreg3.mp4" type="video/mp4" />
+    </video>
     <h2>Select a Course</h2>
     @using (Html.BeginForm("Grade", "Teacher", FormMethod.Post, new { @class = "form-inline" }))
     {
@@ -23,7 +91,7 @@
             @foreach (var student in ViewBag.Students)
             {
                 <div class="col-md-4">
-                    <div class="card">
+                    <div class="card mb-4 card-custom">
                         <div class="card-body">
                             <h5 class="card-title">@student.FirstName</h5>
                             <p class="card-text">ID: @student.StudentID</p>

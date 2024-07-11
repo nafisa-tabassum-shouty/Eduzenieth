@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Home";
     Layout = "~/Views/Shared/Teacher.cshtml";
 }
@@ -12,76 +11,133 @@
     <title>Teacher Dashboard</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
+        * {
+            padding: 0;
+            margin: 0;
+            color: white;
+            box-sizing: border-box;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
 
-       
+        .Background-clip {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .course-item {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+            .course-item:hover {
+                transform: scale(1.05);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+
+        .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .course-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .card-custom {
+            background-color: #090639;
+            color: white;
+        }
+
+            .card-custom .card-header,
+            .card-custom .card-body {
+                background-color: #090639;
+                color: white;
+            }
     </style>
 </head>
 <body>
+    <video autoplay loop muted playsinline class="Background-clip">
+        <source src="~/Image/bgreg3.mp4" type="video/mp4" />
+    </video>
 
-   
-            <!-- Main Content -->
-            <main role="main" class="col-md-9  col-lg-10 ">
-                <h2>Welcome, @Session["T_username"] </h2>
-                <p class="lead">Here are some important updates and articles for you:</p>
+    <!-- Main Content -->
+    <main role="main" class="col-md-9 col-lg-10">
+        <h2>Welcome, @Session["T_username"] </h2>
+        <p class="lead">Here are some important updates and articles for you:</p>
 
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                Article 1
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">New Teaching Strategies</h5>
-                                <p class="card-text">Explore innovative teaching strategies to enhance student engagement and learning outcomes. <a href="#">Read more...</a></p>
-                            </div>
-                        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-4 card-custom">
+                    <div class="card-header">
+                        Article 1
                     </div>
-
-                    <div class="col-md-6">
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                Article 2
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Effective Online Teaching</h5>
-                                <p class="card-text">Learn best practices for delivering effective online lessons and keeping students engaged in a virtual environment. <a href="#">Read more...</a></p>
-                            </div>
-                        </div>
+                    <div class="card-body">
+                        <h5 class="card-title">New Teaching Strategies</h5>
+                        <p class="card-text">Explore innovative teaching strategies to enhance student engagement and learning outcomes. <a href="#">Read more...</a></p>
                     </div>
                 </div>
+            </div>
 
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                Article 3
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Assessment Techniques</h5>
-                                <p class="card-text">Discover new assessment techniques to accurately measure student learning and progress. <a href="#">Read more...</a></p>
-                            </div>
-                        </div>
+            <div class="col-md-6">
+                <div class="card mb-4 card-custom">
+                    <div class="card-header">
+                        Article 2
                     </div>
-
-                    <div class="col-md-6">
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                Article 4
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Classroom Management</h5>
-                                <p class="card-text">Get tips on managing classroom behavior and creating a positive learning environment. <a href="#">Read more...</a></p>
-                            </div>
-                        </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Effective Online Teaching</h5>
+                        <p class="card-text">Learn best practices for delivering effective online lessons and keeping students engaged in a virtual environment. <a href="#">Read more...</a></p>
                     </div>
                 </div>
-
-            </main>
+            </div>
         </div>
-    </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-4 card-custom">
+                    <div class="card-header">
+                        Article 3
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Assessment Techniques</h5>
+                        <p class="card-text">Discover new assessment techniques to accurately measure student learning and progress. <a href="#">Read more...</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card mb-4 card-custom">
+                    <div class="card-header">
+                        Article 4
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Classroom Management</h5>
+                        <p class="card-text">Get tips on managing classroom behavior and creating a positive learning environment. <a href="#">Read more...</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
