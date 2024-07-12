@@ -163,23 +163,34 @@ namespace EduzeniethFinal.Controllers
         {
             using (var db = new EduzenithFinalEntities7())
             {
-                var teacher = db.Teachers.FirstOrDefault(t => t.Username == username && t.Password == password && t.Status == 1);
-                if (teacher != null)
+                if (username.Equals("admin") && password.Equals("123456"))
                 {
                     // Login successful
                     // Redirect to dashboard or any other page
-                    Session["T_id"] = teacher.Id;
-                    Session["T_username"] = teacher.Username;
-                    return RedirectToAction("Home", "Teacher");
+                    Session["admin"] = "logged_in";
+                    return RedirectToAction("Login", "Admin");
                 }
                 else
                 {
-                    ViewBag.Log = "Login Failed. Please enter correct Username and Password";
-                    // Login failed
-                    // You can add a ViewBag message here to show an error message on the login page
-                    ViewBag.ErrorMessage = "Invalid username or password";
-                    return View();
+                    var teacher = db.Teachers.FirstOrDefault(t => t.Username == username && t.Password == password && t.Status == 1);
+                    if (teacher != null)
+                    {
+                        // Login successful
+                        // Redirect to dashboard or any other page
+                        Session["T_id"] = teacher.Id;
+                        Session["T_username"] = teacher.Username;
+                        return RedirectToAction("Home", "Teacher");
+                    }
+                    else
+                    {
+                        ViewBag.Log = "Login Failed. Please enter correct Username and Password";
+                        // Login failed
+                        // You can add a ViewBag message here to show an error message on the login page
+                        ViewBag.ErrorMessage = "Invalid username or password";
+                        return View();
+                    }
                 }
+               
             }
         }
 
