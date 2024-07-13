@@ -73,7 +73,7 @@ namespace EduzeniethFinal.Controllers
                             db.SaveChanges();
 
                             // Redirect to a success page or any other desired action
-                            return RedirectToAction("Enrolled_Courses", "Courses");
+                            return RedirectToAction("Enrolled_Courses", "Teacher");
                         }
                         else
                         {
