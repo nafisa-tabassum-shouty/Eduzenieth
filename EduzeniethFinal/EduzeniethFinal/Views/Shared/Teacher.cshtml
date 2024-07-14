@@ -20,12 +20,16 @@
             background-color: #DAE3F3;
         }
 
+        li {
+            font-size: large;
+        }
+
         .container-fluid, .row {
             height: 100%;
         }
 
         .sidebar {
-            height: 100vh;
+            min-height: 100%;
             background-color: #343a40;
             padding-top: 20px;
         }
@@ -40,6 +44,7 @@
                 .sidebar a:hover {
                     background-color: #007bff;
                     text-decoration: none;
+                    color: purple;
                 }
 
         .content {
@@ -81,36 +86,46 @@
     <div class="container-fluid">
         <div class="row">
             <!-- Sidebar -->
-            <nav class="col-md-2 d-none d-md-block sidebar" style="background-color: #090639;">
+
+            <nav class="col-md-2 d-none d-md-block sidebar" style="background-color: #090639;float:left;">
                 <div class="sidebar-sticky">
                     <ul class="nav flex-column">
                         <li class="nav-item">
                             @Html.ActionLink("Dashboard", "Home", "Teacher", new { area = "" }, new { @class = "nav-link active" })
                         </li>
+                        <br />
                         <li class="nav-item">
                             @Html.ActionLink("All Courses", "Available_Courses", "Teacher", new { area = "" }, new { @class = "nav-link" })
                         </li>
+                        <br />
                         <li class="nav-item">
                             @Html.ActionLink("Enrolled Courses", "Enrolled_Courses", "Teacher", new { area = "" }, new { @class = "nav-link" })
                         </li>
+                        <br />
                         <li class="nav-item">
                             @Html.ActionLink("Gradebook", "Grade", "Teacher", new { area = "" }, new { @class = "nav-link" })
                         </li>
+                        <br />
                         <li class="nav-item">
                             <a class="nav-link" href="#">Course Invitation</a>
                         </li>
+                        <br />
                         <li class="nav-item">
                             <a class="nav-link" href="#">Announcements</a>
                         </li>
+                        <br />
                         <li class="nav-item">
                             <a class="nav-link" href="#">Messages</a>
                         </li>
+                        <br />
                         <li class="nav-item">
                             <a class="nav-link" href="#">Assignments</a>
                         </li>
+                        <br />
                     </ul>
                 </div>
             </nav>
+
 
             <!-- Main content area -->
             <div class="col-md-10">
