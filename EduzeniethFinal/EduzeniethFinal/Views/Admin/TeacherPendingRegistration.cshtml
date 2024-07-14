@@ -21,12 +21,22 @@
         }
 
         .table thead {
-            background-color: #0D6EFD;
+            /* background-color: #0D6EFD;*/
+            background: linear-gradient(10deg,rgb(19, 14, 75),rgba(7, 11, 48,.2));
+            backdrop-filter: blur(4px);
             color: white;
         }
 
         .table tbody tr:nth-child(odd) {
-            background-color: #f2f2f2;
+            color: white;
+            background: linear-gradient(10deg,rgba(38, 156, 234,0.2),rgba(255,255,255,0.1));
+            backdrop-filter: blur(1px);
+        }
+
+        .table tbody tr:nth-child(even) {
+            color: white;
+            background: linear-gradient(130deg,rgba(255,255,255,0.1),rgba(255,255,255,0.1));
+            backdrop-filter: blur(20px);
         }
 
         .btn-primary {
@@ -34,10 +44,22 @@
             border-color: #0D6EFD;
         }
 
-            .btn-primary:hover {
-                background-color: #0056b3;
-                border-color: #0056b3;
-            }
+        .btn-success {
+            color: black;
+            background: linear-gradient(130deg,rgb(10, 255, 0),rgba(255,255,255,0.1));
+            backdrop-filter: blur(20px);
+        }
+
+        .btn-danger {
+            color: white;
+            background: linear-gradient(130deg,rgb(255, 0, 0),rgba(255,255,255,0.1));
+            backdrop-filter: blur(20px);
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
 
         .card-title {
             color: #0D6EFD;
@@ -45,34 +67,35 @@
     </style>
 </head>
 <body>
-    <div class="container mt-5">
-        <h2 class="text-center font-weight-bold">Teacher Pending Registrations</h2>
-
-        <div class="row mb-4">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Why Approval is Necessary</h5>
-                        <p class="card-text">
-                            Approval by the admin ensures that all teacher registrations are verified and meet our standards. This process helps maintain the integrity and quality of our educational programs.
-                        </p>
+    <div class="container mt-5" style="background: linear-gradient(10deg,rgba(255,255,255,0.1),rgba(255,255,255,0.1)); backdrop-filter: blur(20px);border-radius:10px;">
+        <hr />
+        <h2 class="text-center font-weight-bold" style="color:mediumpurple">Teacher Pending Registrations</h2>
+        <br />
+        @*<div class="row mb-4">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Why Approval is Necessary</h5>
+                            <p class="card-text">
+                                Approval by the admin ensures that all teacher registrations are verified and meet our standards. This process helps maintain the integrity and quality of our educational programs.
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">How to Approve or Decline</h5>
-                        <p class="card-text">
-                            In the table below, you can see a list of teachers who have registered but are pending approval. Use the Accept button to approve a registration or the Decline button to reject it. Approved teachers will be added to the database.
-                        </p>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">How to Approve or Decline</h5>
+                            <p class="card-text">
+                                In the table below, you can see a list of teachers who have registered but are pending approval. Use the Accept button to approve a registration or the Decline button to reject it. Approved teachers will be added to the database.
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </div>*@
 
-        <div class="table-responsive">
-            <table class="table table-bordered table-striped">
+        <div class="table-responsive" style="">
+            <table class="table table-bordered">
                 <thead>
                     <tr>
                         <th>First Name</th>
