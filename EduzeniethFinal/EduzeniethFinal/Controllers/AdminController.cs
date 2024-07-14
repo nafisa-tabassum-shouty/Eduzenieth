@@ -245,6 +245,12 @@ namespace EduzeniethFinal.Controllers
             }
             return RedirectToAction("TeacherPendingRegistration", TempData);
         }
+        public ActionResult ClearSuccessMessage()
+        {
+            TempData["SuccessMessage"] = null; // Clear the TempData
+            return Content("Success"); // Return any response
+        }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
