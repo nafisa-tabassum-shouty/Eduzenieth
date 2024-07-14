@@ -6,33 +6,92 @@
 }
 
 <h2 style="color:floralwhite;">Available Courses</h2>
+<style>
+    body {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        background-color: #DAE3F3;
+    }
 
+    h2 {
+        color: #0D6EFD;
+    }
+
+    .table thead {
+        /* background-color: #0D6EFD;*/
+        background-color: Indigo;
+        backdrop-filter: blur(4px);
+        color: black;
+        font-size: larger;
+        text-align: center;
+    }
+
+    .table tbody tr:nth-child(odd) {
+        color: white;
+        background: linear-gradient(130deg,rgb(60, 18, 92, 0.90),rgb(13, 9, 53, 0.10));
+        backdrop-filter: blur(1px);
+        text-align: center;
+    }
+
+    .table tbody tr:nth-child(even) {
+        color: white;
+        background: linear-gradient(10deg,rgb(30, 4, 31, 0.40),rgba(255,255,255,0.1));
+        backdrop-filter: blur(20px);
+        text-align: center;
+    }
+
+    .btn-primary {
+        background-color: #0D6EFD;
+        border-color: #0D6EFD;
+    }
+
+    .btn-success {
+        color: black;
+        background: linear-gradient(130deg,rgba(10, 255, 100,0.5),rgba(255,255,255,0.1));
+        backdrop-filter: blur(20px);
+    }
+
+    .btn-danger {
+        color: white;
+        background: linear-gradient(120deg,rgb(255, 20, 0),rgba(255,255,255,0.1));
+        backdrop-filter: blur(20px);
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+</style>
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "AddCourse", "Admin", new { area = "" }, new { @class = "btn btn-primary text-white", style = "background-color: darkgreen;border-radius:5px;border-color:transparent;" })
 </p>
-<table class="table">
-    <tr style="background-color:gray;font-size:large;">
+<br />
+<br />
+<br />
+<table class="table table-responsive-xl" style="padding:20px;">
+    <tr style="font-size:large;color:white;padding:20px;">
         <th>
-            @Html.DisplayNameFor(model => model.Course_Id)
+            <h5>Course ID</h5>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Course_Name)
+            <h5>Course Name</h5>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.teacherID)
+            <h5>Teacher Id</h5>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Course_desc)
+            <h5>Course description</h5>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Created_at)
+            <h5>Created At</h5>
         </th>
-        <th></th>
+        <th>
+            <p>Actions</p>
+        </th>
     </tr>
 
     @foreach (var item in Model)
     {
-        <tr style="background-color:lightgray;font-size:large;">
+        <tr style="font-size:large;color:white;">
             <td>
                 @Html.DisplayFor(modelItem => item.Course_Id)
             </td>
@@ -50,7 +109,6 @@
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.Course_Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Course_Id }) |
                 @Html.ActionLink("Delete", "Delete_Course", new { id = item.Course_Id })
             </td>
         </tr>
