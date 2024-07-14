@@ -12,12 +12,32 @@
         ul.navbar-nav li {
             margin-left: 6%;
         }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .Background-clip {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark" style="background-color: #9966CC " ;>
+    <video autoplay loop muted plays-inline class="Background-clip">
+        <source src="~/Image/bgwhite.mp4" type="video/mp4" />
+    </video>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark" style="background-color: #9966CC;" ;>
         <div class="container">
-            <h3 style="margin-left:-15%;">@Html.ActionLink("EduZenith Student", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</h3>
+            <h3 style="margin-left:-15%;">@Html.ActionLink("EduZenith Student", "Home", "Student", new { area = "" }, new { @class = "navbar-brand" })</h3>
             @*<button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>*@
