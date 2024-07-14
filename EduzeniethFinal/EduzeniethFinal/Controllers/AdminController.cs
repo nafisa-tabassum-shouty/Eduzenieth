@@ -241,8 +241,9 @@ namespace EduzeniethFinal.Controllers
             {
                 teacher.Status = 1;
                 db.SaveChanges();
+                TempData["SuccessMessage"] = "Teacher admission successful!";
             }
-            return RedirectToAction("TeacherPendingRegistration");
+            return RedirectToAction("TeacherPendingRegistration", TempData);
         }
 
         [HttpPost]

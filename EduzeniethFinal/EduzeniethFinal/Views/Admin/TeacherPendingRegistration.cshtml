@@ -7,10 +7,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
     <title>@ViewBag.Title</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         body {
             background-color: #DAE3F3;
@@ -71,30 +73,39 @@
         <hr />
         <h2 class="text-center font-weight-bold" style="color:mediumpurple">Teacher Pending Registrations</h2>
         <br />
-        @*<div class="row mb-4">
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Why Approval is Necessary</h5>
-                            <p class="card-text">
-                                Approval by the admin ensures that all teacher registrations are verified and meet our standards. This process helps maintain the integrity and quality of our educational programs.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">How to Approve or Decline</h5>
-                            <p class="card-text">
-                                In the table below, you can see a list of teachers who have registered but are pending approval. Use the Accept button to approve a registration or the Decline button to reject it. Approved teachers will be added to the database.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>*@
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div id="successMessage" class="alert alert-success">
+                @TempData["SuccessMessage"]
+            </div>
+        }
 
-        <div class="table-responsive" style="">
+        <div class="modal" id="successModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Success</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        @if (TempData["SuccessMessage"] != null)
+                        {
+                            <p>@TempData["SuccessMessage"].ToString()</p>
+                        }
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @Scripts.Render("~/bundles/bootstrap.bundle.min.js")
+
+
+        <div class="table-responsive" style="color:white;">
+
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -149,8 +160,12 @@
                     }
                 </tbody>
             </table>
+            <script>
+
+            </script>
         </div>
     </div>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
