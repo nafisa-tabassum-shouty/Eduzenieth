@@ -1,5 +1,7 @@
 ﻿@{
-    Layout = "~/Views/Shared/Student.cshtml";
+    /* Layout = "~/Views/Shared/Student.cshtml";*/
+    Layout = null;
+
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -12,8 +14,9 @@
     <script src="https://kit.fontawesome.com/8ee0e83968.js" crossorigin="anonymous"></script>
     <style>
         body {
-            background-color: darkblue;
+            background-color: #031116;
             font-family: 'Arial', sans-serif;
+            transition: margin-left 0.5s ease;
         }
 
         .header {
@@ -82,51 +85,100 @@
             border-radius: 5px;
         }
 
-        .Background-clip-container {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: -1;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
-            grid-template-rows: repeat(auto-fill, minmax(100%, 1fr));
-        }
-
-        .Background-clip {
-            width: 100%;
-            height: fit-content;
-            object-fit: cover;
-        }
-
         .sidebar {
+            z-index: 1111;
             position: fixed;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 250px;
-            background-color: #333;
-            color: white;
-            padding-top: 20px;
+            top: 0px;
+            left: -290px;
+            width: 290px;
+            height: 100rem;
+            background: #02131b;
+            transition: all .5s ease;
+            margin-top: -25px;
         }
 
-            .sidebar a {
-                padding: 10px 15px;
-                text-decoration: none;
-                font-size: 18px;
+            .sidebar header {
+                font-size: 22px;
                 color: white;
-                display: block;
-                transition: 0.3s;
+                line-height: 70px;
+                text-align: center;
+                background: #063146;
+                user-select: none;
             }
 
-                .sidebar a:hover {
-                    background-color: blueviolet;
-                }
+            .sidebar a:hover {
+                background-color: blueviolet;
+            }
+
+        #check {
+            display: none;
+        }
+
+        label #btn,
+        label #cancel {
+            position: absolute;
+            background: #042331;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        label #btn {
+            z-index: 1112;
+            left: 40px;
+            top: -5%;
+            font-size: 35px;
+            color: white;
+            padding: 6px 12px;
+            transition: all .5s;
+            border-radius: 15px;
+        }
+
+        label #cancel {
+            z-index: 1112;
+            left: -215px;
+            top: 8px;
+            font-size: 30px;
+            color: red;
+            padding: 4px 9px;
+            transition: all .5s ease;
+            border-radius: 10px;
+        }
+
+        #check:checked ~ .sidebar {
+            left: 0;
+        }
+
+        #check:checked ~ label #btn {
+            left: 150px;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        #check:checked ~ label #cancel {
+            left: 230px;
+        }
+
+        #check:checked ~ nav {
+            width: auto;
+        }
+
+        #check:checked ~ .main-content {
+            margin-left: 270px;
+        }
+
 
 
         .main-content {
-            margin-left: 260px;
-            padding: 20px;
+            transition: margin-left 0.5s ease;
+            padding: 10px;
+        }
+
+            .main-content.navbar {
+                margin-left
+            }
+
+        ul.navbar-nav li {
+            margin-left: 6%;
         }
     </style>
 </head>
@@ -156,120 +208,111 @@
                     }
                 </div>
             </section>
+            <section id="students">
+                <h5 class="section-title text-center" style="color: white; background-color: blueviolet;border-radius:10px">Enrolled Students</h5>
+                <div class="row" style="">
+                    @foreach (var student in ViewBag.EnrolledStudents)
+                    {
+                        <div class="col-12" style="height:fit-content;">
 
-            <div class="fullbody">
-                <div class="Background-clip-container">
-                    <video autoplay loop muted plays-inline class="Background-clip">
-                        <source src="~/Image/bgreg3.mp4" type="video/mp4" />
-                    </video>
-                    <video autoplay loop muted plays-inline class="Background-clip">
-                        <source src="~/Image/bgreg3.mp4" type="video/mp4" />
-                    </video>
-                    <video autoplay loop muted plays-inline class="Background-clip">
-                        <source src="~/Image/bgreg3.mp4" type="video/mp4" />
-                    </video>
-                </div>
+                            <p class="card-title">@student</p>
 
-
-
-                <div class="sidebar">
-                    <section id="students">
-                        <h2 class="section-title text-center" style="color:white;">Enrolled Students</h2>
-                        <div class="row">
-                            @foreach (var student in ViewBag.EnrolledStudents)
-                            {
-                                <div class="col-12">
-                                    <div class="card text-center">
-                                        <div class="card-body" style="background-color:blueviolet;">
-                                            <h5 class="card-title">@student</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            }
                         </div>
-                    </section>
-
-                    <section id="teachers">
-                        <h2 class="section-title text-center" style="color:white;">Enrolled Teachers</h2>
-                        <div class="row">
-                            @foreach (var teacher in ViewBag.EnrolledTeachers)
-                            {
-                                <div class="col-12">
-                                    <div class="card text-center">
-                                        <div class="card-body" style="background-color:blueviolet;">
-                                            <h5 class="card-title">@teacher</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            }
-                        </div>
-                    </section>
+                    }
                 </div>
+            </section>
+        </div>
 
-                <div class="main-content">
-                    <div class="container">
-                        <!-- Announce Something Form -->
-                        <section id="announce">
-                            <h2 class="section-title" style="color:white;">Announce Something</h2>
-                            <div class="row">
-                                <div class="col-12">
-                                    <form action="/courses/PostAnnouncement" method="post">
-                                        <div class="form-group">
-                                            <textarea name="announcement" class="form-control" rows="4" placeholder="Write your announcement..." style="background: linear-gradient(10deg,rgba(255,255,255,0.1),rgba(255,255,255,0.1)); backdrop-filter: blur(20px);"></textarea>
-                                        </div>
-                                        <div class="btn-center">
-                                            <button type="submit" class="btn btn-primary">Post Announcement</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </section>
+        <div class="main-content">
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark" style="background-color:rgb(92, 38, 146); margin-top: -5%; position: relative; border-radius: 10px;" ;>
+                <div class="container">
+                    <h3 style="margin-left:-15%;">@Html.ActionLink("EduZenith Student", "Home", "Student", new { area = "" }, new { @class = "navbar-brand" })</h3>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li>@Html.ActionLink("Home", "Home", "Student", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Student Details", "Student_Details", "Student", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Available Courses", "Available_Courses", "Student", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Enrolled Courses", "Enrolled_Courses", "Student", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Logout", "Logout", "Student", new { area = "" }, new { @class = "nav-link" })</li>
 
-                        <!-- Display Announcements -->
-                        <section id="announcements">
-                            <h2 class="section-title" style="color:white;">Previous Announcements</h2>
-                            @foreach (var announcement in ViewBag.Announcements)
-                            {
-                                <div class="card announcement-section" style="background: linear-gradient(10deg,rgba(255,255,255,0.1),rgba(255,255,255,0.1)); backdrop-filter: blur(20px);">
-                                    <div class="card-body">
-                                        <h5 class="card-title" style="color:white;">@announcement.Title</h5>
-                                        <p class="card-text" style="color:white;">@announcement.PostedBy : @announcement.Content</p>
-                                        <p class="card-text" style="color:white;">
-                                            <small class="text-muted">Posted by @announcement.PostedBy on @announcement.PostedDate</small>
-                                        </p>
-                                    </div>
-                                    @if (announcement.Comments != null && announcement.Comments.Count > 0)
-                                    {
-                                        <ul class="list-group list-group-flush">
-                                            @foreach (var comment in announcement.Comments)
-                                            {
-                                                <li class="list-group-item" style="background-color:blueviolet;color:white;">
-                                                    <strong>@comment.CommentedBy:</strong> @comment.CommentContent
-                                                </li>
-                                            }
-                                        </ul>
-                                    }
-                                    <div class="card-body" style="color:white;">
-                                        @using (Html.BeginForm("PostComment", "Courses", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                                        {
-                                            <div class="form-group">
-                                                <textarea class="form-control" name="comment" placeholder="Write a comment..." style="width: 100%;"></textarea>
-                                            </div>
-                                            <input type="hidden" name="postId" value="@announcement.PID" />
-                                            <div class="btn-center">
-                                                <button type="submit" class="btn btn-primary">Post Comment</button>
-                                            </div>
-                                        }
-                                    </div>
-                                </div>
-                            }
-                        </section>
+                        </ul>
                     </div>
                 </div>
-            </div>
+            </nav>
+            <div class="container" style="background: linear-gradient(10deg,rgba(10, 12, 38,0.10),rgb(47, 13, 91, 0.10)); backdrop-filter: blur(20px);border-radius:20px;">
+                <div class="container">
+                    <div class="pt-5 row" style="background: linear-gradient(10deg,blueviolet,rgb(97, 35, 112, 0.10)); backdrop-filter: blur(20px);border-radius:20px;">
+                        <div class="col-lg-8 col-xl-6 mx-auto">
+                            <h1>@ViewBag.Course_Code</h1>
+                            <h1>@ViewBag.CourseName</h1>
+                            <p class="fw-light mb-4">Welcome to the Courses. Explore the course. If face any problem feel free to ask for any help.</p><a href="#" class="btn btn-primary fw-light pb-2 ps-3 pe-3 pt-2">Get Started </a><a href="#" class="btn btn-secondary fw-light pb-2 ps-3 pe-3 pt-2">Learn More</a><hr />
+                        </div>
+                        <br />
+                    </div>
+                    <!-- Announce Something Form -->
+                    <section id="announce" style="color:white;">
+                        <br />
+                        @*<h2 class="section-title" style="color:white;">Announce Something</h2>*@
+                        <div class="row">
+                            <div class="col-12">
+                                <form action="/courses/PostAnnouncement" method="post">
+                                    <div class="form-group">
+                                        <textarea name="announcement" class="form-control" rows="4" placeholder="Write your announcement..." style="color:white;background: linear-gradient(10deg,rgba(255,255,255,0.1),rgba(255,255,255,0.1)); backdrop-filter: blur(20px);"></textarea>
+                                    </div>
+                                    <div class="btn-center">
+                                        <button type="submit" class="btn btn-primary">Post Announcement</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </section>
 
-            <!-- Bootstrap JS (optional) -->
-            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+                    <!-- Display Announcements -->
+                    <section id="announcements">
+                        @*<h2 class="section-title" style="color:white;">Previous Announcements</h2>*@
+                        <hr />
+                        @foreach (var announcement in ViewBag.Announcements)
+                        {
+                            <div class="card announcement-section" style="background: linear-gradient(10deg,rgba(255,255,255,0.1),rgba(255,255,255,0.1)); backdrop-filter: blur(20px);border-radius:20px;">
+                                <div class="card-body">
+                                    <h5 class="card-title" style="color:white;">@announcement.Title</h5>
+                                    <p class="card-text" style="color:white;">@announcement.PostedBy : @announcement.Content</p>
+                                    <p class="card-text" style="color:white;">
+                                        <small class="text-muted">Posted by @announcement.PostedBy on @announcement.PostedDate</small>
+                                    </p>
+                                </div>
+                                @if (announcement.Comments != null && announcement.Comments.Count > 0)
+                                {
+                                    <ul class="list-group list-group-flush">
+                                        @foreach (var comment in announcement.Comments)
+                                        {
+                                            <li class="list-group-item" style="background-color:blueviolet;color:white;">
+                                                <strong>@comment.CommentedBy:</strong> @comment.CommentContent
+                                            </li>
+                                        }
+                                    </ul>
+                                }
+                                <div class="card-body" style="color:white;">
+                                    @using (Html.BeginForm("PostComment", "Courses", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                                    {
+                                        <div class="form-group">
+                                            <textarea class="form-control" name="comment" placeholder="Write a comment..." style="width: 100%;"></textarea>
+                                        </div>
+                                        <input type="hidden" name="postId" value="@announcement.PID" />
+                                        <div class="btn-center">
+                                            <button type="submit" class="btn btn-primary">Post Comment</button>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        }
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap JS (optional) -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
