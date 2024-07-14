@@ -1,5 +1,6 @@
 ﻿@model List<EduzeniethFinal.Models.Enroll>
-
+@using EduzeniethFinal.Models
+@using System.Data.Entity
 @{
     ViewBag.Title = "Pending Enrollments";
     Layout = "~/Views/Shared/Admin.cshtml";
@@ -11,28 +12,41 @@
     <table class="table table-striped table-hover">
         <thead class="thead-dark" style="color:white;background-color:dimgray;">
             <tr>
-                <th>Student ID</th>
-                <th>Course ID</th>
+                <th>Student Name</th>
+                <th>Course Name</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody style="color:black;background-color:lightgray;">
             @foreach (var enrollment in Model)
             {
-                <tr>
-                    <td>@enrollment.sid</td>
-                    <td>@enrollment.cid</td>
-                    <td>
-                        <form method="post" action="@Url.Action("Student_Pending_Enrollment_Accept", "Admin")">
-                            <input type="hidden" name="id" value="@enrollment.id" />
-                            <button type="submit" class="btn btn-success">Accept</button>
-                        </form>
-                        <form method="post" action="@Url.Action("Student_Pending_Enrollment_Decline", "Admin")">
-                            <input type="hidden" name="id" value="@enrollment.id" />
-                            <button type="submit" class="btn btn-danger">Decline</button>
-                        </form>
-                    </td>
-                </tr>
+
+                if (enrollment != null)
+                {
+                    var db = new EduzenithFinalEntities7();
+                    var courseName = db.Courses.Find(enrollment.cid);
+                    var studentName = db.Students.Find(enrollment.sid);
+
+                    if (studentName != null && courseName != null)
+                    {
+                        <tr>
+                            <td>@studentName.FirstName</td>
+                            <td>@courseName.Course_Name</td>
+                            <td>
+                                <form method="post" action="@Url.Action("Student_Pending_Enrollment_Accept", "Admin")">
+                                    <input type="hidden" name="id" value="@enrollment.id" />
+                                    <button type="submit" class="btn btn-success">Accept</button>
+                                </form>
+                                <form method="post" action="@Url.Action("Student_Pending_Enrollment_Decline", "Admin")">
+                                    <input type="hidden" name="id" value="@enrollment.id" />
+                                    <button type="submit" class="btn btn-danger">Decline</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                }
+
+
             }
         </tbody>
     </table>
