@@ -307,6 +307,16 @@ namespace EduzeniethFinal.Controllers
             }
             return RedirectToAction("TeacherPendingRegistration");
         }
+        // GET: Admin/Edit_Teacher
+        public ActionResult Edit_Teacher()
+        {
+            if (Session["admin"] == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var teachers = db.Teachers.ToList();
+            return View(teachers);
+        }
 
 
 
