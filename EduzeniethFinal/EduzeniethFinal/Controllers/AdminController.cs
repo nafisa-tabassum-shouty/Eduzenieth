@@ -318,6 +318,36 @@ namespace EduzeniethFinal.Controllers
             return View(teachers);
         }
 
+        public ActionResult Delete_Teacher(int id)
+        {
+            if (Session["admin"] == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var teacher = db.Teachers.Find(id);
+            if (teacher == null)
+            {
+                return HttpNotFound();
+            }
+            return View(teacher);
+        }
+
+        // POST: Admin/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmedTeacher(int id)
+        {
+            if (Session["admin"] == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var teacher = db.Teachers.Find(id);
+            db.Teachers.Remove(teacher);
+            db.SaveChanges();
+            return RedirectToAction("Edit_Teacher");
+        }
+
+
 
 
 
