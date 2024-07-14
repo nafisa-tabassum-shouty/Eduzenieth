@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Runtime.InteropServices;
 using System.Web;
+using System.Web.ModelBinding;
 using System.Web.Mvc;
 
 namespace EduzeniethFinal.Controllers
@@ -218,6 +220,43 @@ namespace EduzeniethFinal.Controllers
 
 
 
+
+
+
+        public ActionResult Add_Teacher()
+        {
+            if (Session["admin"] == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Add_Teacher([Bind(Include = "Id,Username,Password,first_name,last_name,father_name,Email,Designation,MaritalStatus,MobileNumber,Nationality,Religion,Address,Gender,EducationalField,NID_PassportNo")] Teacher teacher)
+        {
+            if (ModelState.IsValid)
+            {
+                // Assuming "db" is your DbContext instance
+                using (var db = new EduzenithFinalEntities7())
+                {
+                    db.Teachers.Add(teacher);
+                    db.SaveChanges();
+
+                    // Set session variables
+                    Session["T_id"] = teacher.Id;
+                    Session["T_username"] = teacher.Username;
+
+                    TempData["ShowAlert"] = true;
+                }
+
+
+                return RedirectToAction("TeacherPendingRegistration", "Admin");
+            }
+
+            return View(teacher);
+        }
         public ActionResult TeacherPendingRegistration()
         {
             if (Session["admin"] == null)
