@@ -20,12 +20,11 @@
         }
 
         .Background-clip {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            min-width: 100%;
+            min-height: 100%;
             z-index: -1;
         }
 
@@ -83,60 +82,67 @@
 
     <!-- Main Content -->
     <main role="main" class="col-md-9 col-lg-10">
-        <h2>Welcome, @Session["T_username"] </h2>
+        <h2>Welcome, @Session["T_username"]</h2>
         <p class="lead">Here are some important updates and articles for you:</p>
 
         <div class="row">
             <div class="col-md-6">
                 <div class="card mb-4 card-custom">
+                    <img src="~/Image/teachingapproach.png" class="card-img-top" alt="Teaching Strategies">
                     <div class="card-header">
-                        Article 1
+                        New Teaching Strategies
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">New Teaching Strategies</h5>
+                        <h5 class="card-title">Innovative Approaches</h5>
                         <p class="card-text">Explore innovative teaching strategies to enhance student engagement and learning outcomes. <a href="#">Read more...</a></p>
                     </div>
                 </div>
             </div>
-
             <div class="col-md-6">
                 <div class="card mb-4 card-custom">
+                    <img src="~/Image/assessment.png" class="card-img-top" alt="Assessment Techniques">
                     <div class="card-header">
-                        Article 2
+                        Assessment Techniques
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Effective Online Teaching</h5>
-                        <p class="card-text">Learn best practices for delivering effective online lessons and keeping students engaged in a virtual environment. <a href="#">Read more...</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card mb-4 card-custom">
-                    <div class="card-header">
-                        Article 3
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Assessment Techniques</h5>
+                        <h5 class="card-title">New Methods</h5>
                         <p class="card-text">Discover new assessment techniques to accurately measure student learning and progress. <a href="#">Read more...</a></p>
                     </div>
                 </div>
             </div>
 
+        </div>
+
+        <div class="row">
+
             <div class="col-md-6">
                 <div class="card mb-4 card-custom">
+                    <img src="~/Image/online-teaching.png" class="card-img-top" alt="Online Teaching">
                     <div class="card-header">
-                        Article 4
+                        Effective Online Teaching
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Classroom Management</h5>
+                        <h5 class="card-title">Best Practices</h5>
+                        <p class="card-text">Learn best practices for delivering effective online lessons and keeping students engaged in a virtual environment. <a href="#">Read more...</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card mb-4 card-custom">
+                    <img src="~/Image/classmanagement.png" class="card-img-top" alt="Classroom Management">
+                    <div class="card-header">
+                        Classroom Management
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Effective Tips</h5>
                         <p class="card-text">Get tips on managing classroom behavior and creating a positive learning environment. <a href="#">Read more...</a></p>
                     </div>
                 </div>
             </div>
         </div>
+
+
     </main>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
