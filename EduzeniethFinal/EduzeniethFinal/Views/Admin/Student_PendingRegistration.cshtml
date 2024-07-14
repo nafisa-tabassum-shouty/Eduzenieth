@@ -22,14 +22,13 @@
             margin-bottom: 20px;
             transition: transform 0.3s ease;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-          
         }
 
             .card:hover {
                 transform: translateY(-5px);
                 box-shadow: 0 8px 16px rgba(0,0,0,0.2);
                 background-color: #0001E0;
-                color:white;
+                color: white;
             }
 
         .card-title {
@@ -62,79 +61,81 @@
     </style>
 </head>
 <body>
-    <div class="container mt-5">
-        <h2 class="text-center font-weight-bold">Student Pending Registrations</h2>
+    <div style="background: linear-gradient(10deg,rgba(255,255,255,0.1),rgba(255,255,255,0.1)); backdrop-filter: blur(20px);border-radius:10px;">
+        <div class="container mt-5">
+            <hr />
+            <h2 class="text-center font-weight-bold" style="color:forestgreen">Student Pending Registrations</h2>
+            <br />
 
 
-
-        <div class="row">
-            @foreach (var student in Model)
-            {
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">@student.FirstName @student.LastName</h5>
-                            <p class="card-text"><strong>Username:</strong> @student.Username</p>
-                            <p class="card-text"><strong>Email:</strong> @student.Email</p>
-                            <p class="card-text"><strong>Nationality:</strong> @student.Nationality</p>
-                            <p class="card-text"><strong>Mobile Number:</strong> @student.MobileNumber</p>
-                            <p class="card-text"><strong>Father's Name:</strong> @student.FatherName</p>
-                            <p class="card-text"><strong>Religion:</strong> @student.Religion</p>
-                            <p class="card-text"><strong>Address:</strong> @student.Address</p>
-                            <p class="card-text"><strong>Date of Birth:</strong> @student.DateOfBirth?.ToString("yyyy-MM-dd")</p>
-                            <p class="card-text"><strong>Blood Group:</strong> @student.BloodGroup</p>
-                            <div class="card-footer">
-                                <div class="row">
-                                    <div class="col">
-                                        @using (Html.BeginForm("Student_PendingRegistration_Accept", "Admin", FormMethod.Post, new { @class = "float-left" }))
-                                        {
-                                            @Html.AntiForgeryToken()
-                                            @Html.Hidden("id", student.StudentID)
-                                            <button type="submit" class="btn btn-accept btn-block">Accept</button>
-                                        }
-                                    </div>
-                                    <div class="col">
-                                        @using (Html.BeginForm("Student_PendingRegistration_Decline", "Admin", FormMethod.Post, new { @class = "float-left ml-2" }))
-                                        {
-                                            @Html.AntiForgeryToken()
-                                            @Html.Hidden("id", student.StudentID)
-                                            <button type="submit" class="btn btn-decline btn-block">Decline</button>
-                                        }
+            <div class="row">
+                @foreach (var student in Model)
+                {
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">@student.FirstName @student.LastName</h5>
+                                <p class="card-text"><strong>Username:</strong> @student.Username</p>
+                                <p class="card-text"><strong>Email:</strong> @student.Email</p>
+                                <p class="card-text"><strong>Nationality:</strong> @student.Nationality</p>
+                                <p class="card-text"><strong>Mobile Number:</strong> @student.MobileNumber</p>
+                                <p class="card-text"><strong>Father's Name:</strong> @student.FatherName</p>
+                                <p class="card-text"><strong>Religion:</strong> @student.Religion</p>
+                                <p class="card-text"><strong>Address:</strong> @student.Address</p>
+                                <p class="card-text"><strong>Date of Birth:</strong> @student.DateOfBirth?.ToString("yyyy-MM-dd")</p>
+                                <p class="card-text"><strong>Blood Group:</strong> @student.BloodGroup</p>
+                                <div class="card-footer">
+                                    <div class="row">
+                                        <div class="col">
+                                            @using (Html.BeginForm("Student_PendingRegistration_Accept", "Admin", FormMethod.Post, new { @class = "float-left" }))
+                                            {
+                                                @Html.AntiForgeryToken()
+                                                @Html.Hidden("id", student.StudentID)
+                                                <button type="submit" class="btn btn-accept btn-block">Accept</button>
+                                            }
+                                        </div>
+                                        <div class="col">
+                                            @using (Html.BeginForm("Student_PendingRegistration_Decline", "Admin", FormMethod.Post, new { @class = "float-left ml-2" }))
+                                            {
+                                                @Html.AntiForgeryToken()
+                                                @Html.Hidden("id", student.StudentID)
+                                                <button type="submit" class="btn btn-decline btn-block">Decline</button>
+                                            }
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+
+        @*<div class="row mb-4">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Why Approval is Necessary</h5>
+                            <p class="card-text">
+                                Approval by the admin ensures that all student registrations are verified and meet our standards. This process helps maintain the integrity and quality of our educational programs.
+                            </p>
                         </div>
                     </div>
                 </div>
-            }
-        </div>
-    </div>
-
-
-    <div class="row mb-4">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Why Approval is Necessary</h5>
-                    <p class="card-text">
-                        Approval by the admin ensures that all student registrations are verified and meet our standards. This process helps maintain the integrity and quality of our educational programs.
-                    </p>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">How to Approve or Decline</h5>
+                            <p class="card-text">
+                                In the cards below, you can see a list of students who have registered but are pending approval. Use the Accept button to approve a registration or the Decline button to reject it. Approved students will be added to the database.
+                            </p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">How to Approve or Decline</h5>
-                    <p class="card-text">
-                        In the cards below, you can see a list of students who have registered but are pending approval. Use the Accept button to approve a registration or the Decline button to reject it. Approved students will be added to the database.
-                    </p>
-                </div>
-            </div>
-        </div>
+            </div>*@
     </div>
-
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
