@@ -48,8 +48,10 @@ namespace EduzeniethFinal.Controllers
 
                 if (course != null)
                 {
+                    string coursecode = course.Course_Code;
                     string courseName = course.Course_Name;
                     ViewBag.CourseName = courseName;
+                    ViewBag.Course_code = coursecode;
                 }
 
                     // Concatenate first names and last names, then store in ViewBag
