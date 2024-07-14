@@ -193,17 +193,6 @@ namespace EduzeniethFinal.Controllers
                
             }
         }
-
-
-
-
-
-
-
-
-
-
-
         public ActionResult Registration()
         {
             return View();
@@ -233,22 +222,6 @@ namespace EduzeniethFinal.Controllers
 
             return View(teacher);
         }
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         public ActionResult Teacher_Details()
@@ -277,14 +250,6 @@ namespace EduzeniethFinal.Controllers
             }
             return View();
         }
-
-
-
-
-
-
-
-
 
 
 
