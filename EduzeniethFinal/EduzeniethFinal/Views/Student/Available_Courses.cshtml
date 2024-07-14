@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<EduzeniethFinal.Models.Course>
 @{
     ViewBag.Title = "Available Courses";
-    Layout = "~/Views/Shared/Student.cshtml"; // Assuming you have a layout file
+    Layout = "~/Views/Shared/Student.cshtml";
 }
 
 <!DOCTYPE html>
@@ -25,12 +25,11 @@
         }
 
         .Background-clip {
-            position: absolute;
-            width: 100%;
-            height: fit-content;
-            right: 0;
+            position: fixed;
+            top: 0;
             left: 0;
-            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
             z-index: -1;
         }
 
@@ -71,6 +70,7 @@
     </style>
 </head>
 <body style="background-color: #090639;">
+
     <video autoplay loop muted plays-inline class="Background-clip">
         <source src="~/Image/bgreg3.mp4" type="video/mp4" />
     </video>
@@ -81,9 +81,9 @@
                 <div class="row">
                     <div class="col-12 text-center" style="margin-top:25px;">
                         <ul class="list-inline mb-5" id="portfolio-filters">
-                            <li class="btn px-3 pe-4 active" data-filter="*">All Courses</li>
-                            <li class="btn px-3 pe-4" data-filter="*">Popular Courses</li>
-                            <li class="btn px-3 pe-4" data-filter="*">New Courses</li>
+                            <li class="btn active" data-filter="*">All Courses</li>
+                            <li class="btn " data-filter="*" style="color:lightgray;">Popular Courses</li>
+                            <li class="btn " data-filter="*" style="color:lightgray;">New Courses</li>
                         </ul>
                     </div>
                 </div>
