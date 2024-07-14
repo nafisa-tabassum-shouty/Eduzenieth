@@ -12,12 +12,11 @@
     }
 
     .Background-clip {
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+        min-width: 100%;
+        min-height: 100%;
         z-index: -1;
     }
 
@@ -71,26 +70,40 @@
     <video autoplay loop muted playsinline class="Background-clip">
         <source src="~/Image/bgreg2.mp4" type="video/mp4" />
     </video>
-    <h2>Select a Course</h2>
+    <h2>Select a Course:</h2>
+
     @using (Html.BeginForm("Grade", "Teacher", FormMethod.Post, new { @class = "form-inline" }))
     {
         @Html.AntiForgeryToken()
         <div class="form-group">
-            @Html.Label("Courses", "Select Course")
-            @Html.DropDownList("selectedCourseId", ViewBag.Courses as SelectList, "Select a course", new { @class = "form-control" })
+
+            @Html.DropDownList("selectedCourseId", ViewBag.Courses as SelectList, "Select a course", new { @class = "form-control dropdown-black-text" })
+
         </div>
         <div class="form-group">
             <input type="submit" value="Submit" class="btn btn-primary" />
         </div>
     }
 
+    <style>
+        .dropdown-black-text {
+            color: black;
+        }
+
+            .dropdown-black-text option {
+                color: black;
+            }
+    </style>
+
+
     @if (ViewBag.Students != null)
     {
+        <hr />
         <h3>Enrolled Students</h3>
         <div class="row">
             @foreach (var student in ViewBag.Students)
             {
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="card mb-4 card-custom">
                         <div class="card-body">
                             <h5 class="card-title">@student.FirstName</h5>
@@ -107,6 +120,7 @@
                                     @Html.Hidden("StudentName", (string)student.FirstName)
                                     @Html.Hidden("Course_Id", (int)ViewBag.SelectedCourseId)
                                     @Html.Hidden("Course_Name", (string)ViewBag.SelectedCourseName)
+                                    <hr />
                                     <input type="submit" value="Submit Grade" class="btn btn-success" />
                                 </div>
                             }
