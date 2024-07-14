@@ -5,6 +5,12 @@
 @{
     ViewBag.Title = "Available Courses";
     Layout = "~/Views/Shared/Teacher.cshtml";
+    var colors = new List<string>
+{
+      "#FF5733", "#33FF57", "#3357FF", "#FF33A1", "#A133FF", "#33FFF2"
+  };
+
+    var colorIndex = 0;
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -95,6 +101,8 @@
                 <div class="row g-4 portfolio-container">
                     @foreach (var item in Model)
                     {
+                        var bgColor = colors[colorIndex % colors.Count];
+                        colorIndex++;
                         <div class="col-lg-4 col-md-6 portfolio-item wow zoomIn" data-wow-delay="0.1s">
                             <div class="position-relative rounded overflow-hidden course-item">
                                 <img class="img-fluid w-100" src="~/Content/img/portfolio-1.jpg" alt="">
