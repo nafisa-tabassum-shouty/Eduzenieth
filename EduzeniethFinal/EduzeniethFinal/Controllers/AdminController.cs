@@ -142,7 +142,7 @@ namespace EduzeniethFinal.Controllers
         }
 
         // POST: Admin/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
@@ -151,11 +151,13 @@ namespace EduzeniethFinal.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             var student = db.Students.Find(id);
-            db.Students.Remove(student);
-            db.SaveChanges();
+            if (student != null)
+            {
+                db.Students.Remove(student);
+                db.SaveChanges();
+            }
             return RedirectToAction("Manage_Students");
         }
-
 
 
 
