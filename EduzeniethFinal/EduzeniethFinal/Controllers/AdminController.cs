@@ -509,7 +509,7 @@ namespace EduzeniethFinal.Controllers
             return View(db.Courses.ToList());
         }
         // GET: Courses/Delete/5
-        public ActionResult Delete_Course(int? id)
+        public ActionResult Delete_Course(int id)
         {
             if (id == null)
             {
@@ -524,14 +524,21 @@ namespace EduzeniethFinal.Controllers
         }
 
         // POST: Courses/Delete/5
-        [HttpPost, ActionName("Delete_Course")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed_Course(int id)
         {
+            if (Session["admin"] == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             Course course = db.Courses.Find(id);
-            db.Courses.Remove(course);
-            db.SaveChanges();
-            return RedirectToAction("Delete_Course","Courses");
+            if (course != null)
+            {
+                db.Courses.Remove(course);
+                db.SaveChanges();
+            }
+            return RedirectToAction("Manage_Courses");
         }
 
 
