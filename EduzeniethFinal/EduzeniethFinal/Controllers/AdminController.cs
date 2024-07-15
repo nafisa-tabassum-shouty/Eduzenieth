@@ -259,6 +259,7 @@ namespace EduzeniethFinal.Controllers
 
             return View(teacher);
         }
+
         public ActionResult TeacherPendingRegistration()
         {
             if (Session["admin"] == null)
@@ -284,8 +285,11 @@ namespace EduzeniethFinal.Controllers
                 db.SaveChanges();
                 TempData["SuccessMessage"] = "Teacher admission successful!";
             }
-            return RedirectToAction("TeacherPendingRegistration", TempData);
+            return RedirectToAction("TeacherPendingRegistration",TempData);
         }
+
+        // AdminController.cs
+
         public ActionResult ClearSuccessMessage()
         {
             TempData["SuccessMessage"] = null; // Clear the TempData
@@ -319,7 +323,7 @@ namespace EduzeniethFinal.Controllers
             var teachers = db.Teachers.ToList();
             return View(teachers);
         }
-
+        // GET: Admin/Delete/5
         public ActionResult Delete_Teacher(int id)
         {
             if (Session["admin"] == null)
@@ -334,8 +338,8 @@ namespace EduzeniethFinal.Controllers
             return View(teacher);
         }
 
-        // POST: Admin/Delete/5
-        [HttpPost, ActionName("Delete")]
+        // POST: Admin/DeleteConfirmedTeacher
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmedTeacher(int id)
         {
@@ -344,10 +348,15 @@ namespace EduzeniethFinal.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             var teacher = db.Teachers.Find(id);
-            db.Teachers.Remove(teacher);
-            db.SaveChanges();
+            if (teacher != null)
+            {
+                db.Teachers.Remove(teacher);
+                db.SaveChanges();
+            }
             return RedirectToAction("Edit_Teacher");
         }
+    
+
 
 
 
