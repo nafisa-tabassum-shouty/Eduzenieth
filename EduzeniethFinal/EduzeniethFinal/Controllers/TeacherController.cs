@@ -255,6 +255,11 @@ namespace EduzeniethFinal.Controllers
 
 
 
+
+
+
+
+
         public ActionResult Grade()
         {
             Session["T_id"] = 1;
@@ -306,7 +311,7 @@ namespace EduzeniethFinal.Controllers
 
 
         // POST: Teacher/SubmitGrade
-        [HttpPost]
+        /*[HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult SubmitGrade(string Grade1, int StudentID, string StudentName, int Course_Id, string Course_Name)
         {
@@ -338,6 +343,121 @@ namespace EduzeniethFinal.Controllers
                 return RedirectToAction("Login", "Account");
             }
         }
+*/
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SubmitGrades(List<GradeViewModel> grades)
+        {
+            Session["T_id"] = 1;
+            if (Session["T_id"] != null)
+            {
+                int teacherId = (int)Session["T_id"];
+                string teacherName = db.Teachers.Find(teacherId)?.first_name; // Assuming you have a Teachers table
+
+                foreach (var gradeModel in grades)
+                {
+                    var grade = new Grade
+                    {
+                        Grade1 = gradeModel.Grade1,
+                        GradeDate = DateTime.Now,
+                        Course_Id = gradeModel.Course_Id,
+                        Course_Name = gradeModel.Course_Name,
+                        TeacherID = teacherId,
+                        Teacher_Name = teacherName,
+                        StudentID = gradeModel.StudentID,
+                        StudentName = gradeModel.StudentName
+                    };
+
+                    db.Grades.Add(grade);
+                }
+
+                db.SaveChanges();
+
+                return RedirectToAction("Grade");
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
+        }
+
+        public class GradeViewModel
+        {
+            public string Grade1 { get; set; }
+            public int StudentID { get; set; }
+            public string StudentName { get; set; }
+            public int Course_Id { get; set; }
+            public string Course_Name { get; set; }
+
+
+        }
+
+        /*  public ActionResult Cinvitation()
+          {
+              return View();
+          }
+
+
+          public ActionResult Grade2()
+          {
+              int teacherId = 1; // This should be dynamically set, e.g., from the logged-in user's session
+              var courses = db.Courses.Where(c => c.teacherID == teacherId).ToList();
+              ViewBag.Courses = new SelectList(courses, "CourseId", "CourseName");
+
+              var students = db.Students.ToList();
+              ViewBag.Students = new SelectList(students, "StudentID", "Email");
+
+              return View();
+          }
+
+          // New Action to handle grade submission
+          [HttpPost]
+          [ValidateAntiForgeryToken]
+          public ActionResult SubmitStudentGrade(GradeViewModel2 model)
+          {
+              if (ModelState.IsValid)
+              {
+                  int teacherId = 1; // This should be dynamically set, e.g., from the logged-in user's session
+                  string teacherName = db.Teachers.Find(teacherId)?.first_name; // Assuming you have a Teachers table
+
+                  var grade = new Grade
+                  {
+                      Grade1 = model.Grade1,
+                      GradeDate = DateTime.Now,
+                      Course_Id = model.Course_Id,
+                      Course_Name = db.Courses.Find(model.Course_Id)?.Course_Name,
+                      TeacherID = teacherId,
+                      Teacher_Name = teacherName,
+                      StudentID = model.StudentID,
+                      StudentName = db.Students.Find(model.StudentID)?.FirstName
+                  };
+
+                  db.Grades.Add(grade);
+                  db.SaveChanges();
+
+                  return RedirectToAction("Grade");
+              }
+
+              int teacherIdForDropDowns = 1; // This should be dynamically set, e.g., from the logged-in user's session
+              var courses = db.Courses.Where(c => c.teacherID == teacherIdForDropDowns).ToList();
+              ViewBag.Courses = new SelectList(courses, "CourseId", "CourseName");
+
+              var students = db.Students.ToList();
+              ViewBag.Students = new SelectList(students, "StudentID", "Email");
+
+              return View("Grade", model); // Return the Grade view with the model to display validation errors
+          }
+
+          public class GradeViewModel2
+          {
+              public string Grade1 { get; set; }
+              public int StudentID { get; set; }
+              public int Course_Id { get; set; }
+          }*/
+
+
+
+
 
 
 
