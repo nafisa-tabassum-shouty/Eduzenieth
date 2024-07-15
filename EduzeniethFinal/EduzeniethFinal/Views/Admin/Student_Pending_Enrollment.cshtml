@@ -128,15 +128,16 @@
                             <td style="color:white;">@studentName.FirstName</td>
                             <td style="color:white;">@courseName.Course_Name</td>
                             <td>
-                                <form method="post" action="@Url.Action("Manage_Courses", "Admin")" style="display:inline;">
+                                <form method="post" action="@Url.Action("Student_Pending_Enrollment_Accept", "Admin")" style="display:inline;">
                                     <input type="hidden" name="id" value="@enrollment.id" />
                                     <button type="submit" class="btn btn-success" style="display:inline;">Accept</button>
                                 </form>
 
-                                <form method="post" action="@Url.Action("Manage_Courses", "Admin")" style="display:inline;">
+                                <form method="post" action="@Url.Action("Student_Pending_Enrollment_Decline", "Admin")" style="display:inline;">
                                     <input type="hidden" name="id" value="@enrollment.id" />
                                     <button type="submit" class="btn btn-danger" style="display:inline;">Decline</button>
                                 </form>
+                               
                             </td>
                         </tr>
                     }

@@ -143,6 +143,46 @@ namespace EduzeniethFinal.Controllers
 
             return View();
         }
+
+        // GET: Home/Invite_Courses
+        [HttpGet]
+        public ActionResult Invite_Courses()
+        {
+            return View();
+        }
+
+        // POST: Home/Invite_Courses
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Invite_Courses(Enroll enroll)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    System.Diagnostics.Debug.WriteLine($"Enroll Data: sid={enroll.sid}, cid={enroll.cid}, status={enroll.status}, role={enroll.role}");
+
+                    db.Enrolls.Add(enroll);
+                    db.SaveChanges();
+
+                    return RedirectToAction("Home","Teacher"); 
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine($"Error: {ex.Message}");
+                }
+            }
+            else
+            {
+                var errors = ModelState.Values.SelectMany(v => v.Errors);
+                foreach (var error in errors)
+                {
+                    System.Diagnostics.Debug.WriteLine($"ModelState Error: {error.ErrorMessage}");
+                }
+            }
+
+            return View(enroll);
+        }
         public ActionResult Logout()
         {
             Session["T_id"] = null;

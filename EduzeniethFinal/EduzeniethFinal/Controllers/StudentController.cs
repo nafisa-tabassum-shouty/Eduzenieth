@@ -64,7 +64,8 @@ namespace EduzeniethFinal.Controllers
                             {
                                 sid = student.StudentID,
                                 cid = course.Course_Id,
-                                status = 0 // Assuming status 0 indicates pending or initial enrollment
+                                status = 0 ,// Assuming status 0 indicates pending or initial enrollment
+                                role=0
                             };
 
                             // Add the enrollment record to the database
@@ -72,7 +73,7 @@ namespace EduzeniethFinal.Controllers
                             db.SaveChanges();
 
                             // Redirect to a success page or any other desired action
-                            return RedirectToAction("Enrolled_Courses", "Courses");
+                            return RedirectToAction("Enrolled_Courses", "Student");
                         }
                         else
                         {

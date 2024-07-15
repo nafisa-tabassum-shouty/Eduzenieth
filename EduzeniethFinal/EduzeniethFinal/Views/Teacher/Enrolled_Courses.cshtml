@@ -96,7 +96,7 @@
                                     @using (Html.BeginForm("Enrolled_Courses", "Teacher", FormMethod.Post))
                                     {
                                         @Html.AntiForgeryToken()
-                                        @Html.HiddenFor(modelItem => item.Course_Id)
+                                        @Html.Hidden("Course_Id", item.Course_Id)
                                         <input type="submit" value="Enter into The Course" class="btn btn-primary" />
                                     }
                                 </div>

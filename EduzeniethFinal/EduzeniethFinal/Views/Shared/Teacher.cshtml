@@ -107,19 +107,7 @@
                         </li>
                         <br />
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Course Invitation</a>
-                        </li>
-                        <br />
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Announcements</a>
-                        </li>
-                        <br />
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Messages</a>
-                        </li>
-                        <br />
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Assignments</a>
+                            @Html.ActionLink("Course Invitation", "Invite_Courses", "Teacher", new { area = "" }, new { @class = "nav-link" })
                         </li>
                         <br />
                     </ul>

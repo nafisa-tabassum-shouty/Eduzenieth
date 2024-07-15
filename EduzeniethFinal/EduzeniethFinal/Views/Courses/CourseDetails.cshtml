@@ -15,7 +15,7 @@
     <style>
         body {
             background-color: #031116;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             transition: margin-left 0.5s ease;
         }
 
@@ -224,7 +224,7 @@
         </div>
 
         <div class="main-content">
-            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark" style="background-color:rgb(92, 38, 146); margin-top: -5%; position: relative; border-radius: 10px;" ;>
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark" style="background-color:rgb(92, 38, 146); margin-top: -5%; position: relative; border-radius: 10px;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" ;>
                 <div class="container">
                     <h3 style="margin-left:-15%;">@Html.ActionLink("EduZenith Student", "Home", "Student", new { area = "" }, new { @class = "navbar-brand" })</h3>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -252,7 +252,7 @@
                     <!-- Announce Something Form -->
                     <section id="announce" style="color:white;">
                         <br />
-                        @*<h2 class="section-title" style="color:white;">Announce Something</h2>*@
+
                         <div class="row">
                             <div class="col-12">
                                 <form action="/courses/PostAnnouncement" method="post">
@@ -273,25 +273,45 @@
                         <hr />
                         @foreach (var announcement in ViewBag.Announcements)
                         {
-                            <div class="card announcement-section" style="background: linear-gradient(10deg,rgba(255,255,255,0.1),rgba(255,255,255,0.1)); backdrop-filter: blur(20px);border-radius:20px;">
+                            <div class="card announcement-section" style="background: linear-gradient(10deg,rgba(255,255,255,0.1),rgba(255,255,255,0.1)); backdrop-filter: blur(20px);border-radius:20px 20px;">
                                 <div class="card-body">
-                                    <h5 class="card-title" style="color:white;">@announcement.Title</h5>
-                                    <p class="card-text" style="color:white;">@announcement.PostedBy : @announcement.Content</p>
-                                    <p class="card-text" style="color:white;">
+                                    @*<h5 class="card-title" style="color:white;">@announcement.Title</h5>*@
+                                    <p class="card-text" style="color:white;float:right;">
                                         <small class="text-muted">Posted by @announcement.PostedBy on @announcement.PostedDate</small>
                                     </p>
-                                </div>
-                                @if (announcement.Comments != null && announcement.Comments.Count > 0)
-                                {
-                                    <ul class="list-group list-group-flush">
-                                        @foreach (var comment in announcement.Comments)
+                                    <div style="text-align: left;">
+
+                                        <p class="card-text" style="color:white;">
+                                            <h3 style="font-family:'Gill Sans', 'Gill Sans MT', 'Trebuchet MS';">@announcement.PostedBy</h3>
+                                            <hr />
+                                            <div style="background: linear-gradient(10deg,rgba(0,0,0,0.1),rgba(0,255,255,0.1)); backdrop-filter: blur(20px); min-height: 10rem; text-align: justify-all; padding: 10px;">
+                                                @announcement.Content
+
+
+                                            </div>
+                                        </p>
+                                    </div>
+
+
+                                    <div>
+                                        @if (announcement.Comments != null && announcement.Comments.Count > 0)
                                         {
-                                            <li class="list-group-item" style="background-color:blueviolet;color:white;">
-                                                <strong>@comment.CommentedBy:</strong> @comment.CommentContent
-                                            </li>
+
+                                            <ul class="list-group list-group-flush" style="text-align:left;padding:10px;">
+                                                <p style="text-align:left;color:lightgray;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Comments</p>
+                                                @foreach (var comment in announcement.Comments)
+                                                {
+
+                                                    <li class="list-group-item" style="background:linear-gradient(10deg,rgba(0,0,255,0.1),rgba(0,0,255,0.1)); backdrop-filter: blur(20px);;text-align:justify-all;padding:10px;color:white;">
+                                                        @comment.CommentedBy: @comment.CommentContent
+                                                    </li>
+                                                }
+                                            </ul>
                                         }
-                                    </ul>
-                                }
+                                    </div>
+
+                                </div>
+
                                 <div class="card-body" style="color:white;">
                                     @using (Html.BeginForm("PostComment", "Courses", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                                     {
@@ -316,3 +336,4 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+
