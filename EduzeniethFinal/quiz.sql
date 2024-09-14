@@ -1,0 +1,27 @@
+﻿
+
+CREATE TABLE Questions  (
+    QuesID INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+    CourseID INT NOT NULL,
+    Question NVARCHAR(MAX) NOT NULL,
+    Ans_A NVARCHAR(MAX) NOT NULL,
+    Ans_B NVARCHAR(MAX) NOT NULL,
+    Ans_C NVARCHAR(MAX) NOT NULL,
+    Ans_D NVARCHAR(MAX) NOT NULL,
+    Correct_Ans NVARCHAR(MAX) NOT NULL,
+    Quiz_id INT NOT NULL,
+   
+);
+
+CREATE TABLE Answer  (
+    AnsID INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+    Ans NVARCHAR(MAX) NOT NULL,
+    statuss INT NOT NULL,
+    Quiz_id INT NOT NULL,
+    CourseID INT NOT NULL,
+    CourseName NVARCHAR(MAX) NOT NULL,
+    studentID INT NOT NULL,
+    studentName NVARCHAR(40) NOT NULL,
+    QuesID INT NOT NULL,
+    Question NVARCHAR(MAX) NOT NULL,
+);
