@@ -11,7 +11,7 @@ namespace EduzeniethFinal.Controllers
 {
     public class TeacherController : Controller
     {
-        private EduzenithFinalEntities7 db = new EduzenithFinalEntities7();
+        private EduEntities db = new EduEntities();
 
         // GET: Student
         public ActionResult Available_Courses()
@@ -21,7 +21,7 @@ namespace EduzeniethFinal.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            int studentId = (int)Session["T_id"];
+            int studentId = Convert.ToInt32(Session["T_id"]);
 
             // Get the list of course IDs the student is already enrolled in
             var enrolledCourseIds = db.Enrolls
@@ -46,7 +46,7 @@ namespace EduzeniethFinal.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            using (var db = new EduzenithFinalEntities7())
+            using (var db = new EduEntities())
             {
                 // Find the course by ID
                 var course = db.Courses.FirstOrDefault(c => c.Course_Id == Course_Id);
@@ -71,7 +71,7 @@ namespace EduzeniethFinal.Controllers
                             // Add the enrollment record to the database
                             db.Enrolls.Add(enrollment);
                             db.SaveChanges();
-
+                            Session["ShowAlert_Enrollment"] = true;
                             // Redirect to a success page or any other desired action
                             return RedirectToAction("Enrolled_Courses", "Teacher");
                         }
@@ -107,7 +107,7 @@ namespace EduzeniethFinal.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var studentId = (int)Session["T_id"];
+            var studentId= Convert.ToInt32(Session["T_id"]);
             var student = db.Teachers.Find(studentId);
             if (student == null)
             {
@@ -148,48 +148,99 @@ namespace EduzeniethFinal.Controllers
         [HttpGet]
         public ActionResult Invite_Courses()
         {
+            if (Session["T_id"] == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Session["ShowAlert"] = null;
+            Session["ShowAlert_Enrollment"] = null;
+
+            int teacherId = Convert.ToInt32(Session["T_id"]);
+            //  var enrolls = db.Enrolls .Where(c => c.sid== teacherId && c.role==1 && c.status==1).Select(c=>c.id).ToList();
+            // var courses = db.Courses.Where(c=>enrolls.Contains(c.Course_Id )).ToList();
+
+            var courses = db.Courses.Where(c => c.teacherID == teacherId).ToList();
+            ViewBag.Courses = new SelectList(courses, "Course_Id", "Course_Name");
+            ViewBag.Students = null; // Ensure ViewBag.Students is null initially
+            ViewBag.SelectedCourseId = null;
+            ViewBag.SelectedCourseName = null;
+
             return View();
         }
 
         // POST: Home/Invite_Courses
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Invite_Courses(Enroll enroll)
+        public ActionResult Invite_Courses(int selectedCourseId)
         {
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    System.Diagnostics.Debug.WriteLine($"Enroll Data: sid={enroll.sid}, cid={enroll.cid}, status={enroll.status}, role={enroll.role}");
+            int teacherId = Convert.ToInt32(Session["T_id"]);
+            var courses = db.Courses.Where(c => c.teacherID == teacherId).ToList();
+            ViewBag.Courses = new SelectList(courses, "Course_Id", "Course_Name");
+            ViewBag.SelectedCourseId = selectedCourseId;
 
-                    db.Enrolls.Add(enroll);
-                    db.SaveChanges();
+            // Retrieve course name as a single string
+            ViewBag.SelectedCourseName = db.Courses
+                                            .Where(c => c.Course_Id == selectedCourseId)
+                                            .Select(c => c.Course_Name)
+                                            .FirstOrDefault(); // Retrieve the first matching course name
 
-                    return RedirectToAction("Home","Teacher"); 
-                }
-                catch (Exception ex)
-                {
-                    System.Diagnostics.Debug.WriteLine($"Error: {ex.Message}");
-                }
-            }
-            else
-            {
-                var errors = ModelState.Values.SelectMany(v => v.Errors);
-                foreach (var error in errors)
-                {
-                    System.Diagnostics.Debug.WriteLine($"ModelState Error: {error.ErrorMessage}");
-                }
-            }
+            var sidsForCid = db.Enrolls
+                              .Where(e => e.cid == selectedCourseId)
+                              .Select(e => e.sid)
+                              .ToList();
 
-            return View(enroll);
+            var students = db.Students
+                             .Where(s => !sidsForCid.Contains(s.StudentID))
+                             .ToList();
+
+            ViewBag.Students = students;
+            return View();
         }
+
+        // POST: Home/InviteStudents
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult InviteStudents(int selectedCourseId, int[] studentIds)
+        {
+            if (studentIds != null && studentIds.Length > 0)
+            {
+                foreach (var studentId in studentIds)
+                {
+                    var enroll = new Enroll
+                    {
+                        cid = selectedCourseId,
+                        sid = studentId,
+                        status = 0,
+                        role = 3
+                    };
+                    db.Enrolls.Add(enroll);
+                }
+                db.SaveChanges();
+            }
+            return RedirectToAction("Invite_Courses");
+        }
+
+
         public ActionResult Logout()
         {
+            Session["ShowAlert"] = null;
+            Session["ShowAlert_Enrollment"] = null;
             Session["T_id"] = null;
             Session["T_username"] = null;
             return RedirectToAction("Index", "Home");
         }
+        public JsonResult GetStudents(int courseId)
+        {
+            var enrolledStudentIds = db.Enrolls.Where(e => e.cid == courseId).Select(e => e.sid).ToList();
+            var students = db.Students
+                             .Where(s => !enrolledStudentIds.Contains(s.StudentID))
+                             .Select(s => new { Value = s.StudentID, Text = s.FirstName + " " + s.LastName })
+                             .ToList();
 
+            System.Diagnostics.Debug.WriteLine($"Students for courseId {courseId}: {string.Join(", ", students.Select(s => s.Text))}");
+
+            return Json(students, JsonRequestBehavior.AllowGet);
+        }
 
         // GET: Teacher
         public ActionResult Login()
@@ -201,7 +252,7 @@ namespace EduzeniethFinal.Controllers
         [HttpPost]
         public ActionResult Login(string username, string password)
         {
-            using (var db = new EduzenithFinalEntities7())
+            using (var db = new EduEntities())
             {
                 if (username.Equals("admin") && password.Equals("123456"))
                 {
@@ -244,7 +295,7 @@ namespace EduzeniethFinal.Controllers
             if (ModelState.IsValid)
             {
                 // Assuming "db" is your DbContext instance
-                using (var db = new EduzenithFinalEntities7())
+                using (var db = new EduEntities())
                 {
                     db.Teachers.Add(teacher);
                     db.SaveChanges();
@@ -253,7 +304,7 @@ namespace EduzeniethFinal.Controllers
                     Session["T_id"] = teacher.Id;
                     Session["T_username"] = teacher.Username;
 
-                    TempData["ShowAlert"] = true;
+                    Session["ShowAlert"] = true;
                 }
 
 
@@ -270,8 +321,9 @@ namespace EduzeniethFinal.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
-            int teacherId = (int)Session["T_id"]; // Cast Session["T_id"] to int
+            Session["ShowAlert"] = null;
+            Session["ShowAlert_Enrollment"] = null;
+            int teacherId = Convert.ToInt32(Session["T_id"]); // Cast Session["T_id"] to int
 
             var teacher = db.Teachers.Find(teacherId);
             if (teacher == null)
@@ -288,6 +340,8 @@ namespace EduzeniethFinal.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            Session["ShowAlert"] = null;
+            Session["ShowAlert_Enrollment"] = null;
             return View();
         }
 
@@ -302,10 +356,13 @@ namespace EduzeniethFinal.Controllers
 
         public ActionResult Grade()
         {
-            Session["T_id"] = 1;
+            if (Session["T_id"] == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             if (Session["T_id"] != null)
             {
-                int teacherId = (int)Session["T_id"];
+                int teacherId = Convert.ToInt32(Session["T_id"]);
                 var courses = db.Courses.Where(c => c.teacherID == teacherId).ToList();
                 ViewBag.Courses = new SelectList(courses, "Course_Id", "Course_Name");
                 ViewBag.Students = null; // Ensure ViewBag.Students is null initially
@@ -325,7 +382,7 @@ namespace EduzeniethFinal.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Grade(int selectedCourseId)
         {
-            int teacherId = 1;
+            int teacherId = Convert.ToInt32(Session["T_id"]);
             var courses = db.Courses.Where(c => c.teacherID == teacherId).ToList();
             ViewBag.Courses = new SelectList(courses, "Course_Id", "Course_Name");
             ViewBag.SelectedCourseId = selectedCourseId;
@@ -388,10 +445,10 @@ namespace EduzeniethFinal.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult SubmitGrades(List<GradeViewModel> grades)
         {
-            Session["T_id"] = 1;
+            
             if (Session["T_id"] != null)
             {
-                int teacherId = (int)Session["T_id"];
+                int teacherId = Convert.ToInt32(Session["T_id"]);
                 string teacherName = db.Teachers.Find(teacherId)?.first_name; // Assuming you have a Teachers table
 
                 foreach (var gradeModel in grades)

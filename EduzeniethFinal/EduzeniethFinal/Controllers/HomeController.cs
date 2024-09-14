@@ -17,6 +17,8 @@ namespace EduzeniethFinal.Controllers
 
         public ActionResult About()
         {
+            Session["ShowAlert"] = null;
+            Session["ShowAlert_Enrollment"] = null;
             ViewBag.Message = "Your application description page.";
 
             return View();
@@ -24,14 +26,18 @@ namespace EduzeniethFinal.Controllers
 
         public ActionResult Contact()
         {
+            Session["ShowAlert"] = null;
+            Session["ShowAlert_Enrollment"] = null;
             ViewBag.Message = "Your contact page.";
 
             return View();
         }
-        private EduzenithFinalEntities7 db = new EduzenithFinalEntities7();
+        private EduEntities db = new EduEntities();
 
         public ActionResult Registration()
         {
+            Session["ShowAlert"] = null;
+            Session["ShowAlert_Enrollment"] = null;
             return View();
         }
         [HttpPost]
@@ -44,7 +50,7 @@ namespace EduzeniethFinal.Controllers
                 db.SaveChanges();
                 Session["id"] = student.StudentID;
                 Session["username"] = student.Username;
-                TempData["ShowAlert"] = true;
+                Session["ShowAlert"] = true;
                 return RedirectToAction("Index", "Home");
             }
 
@@ -59,11 +65,13 @@ namespace EduzeniethFinal.Controllers
         [HttpPost]
         public ActionResult Login(string username, string password)
         {
-            using (var db = new EduzenithFinalEntities7 ()) // Replace YourDbContext with your actual DbContext
+            using (var db = new EduEntities()) // Replace YourDbContext with your actual DbContext
             {
                 var student = db.Students.FirstOrDefault(s => s.Username == username && s.Password == password && s.Status == 1);
                 if (student != null)
                 {
+                    Session["ShowAlert"] = null;
+                    Session["ShowAlert_Enrollment"] = null;
                     // Login successful
                     // Redirect to dashboard or any other page
                     Session["id"] = student.StudentID;

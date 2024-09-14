@@ -14,17 +14,18 @@ namespace EduzeniethFinal.Controllers
 
     public class CoursesController : Controller
     {
+        //private EduEntities1 db1 = new EduEntities1();
         // GET: Courses/CourseDetails
         public ActionResult CourseDetails()
         {
 
-            int cid = (int)Session["Course_Id"];
+            int cid = Convert.ToInt32(Session["Course_Id"]);
             var sidsForCid = new List<int>();
             var tidsForCid = new List<int>();
             var students = new List<Student>();
 
             var teachers = new List<Teacher>();
-            using (var db1 = new EduzenithFinalEntities7())
+            using (var db1 = new EduEntities())
             {
                 // Retrieve sid values for the specific cid
                 sidsForCid = db1.Enrolls
@@ -61,7 +62,7 @@ namespace EduzeniethFinal.Controllers
             }
 
 
-            EduzenithFinalEntities7 db = new EduzenithFinalEntities7();
+            EduEntities db = new EduEntities();
 
             // Retrieve enrolled students and teachers from the database
             List<string> enrolledStudents = ViewBag.FullNames;
@@ -101,7 +102,8 @@ namespace EduzeniethFinal.Controllers
             ViewBag.EnrolledStudents = enrolledStudents;
             ViewBag.EnrolledTeachers = enrolledTeachers;
             ViewBag.Announcements = announcements;
-
+            //var course = db1.FileUploads.Find(cid);
+            //course.UploadedFiles = db1.FileUploads.Where(f => f.CourseId == cid).ToList();
             return View();
         }
 
@@ -109,13 +111,13 @@ namespace EduzeniethFinal.Controllers
         [HttpPost]
         public ActionResult PostAnnouncement(string announcement)
         {
-            EduzenithFinalEntities7  db = new EduzenithFinalEntities7();
+            EduEntities db = new EduEntities();
             int userId;
             int userStatus;
 
             if (Session["id"] == null && Session["T_id"] != null)
             {
-                userId = (int)Session["T_id"];
+                userId = Convert.ToInt32(Session["T_id"]);
                 userStatus = 1;
             }
             else
@@ -145,7 +147,7 @@ namespace EduzeniethFinal.Controllers
         [HttpPost]
         public ActionResult PostComment(string comment, int postId)
         {
-            EduzenithFinalEntities7 db = new EduzenithFinalEntities7();
+            EduEntities db = new EduEntities();
             int userId;
             int userStatus;
 
@@ -186,10 +188,34 @@ namespace EduzeniethFinal.Controllers
         }
 
 
+        private EduEntities1 db = new EduEntities1();
 
 
 
+        [HttpPost]
+        public ActionResult UploadFile(HttpPostedFileBase file, int CourseId)
+        {
+            if (file != null && file.ContentLength > 0)
+            {
+                // Generate a unique file name
+                var fileName = Path.GetFileName(file.FileName);
+                var path = Path.Combine(Server.MapPath("~/UploadedFiles/"), fileName);
 
+                // Save the file to the server
+                file.SaveAs(path);
+
+                // Save file info to the database
+                var fileUpload = new FileUpload
+                {
+                    FileName = fileName,
+                    FilePath = "~/UploadedFiles/" + fileName,
+                    CourseId = CourseId
+                };
+                db.FileUploads.Add(fileUpload);
+                db.SaveChanges();
+            }
+            return RedirectToAction("CourseDetails", new { id = CourseId });
+        }
 
 
 

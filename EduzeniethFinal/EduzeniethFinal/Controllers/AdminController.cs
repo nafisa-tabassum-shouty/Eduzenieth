@@ -24,7 +24,7 @@ namespace EduzeniethFinal.Controllers
             return View();
         }
 
-        private EduzenithFinalEntities7  db = new EduzenithFinalEntities7();
+        private EduEntities db = new EduEntities();
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -39,7 +39,7 @@ namespace EduzeniethFinal.Controllers
                 course.Created_at = DateTime.Now; // Set Created_at here
                 db.Courses.Add(course);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Manage_Courses");
             }
 
             return View(course);
@@ -158,7 +158,35 @@ namespace EduzeniethFinal.Controllers
             }
             return RedirectToAction("Manage_Students");
         }
+        public ActionResult Edit_Student(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var student = db.Students.Find(id);
+            if (student == null)
+            {
+                return HttpNotFound();
+            }
+            return View(student);
+        }
 
+        // POST: Students/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit_Student([Bind(Include = "StudentID,Password,Nationality,MobileNumber,FirstName,Email,LastName,FatherName,Religion,Address,DateOfBirth,BloodGroup,Username")] Student student)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(student).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Manage_Students");
+            }
+            return View(student);
+        }
 
 
 
@@ -241,7 +269,7 @@ namespace EduzeniethFinal.Controllers
             if (ModelState.IsValid)
             {
                 // Assuming "db" is your DbContext instance
-                using (var db = new EduzenithFinalEntities7())
+                using (var db = new EduEntities())
                 {
                     db.Teachers.Add(teacher);
                     db.SaveChanges();
@@ -322,6 +350,44 @@ namespace EduzeniethFinal.Controllers
             }
             var teachers = db.Teachers.ToList();
             return View(teachers);
+        }
+        public ActionResult Edit_Teacher2()
+        {
+            if (Session["admin"] == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var teachers = db.Teachers.ToList();
+            return View(teachers);
+        }
+        public ActionResult Modify_Teacher(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var tblTeacher = db.Teachers.Find(id);
+            if (tblTeacher == null)
+            {
+                return HttpNotFound();
+            }
+            return View(tblTeacher);
+        }
+
+        // POST: tblTeachers/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Modify_Teacher([Bind(Include = "Id,Username,Password,first_name,last_name,father_name,Email,Designation,MaritalStatus,MobileNumber,Nationality,Religion,Address,Gender,EducationalField,NID_PassportNo,Status")] Teacher tblTeacher)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(tblTeacher).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Edit_Teacher");
+            }
+            return View(tblTeacher);
         }
         // GET: Admin/Delete/5
         public ActionResult Delete_Teacher(int id)
@@ -501,6 +567,36 @@ namespace EduzeniethFinal.Controllers
 
 
 
+        // GET: Courses/Edit/5
+        public ActionResult EditCourses(int? id)
+        {
+            if (Session["admin"] == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Course course = db.Courses.Find(id);
+            if (course == null)
+            {
+                return HttpNotFound();
+            }
+            return View(course);
+        }
+
+        // POST: Courses/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditCourses([Bind(Include = "Course_Id,Course_Code,Course_Name,teacherID,Course_desc,Created_at")] Course course)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(course).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Manage_Courses");
+            }
+            return View(course);
+        }
 
 
 
@@ -541,7 +637,10 @@ namespace EduzeniethFinal.Controllers
             return RedirectToAction("Manage_Courses");
         }
 
-
+        public ActionResult AllStudents()
+        {
+            return View(db.Students.Where(c=>c.Status==1).ToList());
+        }
 
     }
 }

@@ -11,11 +11,12 @@ namespace EduzeniethFinal.Controllers
 {
     public class StudentController : Controller
     {
-        private EduzenithFinalEntities7 db = new EduzenithFinalEntities7();
+        private EduEntities db = new EduEntities();
 
         // GET: Student
         public ActionResult Available_Courses()
         {
+          
             if (Session["id"] == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -45,8 +46,7 @@ namespace EduzeniethFinal.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
-            using (var db = new EduzenithFinalEntities7())
+            using (var db = new EduEntities())
             {
                 // Find the course by ID
                 var course = db.Courses.FirstOrDefault(c => c.Course_Id == Course_Id);
@@ -71,7 +71,7 @@ namespace EduzeniethFinal.Controllers
                             // Add the enrollment record to the database
                             db.Enrolls.Add(enrollment);
                             db.SaveChanges();
-
+                            Session["ShowAlert_Enrollment"] = true;
                             // Redirect to a success page or any other desired action
                             return RedirectToAction("Enrolled_Courses", "Student");
                         }
@@ -104,6 +104,8 @@ namespace EduzeniethFinal.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            Session["ShowAlert"] = null;
+            Session["ShowAlert_Enrollment"] = null;
             var student = db.Students.Find(Session["id"]);
             if (student == null)
             {
@@ -127,10 +129,11 @@ namespace EduzeniethFinal.Controllers
 
             // Retrieve enrolled courses for the student
             var enrollments = db.Enrolls.Where(e => e.sid == studentId && e.status == 1).ToList();
-            
+            var invitation = db.Enrolls.Where(e => e.sid == studentId && e.status == 0 && e.role==3).ToList();
 
             // Retrieve course details for each enrollment
             List<Course> courses = new List<Course>();
+            List<Course> invite = new List<Course>();
             foreach (var enrollment in enrollments)
             {
                 Console.WriteLine(enrollment.cid);
@@ -140,6 +143,16 @@ namespace EduzeniethFinal.Controllers
                     courses.Add(course);
                 }
             }
+          
+            foreach (var enrollment in invitation)
+            {
+                var course = db.Courses.FirstOrDefault(c => c.Course_Id == enrollment.cid);
+                if (course != null)
+                {
+                    invite.Add(course);
+                }
+            }
+            Session["invitescourse"] = invite;
 
             return View(courses);
         }
@@ -156,6 +169,8 @@ namespace EduzeniethFinal.Controllers
         }
         public ActionResult Logout()
         {
+            Session["ShowAlert"] = null;
+            Session["ShowAlert_Enrollment"] =null;
             Session["id"] = null;
             Session["username"] = null;
             return RedirectToAction("Index", "Home");
@@ -165,6 +180,18 @@ namespace EduzeniethFinal.Controllers
         {
             return View();
         }
+        public ActionResult show_grades()
+        {
+            if (Session["id"] == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            int studentId = (int)Session["id"];
+            Session["ShowAlert"] = null;
+            Session["ShowAlert_Enrollment"] = null;
+            return View(db.Grades.Where(c => c.StudentID == studentId).ToList());
+        }
+
 
 
     }
