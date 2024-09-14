@@ -117,7 +117,7 @@
 
                 if (enrollment != null)
                 {
-                    var db = new EduzenithFinalEntities7();
+                    var db = new EduEntities();
                     var courseName = db.Courses.Find(enrollment.cid);
 
                     var studentName = db.Students.Find(enrollment.sid);

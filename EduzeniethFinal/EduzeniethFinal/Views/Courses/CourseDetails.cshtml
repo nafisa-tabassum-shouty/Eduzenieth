@@ -1,6 +1,14 @@
 ﻿@{
     /* Layout = "~/Views/Shared/Student.cshtml";*/
     Layout = null;
+   /* if(Session["T_id"] != null)
+    {
+        Layout = "~/Views/Shared/Teacher.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/Student.cshtml";
+    }*/
 
 }
 <!DOCTYPE html>
@@ -224,21 +232,59 @@
         </div>
 
         <div class="main-content">
-            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark" style="background-color:rgb(92, 38, 146); margin-top: -5%; position: relative; border-radius: 10px;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" ;>
-                <div class="container">
-                    <h3 style="margin-left:-15%;">@Html.ActionLink("EduZenith Student", "Home", "Student", new { area = "" }, new { @class = "navbar-brand" })</h3>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav flex-grow-1">
-                            <li>@Html.ActionLink("Home", "Home", "Student", new { area = "" }, new { @class = "nav-link" })</li>
-                            <li>@Html.ActionLink("Student Details", "Student_Details", "Student", new { area = "" }, new { @class = "nav-link" })</li>
-                            <li>@Html.ActionLink("Available Courses", "Available_Courses", "Student", new { area = "" }, new { @class = "nav-link" })</li>
-                            <li>@Html.ActionLink("Enrolled Courses", "Enrolled_Courses", "Student", new { area = "" }, new { @class = "nav-link" })</li>
-                            <li>@Html.ActionLink("Logout", "Logout", "Student", new { area = "" }, new { @class = "nav-link" })</li>
+            @if (Session["T_id"] == null)
+            {
+                <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark" style="background-color:rgb(92, 38, 146); margin-top: -5%; position: relative; border-radius: 10px;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" ;>
+                    <div class="container">
+                        <h3 style="margin-left:-15%;">@Html.ActionLink("EduZenith Student", "Home", "Student", new { area = "" }, new { @class = "navbar-brand" })</h3>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav flex-grow-1">
+                                <li>@Html.ActionLink("Home", "Home", "Student", new { area = "" }, new { @class = "nav-link" })</li>
+                                <li>@Html.ActionLink("Student Details", "Student_Details", "Student", new { area = "" }, new { @class = "nav-link" })</li>
+                                <li>@Html.ActionLink("Available Courses", "Available_Courses", "Student", new { area = "" }, new { @class = "nav-link" })</li>
+                                <li>@Html.ActionLink("Enrolled Courses", "Enrolled_Courses", "Student", new { area = "" }, new { @class = "nav-link" })</li>
+                                <li>@Html.ActionLink("Logout", "Logout", "Student", new { area = "" }, new { @class = "nav-link" })</li>
 
-                        </ul>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-            </nav>
+                </nav>
+            }
+            else
+            {
+                <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark" style="background-color:rgb(92, 38, 146); margin-top: -5%; position: relative; border-radius: 10px;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" ;>
+                    <div class="container">
+                        <h3 style="margin-left:-15%;">@Html.ActionLink("EduZenith Student", "Home", "Student", new { area = "" }, new { @class = "navbar-brand" })</h3>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav flex-grow-1">
+                                <li>
+                                    @Html.ActionLink("Home", "Home", "Teacher", new { area = "" }, new { @class = "nav-link" })
+                                </li>
+                                <li>
+                                    @Html.ActionLink("Profile", "Teacher_Details", "Teacher", new { area = "" }, new { @class = "nav-link" })
+                                </li>
+                                <li>
+                                    @Html.ActionLink("All Courses", "Available_Courses", "Teacher", new { area = "" }, new { @class = "nav-link" })
+                                </li>
+                                <li>
+                                    @Html.ActionLink("Enrolled Courses", "Enrolled_Courses", "Teacher", new { area = "" }, new { @class = "nav-link" })
+                                </li>
+                                <li>
+                                    @Html.ActionLink("Gradebook", "Grade", "Teacher", new { area = "" }, new { @class = "nav-link" })
+                                </li>
+
+                                <li>
+                                    @Html.ActionLink("Course Invitation", "Invite_Courses", "Teacher", new { area = "" }, new { @class = "nav-link" })
+                                </li>
+                                <li>
+                                    @Html.ActionLink("Logout", "Logout", "Teacher", new { area = "" }, new { @class = "nav-link" })
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            }
+
             <div class="container" style="background: linear-gradient(10deg,rgba(10, 12, 38,0.10),rgb(47, 13, 91, 0.10)); backdrop-filter: blur(20px);border-radius:20px;">
                 <div class="container">
                     <div class="pt-5 row" style="background: linear-gradient(10deg,blueviolet,rgb(97, 35, 112, 0.10)); backdrop-filter: blur(20px);border-radius:20px;">
@@ -327,11 +373,25 @@
                             </div>
                         }
                     </section>
+                    @if (Session["T_id"] != null)
+                    {
+                        <section>
+                            <h3>Assign students a new quiz</h3>
+                            @Html.ActionLink("Create Quiz", "Create", "Questions")
+                        </section>
+                    }
+                    else
+                    {
+                        <section>
+                            <h3>Participate in Quiz</h3>
+                            @Html.ActionLink("Quiz Question", "Index", "Questions")
+                        </section>
+                    }
+
                 </div>
             </div>
         </div>
 
-        <!-- Bootstrap JS (optional) -->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>

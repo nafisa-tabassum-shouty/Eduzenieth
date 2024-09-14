@@ -1,0 +1,63 @@
+﻿@model EduzeniethFinal.Models.Enroll
+
+@{
+    ViewBag.Title = "Invite Courses";
+
+    Layout = "~/Views/Shared/Teacher.cshtml";
+}
+<body style="background-color: #090639;color:white;">
+<h2>Invite Courses</h2>
+
+@using (Html.BeginForm("Invite_Courses", "Teacher", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h2>Select a Course</h2>
+
+        <div class="form-group">
+            @Html.DropDownList("selectedCourseId", ViewBag.Courses as SelectList, "Select a course", new { @class = "form-control dropdown-black-text" })
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Submit" class="btn btn-primary" />
+        </div>
+    </div>
+}
+
+@if (ViewBag.Students != null)
+{
+    var students = ViewBag.Students as List<EduzeniethFinal.Models.Student>;
+    int selectedCourseId = (int)ViewBag.SelectedCourseId;
+
+    <h3>Available Students</h3>
+    using (Html.BeginForm("InviteStudents", "Teacher", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div class="row">
+            @Html.Hidden("selectedCourseId", selectedCourseId)
+            @for (int i = 0; i < students.Count; i++)
+            {
+                var student = students[i];
+                <div class="col-md-4">
+                    <div class="card mb-4 card-custom">
+                        <div class="card-body" style=" background-color: #4D0E81;">
+                            <h5 class="card-title">@student.FirstName</h5>
+                            <p class="card-text">ID: @student.StudentID</p>
+                            <p class="card-text">Email: @student.Email</p>
+
+                            <div class="form-group">
+                                @Html.Label("Send Invitation to")
+                                @Html.CheckBox("studentIds", new { value = student.StudentID })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Confirm Invitation" class="btn btn-success" />
+        </div>
+    }
+}
+</div>
+    </body>

@@ -1,0 +1,143 @@
+﻿@model IEnumerable<ResultViewModel>
+@using EduzeniethFinal.Models
+
+@{
+    ViewBag.Title = "Result";
+    Layout = null;
+    int a = 1;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/8ee0e83968.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: #031116;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            transition: margin-left 0.5s ease;
+        }
+
+        .header {
+            background-color: #0D6EFD;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+            .header:hover {
+                background-color: #0948ba;
+            }
+
+        .container {
+            margin-top: 30px;
+        }
+
+        .card {
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+            .card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            }
+
+        .correct-answer {
+            color: green;
+        }
+        .wrong-answer {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body style="background-color:black;color:white;">
+    <section>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark" style="background-color:rgb(92, 38, 146);border-radius: 10px;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+            <div class="container">
+                <h3 style="margin-left:-15%;">@Html.ActionLink("EduZenith Student", "Home", "Student", new { area = "" }, new { @class = "navbar-brand" })</h3>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li>@Html.ActionLink("Home", "Home", "Student", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Student Details", "Student_Details", "Student", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Available Courses", "Available_Courses", "Student", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Enrolled Courses", "Enrolled_Courses", "Student", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Logout", "Logout", "Student", new { area = "" }, new { @class = "nav-link" })</li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
+
+    <div class="container" style="color:white;background: linear-gradient(10deg,rgba(10, 12, 38,0.10),rgb(47, 13, 91, 0.10)); backdrop-filter: blur(20px);border-radius:20px;">
+        <div class="container">
+            <div class="pt-5 row" style="background: linear-gradient(10deg,blueviolet,rgb(97, 35, 112, 0.10)); backdrop-filter: blur(20px);border-radius:20px;">
+                <div class="col-lg-8 col-xl-6 mx-auto">
+                    <h2>Quiz Results</h2>
+                   
+                    <h3>Full Marks: @ViewBag.FullMarks</h3><br>
+                    <h3>Obtained Marks: @ViewBag.TotalMarks</h3>
+                </div>
+                <br />
+            </div>
+        </div>
+    </div>
+    <hr />
+
+    <div class="container">
+        @foreach (var item in Model)
+        {
+            <div class="card" style="background-color: #230C38; color:white;">
+                <div class="card-header text-center">
+                    <h2>Question Number @a</h2>
+                </div>
+                <div class="form-horizontal card-body">
+                    <div class="card-group">
+                        <h4>Question: @item.Question</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group">
+                            <ol type="a">
+                                <li style="padding:10px;" class="@(item.SelectedAnswer == "A" && !item.IsCorrect ? "wrong-answer" : "")">
+                                    @("A" + (item.SelectedAnswer == "A" ? " (Your Answer)" : ""))
+                                    @(item.CorrectAnswer == "A" ? "(Correct)" : "")
+                                </li>
+                                <li style="padding:10px;" class="@(item.SelectedAnswer == "B" && !item.IsCorrect ? "wrong-answer" : "")">
+                                    @("B" + (item.SelectedAnswer == "B" ? " (Your Answer)" : ""))
+                                    @(item.CorrectAnswer == "B" ? "(Correct)" : "")
+                                </li>
+                                <li style="padding:10px;" class="@(item.SelectedAnswer == "C" && !item.IsCorrect ? "wrong-answer" : "")">
+                                    @("C" + (item.SelectedAnswer == "C" ? " (Your Answer)" : ""))
+                                    @(item.CorrectAnswer == "C" ? "(Correct)" : "")
+                                </li>
+                                <li style="padding:10px;" class="@(item.SelectedAnswer == "D" && !item.IsCorrect ? "wrong-answer" : "")">
+                                    @("D" + (item.SelectedAnswer == "D" ? " (Your Answer)" : ""))
+                                    @(item.CorrectAnswer == "D" ? "(Correct)" : "")
+                                </li>
+                            </ol>
+
+                        </div>
+
+                        @if (!item.IsCorrect)
+                        {
+                            <p style="color: red;">Correct Answer: @item.CorrectAnswer</p>
+                        }
+                    </div>
+                </div>
+            </div>
+            a++;
+        }
+    </div>
+
+    <!-- Bootstrap JS (optional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

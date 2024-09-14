@@ -128,7 +128,7 @@
                                         </div>
                                         <div style="padding: 50px; background-color: #CECFE4; height: 350px;">
                                             @{
-                                                var db = new EduzenithFinalEntities7();
+                                                var db = new EduEntities();
                                                 var teacherName = db.Teachers.Find(item.teacherID);
                                             }
                                             <h5>Course Teacher name: @Html.DisplayFor(modelItem => teacherName.first_name)</h5>

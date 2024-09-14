@@ -1,8 +1,11 @@
 ﻿@model IEnumerable<EduzeniethFinal.Models.Course>
-
+@using EduzeniethFinal.Models
+@using System.Data.Entity
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Admin.cshtml";
+    var db = new EduEntities();
+  
 }
 
 <h2 style="color:floralwhite;">Available Courses</h2>
@@ -62,7 +65,7 @@
     }
 </style>
 <p>
-    @Html.ActionLink("Create New", "AddCourse", "Admin", new { area = "" }, new { @class = "btn btn-primary text-white", style = "background-color: darkgreen;border-radius:5px;border-color:transparent;" })
+    @Html.ActionLink("Create New Course", "AddCourse", "Admin", new { area = "" }, new { @class = "btn btn-primary text-white", style = "background-color: darkgreen;border-radius:5px;border-color:transparent;" })
 </p>
 <br />
 <br />
@@ -73,10 +76,16 @@
             <h5>Course ID</h5>
         </th>
         <th>
+            <h5>Course Code</h5>
+        </th>
+        <th>
             <h5>Course Name</h5>
         </th>
         <th>
             <h5>Teacher Id</h5>
+        </th>
+        <th>
+            <h5>Teacher Name</h5>
         </th>
         <th>
             <h5>Course description</h5>
@@ -91,9 +100,13 @@
 
     @foreach (var item in Model)
     {
+        var teacherName = db.Teachers.SingleOrDefault(c => c.Id == item.teacherID);
         <tr style="font-size:large;color:white;">
             <td>
                 @Html.DisplayFor(modelItem => item.Course_Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Course_Code)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Course_Name)
@@ -101,6 +114,21 @@
             <td>
                 @Html.DisplayFor(modelItem => item.teacherID)
             </td>
+
+            @if (teacherName!= null)
+            {
+                <td>
+                    @teacherName.first_name @teacherName.last_name
+                </td>
+            }
+            else
+            {
+                <td>
+                    not assigned 
+                </td>
+            }
+
+
             <td>
                 @Html.DisplayFor(modelItem => item.Course_desc)
             </td>
@@ -108,7 +136,7 @@
                 @Html.DisplayFor(modelItem => item.Created_at)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Course_Id }) |
+                @Html.ActionLink("Edit", "EditCourses", new { id = item.Course_Id }) |
                 @Html.ActionLink("Delete", "Delete_Course", new { id = item.Course_Id })
             </td>
         </tr>

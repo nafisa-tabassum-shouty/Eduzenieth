@@ -108,14 +108,26 @@
 
 </head>
 <body style="background-color:rgb(26 9 60);backdrop-filter:blur(10px);">
-    <div class="container1">
-        <div class="moving-container" style="height:40px;">
-            <p class="moving-div" style="background-color: #4B0082;">New interactive learning tools introduced in our classroom this term! All new interface for Eduzenith!</p>
-        </div>
 
-    </div>
+    @if (Session["ShowAlert"]!=null)
+        {
+            <div class="container1">
+                <div class="moving-container" style="height:40px;">
+                    <p class="moving-div" style="background-color: #4B0082;">Thank you for Register. Wait for admin approval.Try to Login Later.We will notify you about admin's response.</p>
+                </div>
 
+            </div>
+        }
+        else
+        {
+            <div class="container1">
+                <div class="moving-container" style="height:40px;">
+                    <p class="moving-div" style="background-color: #4B0082;">New interactive learning tools introduced in our classroom this term! All new interface for Eduzenith!</p>
+                </div>
 
+            </div>
+        }
+    
     <div id="carouselExampleCaptions" class="carousel slide" style="margin-top:4%;">
 
         <div class="carousel-indicators">

@@ -1,0 +1,82 @@
+﻿@model EduzeniethFinal.Models.Question
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Question</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Question1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Question1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ans_A)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ans_A)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ans_B)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ans_B)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ans_C)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ans_C)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ans_D)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ans_D)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Correct_Ans)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Correct_Ans)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quiz_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quiz_id)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.QuesID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

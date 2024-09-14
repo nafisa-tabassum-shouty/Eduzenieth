@@ -39,14 +39,15 @@
         <div class="container">
             <h3 style="margin-left:-15%;">@Html.ActionLink("EduZenith Student", "Home", "Student", new { area = "" }, new { @class = "navbar-brand" })</h3>
             @*<button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>*@
+            <span class="navbar-toggler-icon"></span>
+        </button>*@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav flex-grow-1">
                     <li>@Html.ActionLink("Home", "Home", "Student", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Student Details", "Student_Details", "Student", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Available Courses", "Available_Courses", "Student", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Enrolled Courses", "Enrolled_Courses", "Student", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Grade", "show_grades", "Student", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Logout", "Logout", "Student", new { area = "" }, new { @class = "nav-link" })</li>
 
                 </ul>

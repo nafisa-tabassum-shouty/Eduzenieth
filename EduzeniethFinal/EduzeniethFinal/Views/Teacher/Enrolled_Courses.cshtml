@@ -65,12 +65,52 @@
         .course-item:hover .portfolio-overlay {
             opacity: 1;
         }
+        .moving-container {
+            margin-top: 10px;
+            margin-left: -300px;
+            width: 150%;
+            overflow: hidden;
+            position: relative;
+            /* white-space: nowrap;*/
+            background-color: gray;
+            padding: 5px 0 0 0;
+            border-radius: 10px;
+        }
+
+
+        .moving-div {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 5px 10px;
+            font-size: 1.2;
+            animation: move 10s linear infinite;
+        }
+
+        @@keyframes move {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
     </style>
 </head>
 <body style="background-color: #090639;">
     <video autoplay loop muted plays-inline class="Background-clip">
         <source src="~/Image/bgreg2.mp4" type="video/mp4" />
     </video>
+  @if (Session["ShowAlert_Enrollment"]!=null)
+    {
+        <div class="container1">
+            <div class="moving-container" style="height:40px;">
+                <p class="moving-div" style="background-color: #4B0082;">Thank you for Enrollment. Wait for admin approval.We will notify you about admin's response.</p>
+            </div>
+
+        </div>
+    }
     <div class="container-xxl py-5">
         <div class="container px-lg-5">
             <div style="color:white;">
@@ -109,7 +149,7 @@
                                     </div>
                                     <div style="padding: 50px; background-color: #CECFE4; height: 350px;">
                                         @{
-                                            var db = new EduzenithFinalEntities7();
+                                            var db = new EduEntities();
                                             var teacherName = db.Teachers.Find(item.teacherID);
                                         }
                                         <h5>Course Teacher Name: @Html.DisplayFor(modelItem => teacherName.first_name)</h5>

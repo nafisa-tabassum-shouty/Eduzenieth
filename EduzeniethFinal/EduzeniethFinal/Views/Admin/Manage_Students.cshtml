@@ -91,7 +91,7 @@
                     <td>@student.Email</td>
                     <td>@student.MobileNumber</td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", "Admin", new { id = student.StudentID }, new { @class = "btn btn-success btn-lg", style = " color: black;background: linear-gradient(130deg,rgb(10, 255, 0),rgba(255,255,255,0.1)); backdrop-filter: blur(20px);" }) |
+                        @Html.ActionLink("Edit", "Edit_Student", "Admin", new { id = student.StudentID }, new { @class = "btn btn-success btn-lg", style = " color: black;background: linear-gradient(130deg,rgb(10, 255, 0),rgba(255,255,255,0.1)); backdrop-filter: blur(20px);" }) |
                         @Html.ActionLink("Delete", "Delete_Student", "Admin", new { id = student.StudentID }, new { @class = "btn btn-danger btn-lg" })
                     </td>
                 </tr>

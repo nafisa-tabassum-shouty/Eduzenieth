@@ -41,6 +41,7 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownLogin">
                             <li>@Html.ActionLink("Add Student", "Add_Student", "Admin", new { area = "" }, new { @class = "dropdown-item" })</li>
                             <li>@Html.ActionLink("Pending Student Registration", "Student_PendingRegistration", "Admin", null, new { @class = "dropdown-item" })</li>
+                            @*<li>@Html.ActionLink("Registered Student List", "AllStudents", "Admin", null, new { @class = "dropdown-item" })</li>*@
                             <li><hr class="dropdown-divider"></li>
                             <li>@Html.ActionLink("Delete or Update Student", "Manage_Students", "Admin", null, new { @class = "dropdown-item" })</li>
                         </ul>
