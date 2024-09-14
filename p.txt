@@ -1,0 +1,92 @@
+CREATE TABLE Student (
+    StudentID INT PRIMARY KEY IDENTITY(1,1),
+    Password NVARCHAR(50) NOT NULL,
+    Nationality NVARCHAR(50) NOT NULL,
+    MobileNumber NVARCHAR(20),
+    FirstName NVARCHAR(50) NOT NULL,
+    Email NVARCHAR(100) NOT NULL,
+    LastName NVARCHAR(50) NOT NULL,
+    FatherName NVARCHAR(50),
+    Religion NVARCHAR(50),
+    Address NVARCHAR(200),
+    DateOfBirth DATE,
+    BloodGroup NVARCHAR(10),
+    Username NVARCHAR(50) NOT NULL UNIQUE,
+    Status INT NOT NULL DEFAULT 0
+);
+CREATE TABLE Teacher (
+  Id INT PRIMARY KEY IDENTITY(1,1),
+  Username VARCHAR(250) NOT NULL,
+  [Password] VARCHAR(250) NOT NULL, -- Password is a reserved keyword, so it's enclosed in square brackets
+  first_name VARCHAR(250) NOT NULL,
+  last_name VARCHAR(250) NOT NULL,
+  father_name VARCHAR(250) NOT NULL,
+  Email VARCHAR(250) NOT NULL,
+  Designation VARCHAR(10) NOT NULL,
+  MaritalStatus VARCHAR(10) NOT NULL,
+  MobileNumber VARCHAR(14) NOT NULL,
+  Nationality VARCHAR(50) NOT NULL,
+  Religion VARCHAR(10) NOT NULL,
+  [Address] VARCHAR(250) NOT NULL, -- Address is a reserved keyword, so it's enclosed in square brackets
+  Gender VARCHAR(10) NOT NULL,
+  EducationalField VARCHAR(50) NOT NULL,
+  NID_PassportNo VARCHAR(20) NOT NULL, -- Assuming NID_PassportNo is stored as a string,
+  Status INT NOT NULL DEFAULT 0
+);
+CREATE TABLE Course (
+  Course_Id INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+  Course_Code VARCHAR(15) NOT NULL,
+  Course_Name VARCHAR(250) NOT NULL,
+  teacherID INT DEFAULT 0, 
+  Course_desc VARCHAR(250) NOT NULL,
+  Created_at DATETIME NOT NULL DEFAULT GETDATE()
+);
+
+
+CREATE TABLE [dbo].[Enroll] (
+    [id]     INT IDENTITY (1, 1) NOT NULL,
+    [sid]    INT NOT NULL,
+    [cid]    INT NOT NULL,
+    [status] INT DEFAULT ((0)) NULL,
+    [role]   INT DEFAULT ((0)) NULL,
+    PRIMARY KEY CLUSTERED ([id] ASC)
+);
+CREATE TABLE Posts (
+    PostID INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+    CourseID INT NOT NULL,
+    PostContent NVARCHAR(MAX) NOT NULL,
+    PostDate DATETIME NOT NULL DEFAULT GETDATE(),
+    UserID INT NOT NULL,
+    UserStatus INT NOT NULL,
+    PostType VARCHAR(50) NOT NULL, 
+   
+);
+
+CREATE TABLE Comments (
+    CommentID INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+    PostID INT NOT NULL,
+    UserID INT NOT NULL,
+    UserStatus INT NOT NULL,
+    CommentContent NVARCHAR(MAX) NOT NULL,
+    CommentDate DATETIME NOT NULL DEFAULT GETDATE(),
+   
+);
+Select * From Student;
+Select * From Teacher;
+Select * From Course;
+Select * From Enroll;
+Select * From Comments;
+Select * From Posts;
+
+
+CREATE TABLE Grades (
+    GradeID INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+    Grade1 CHAR(20),
+    GradeDate DATE,
+    Course_Id INT,
+    Course_Name VARCHAR(250),
+    TeacherID INT,
+    Teacher_Name  NVARCHAR(100),
+    StudentID INT,
+    StudentName NVARCHAR(100)
+);
